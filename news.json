@@ -1,0 +1,121 @@
+{
+  "news": [
+    {
+      "id": "20251101",
+      "date": "2025.11.01",
+      "category": "press",
+      "title": "Nature Materials誌に研究成果が掲載されました",
+      "description": "機械学習を用いた新規材料設計手法に関する論文がNature Materials誌に掲載されました。本研究では、深層学習モデルを活用することで、従来の10倍の速度で新材料の物性を予測することが可能になりました。",
+      "image": "",
+      "imageAlt": "Nature Materials",
+      "link": "#",
+      "isNew": true
+    },
+    {
+      "id": "20251015",
+      "date": "2025.10.15",
+      "category": "notice",
+      "title": "2026年度 修士・博士課程の学生を募集しています",
+      "description": "当研究室では、材料科学とデータサイエンスの融合研究に興味を持つ大学院生を募集しています。最先端の研究環境で、次世代材料の開発に挑戦してみませんか。",
+      "image": "",
+      "imageAlt": "学生募集",
+      "link": "#",
+      "isNew": true
+    },
+    {
+      "id": "20251029",
+      "date": "2025.10.29",
+      "category": "conference",
+      "title": "NIMS-NTU Joint Symposium (2025 Autumn) を開催します",
+      "description": "11月15日にNIMSにてシンガポール南洋理工大学との合同シンポジウムを開催します。材料科学の最新研究成果について、両機関の研究者が発表を行います。",
+      "image": "",
+      "imageAlt": "NIMS-NTU Joint Symposium",
+      "link": "#",
+      "isNew": true
+    },
+    {
+      "id": "20250920",
+      "date": "2025.09.20",
+      "category": "award",
+      "title": "国際学会でBest Paper Awardを受賞しました",
+      "description": "International Conference on Materials Informatics 2025において、当研究室の大学院生が発表した「Graph Neural Networksを用いた結晶構造予測」がBest Paper Awardを受賞しました。",
+      "image": "",
+      "imageAlt": "Best Paper Award",
+      "link": "#",
+      "isNew": false
+    },
+    {
+      "id": "20250810",
+      "date": "2025.08.10",
+      "category": "conference",
+      "title": "国際材料科学会議で招待講演を行いました",
+      "description": "アメリカ・ボストンで開催されたInternational Materials Research Congress 2025において、データ駆動型材料開発に関する招待講演を行いました。",
+      "image": "",
+      "imageAlt": "招待講演",
+      "link": "#",
+      "isNew": false
+    },
+    {
+      "id": "20250725",
+      "date": "2025.07.25",
+      "category": "press",
+      "title": "新しい電池材料の開発に成功 - エネルギー密度2倍を実現",
+      "description": "リチウムイオン電池の次世代正極材料として、従来の2倍のエネルギー密度を持つ新材料の開発に成功しました。本成果は企業との共同研究によるもので、実用化に向けた検討を進めています。",
+      "image": "",
+      "imageAlt": "新電池材料",
+      "link": "#",
+      "isNew": false
+    },
+    {
+      "id": "20250705",
+      "date": "2025.07.05",
+      "category": "award",
+      "title": "文部科学大臣表彰 科学技術賞を受賞",
+      "description": "材料情報学分野における先駆的な研究が評価され、令和7年度科学技術分野の文部科学大臣表彰 科学技術賞（研究部門）を受賞しました。",
+      "image": "",
+      "imageAlt": "文部科学大臣表彰",
+      "link": "#",
+      "isNew": false
+    },
+    {
+      "id": "20250620",
+      "date": "2025.06.20",
+      "category": "notice",
+      "title": "サマースクール2025の参加者募集を開始しました",
+      "description": "8月1日〜3日の日程で、材料データサイエンスサマースクール2025を開催します。機械学習の基礎から材料科学への応用まで、実習を交えて学ぶことができます。",
+      "image": "",
+      "imageAlt": "サマースクール",
+      "link": "#",
+      "isNew": false
+    },
+    {
+      "id": "20250515",
+      "date": "2025.05.15",
+      "category": "conference",
+      "title": "日本材料学会で特別講演を行いました",
+      "description": "第74回日本材料学会学術講演会において、「AIを活用した材料開発の現状と展望」と題した特別講演を行いました。産学から多数の参加者にお越しいただきました。",
+      "image": "",
+      "imageAlt": "材料学会講演",
+      "link": "#",
+      "isNew": false
+    },
+    {
+      "id": "20250410",
+      "date": "2025.04.10",
+      "category": "notice",
+      "title": "新メンバー3名が研究室に加わりました",
+      "description": "4月より、新しく修士課程2名、博士課程1名の学生が当研究室のメンバーとなりました。フレッシュな視点で研究を推進していきます。",
+      "image": "",
+      "imageAlt": "新メンバー",
+      "link": "#",
+      "isNew": false
+    }
+  ],
+  "categories": {
+    "all": "すべて",
+    "notice": "お知らせ",
+    "conference": "カンファレンス", 
+    "award": "受賞情報",
+    "press": "プレスリリース"
+  }
+}
