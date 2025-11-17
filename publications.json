@@ -1,0 +1,59 @@
+{
+  "publications": [
+    {
+      "year": "2025",
+      "type": "Journal",
+      "authors": "Y. Katsura, et al.",
+      "title": "Machine Learning-Driven Discovery of High-Performance Thermoelectric Materials",
+      "journal": "Nature Materials",
+      "volume": "24",
+      "pages": "123-130",
+      "doi": "10.1038/nmat.2025.001",
+      "link": "https://doi.org/10.1038/nmat.2025.001"
+    },
+    {
+      "year": "2025",
+      "type": "Journal",
+      "authors": "Y. Katsura, T. Yamamoto",
+      "title": "Data-Driven Approach for Materials Discovery Using Deep Learning",
+      "journal": "Physical Review Letters",
+      "volume": "130",
+      "pages": "045001",
+      "doi": "10.1103/PhysRevLett.130.045001",
+      "link": "https://doi.org/10.1103/PhysRevLett.130.045001"
+    },
+    {
+      "year": "2024",
+      "type": "Journal",
+      "authors": "Y. Katsura, M. Tanaka, S. Sato",
+      "title": "First-Principles Study of Thermoelectric Properties in Complex Materials",
+      "journal": "Journal of Materials Chemistry A",
+      "volume": "12",
+      "pages": "5678-5689",
+      "doi": "10.1039/D4TA00123K",
+      "link": "https://doi.org/10.1039/D4TA00123K"
+    },
+    {
+      "year": "2024",
+      "type": "Conference",
+      "authors": "Y. Katsura",
+      "title": "Materials Informatics for Accelerated Materials Discovery",
+      "journal": "Materials Research Society Fall Meeting",
+      "volume": "",
+      "pages": "",
+      "doi": "",
+      "link": ""
+    },
+    {
+      "year": "2024",
+      "type": "Journal",
+      "authors": "Y. Katsura, H. Nakamura",
+      "title": "Database-Driven Screening of Novel Superconducting Materials",
+      "journal": "Advanced Materials",
+      "volume": "36",
+      "pages": "2301234",
+      "doi": "10.1002/adma.202301234",
+      "link": "https://doi.org/10.1002/adma.202301234"
+    }
+  ]
+}
