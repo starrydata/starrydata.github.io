@@ -1,0 +1,32 @@
+{
+  "news": [
+    {
+      "date": "2025-01-15",
+      "category": "News",
+      "title": "ニュースのタイトル",
+      "description": "ニュースの説明文",
+      "link": "https://example.com"
+    },
+    {
+      "date": "2024-12-20",
+      "category": "Awards",
+      "title": "受賞タイトル",
+      "description": "受賞の詳細説明",
+      "link": ""
+    },
+    {
+      "date": "2024-11-10",
+      "category": "Conferences",
+      "title": "学会発表タイトル",
+      "description": "学会名や会議名",
+      "link": ""
+    },
+    {
+      "date": "2024-10-05",
+      "category": "Press",
+      "title": "出版物タイトル",
+      "description": "出版社や詳細情報",
+      "link": "https://example.com/book"
+    }
+  ]
+}

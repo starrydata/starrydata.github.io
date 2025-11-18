@@ -1,73 +1,1032 @@
 {
   "news": [
     {
-      "date": "2025-11-01",
-      "category": "Press",
-      "title": "Nature Materials誌に研究成果が掲載されました",
-      "description": "機械学習を用いた新規材料設計手法に関する論文がNature Materials誌に掲載されました。本研究では、深層学習モデルを活用することで、従来の10倍の速度で新材料の物性を予測することが可能になりました。",
-      "link": ""
-    },
-    {
-      "date": "2025-10-15",
+      "date": "2025-04-14",
       "category": "Conferences",
-      "title": "国際学会での招待講演",
-      "description": "Materials Informatics に関する招待講演を行います。",
+      "title": "Starrydataデータベースの論文データを用いたMaterials Informatics",
+      "description": "日本セラミックス協会 関東支部 支部大会・支部講演会",
       "link": ""
     },
     {
-      "date": "2025-10-01",
-      "category": "Awards",
-      "title": "科研費の採択が決定",
-      "description": "Materials Informatics研究に関する科研費が採択されました。",
-      "link": ""
-    },
-    {
-      "date": "2025-09-20",
-      "category": "News",
-      "title": "新メンバー募集のお知らせ",
-      "description": "研究室の新メンバーを募集しています。",
-      "link": ""
-    },
-    {
-      "date": "2025-09-10",
-      "category": "Publications",
-      "title": "Physical Review Letters に論文掲載",
-      "description": "熱電材料の新しい設計指針に関する論文が掲載されました。",
-      "link": "https://example.com"
-    },
-    {
-      "date": "2025-08-25",
-      "category": "Press",
-      "title": "研究成果がメディアで紹介されました",
-      "description": "当研究室の研究がNHKニュースで取り上げられました。",
-      "link": ""
-    },
-    {
-      "date": "2025-08-15",
+      "date": "2025-03-25",
       "category": "Conferences",
-      "title": "オンラインセミナーを開催します",
-      "description": "Materials Informaticsに関するオンラインセミナーを開催します。",
+      "title": "Starrydata Explorers: Visualization Platforms to Overview the Past Reported Experimental Samples",
+      "description": "2025 TMS Annual Meeting & Exhibition",
       "link": ""
     },
     {
-      "date": "2025-07-30",
-      "category": "Publications",
-      "title": "Journal of Materials Chemistry A に論文掲載",
-      "description": "データ駆動型材料開発に関する論文が掲載されました。",
-      "link": "https://example.com"
+      "date": "2025-03-24",
+      "category": "Conferences",
+      "title": "Starrydata2: an Open Platform for Materials Data Curated from Literature",
+      "description": "2025 TMS Annual Meeting & Exhibition",
+      "link": ""
     },
     {
-      "date": "2025-07-10",
+      "date": "2025-03-16",
+      "category": "Conferences",
+      "title": "Reconstruction of Inorganic Crystal Chemistry Based on Delaunay Tetrahedral Expressions of Crystal Structures",
+      "description": "第72回応用物理学会春季学術講演会",
+      "link": ""
+    },
+    {
+      "date": "2025-03-16",
+      "category": "Conferences",
+      "title": "Development of Automatic Suggestion System of Sample Information Data from Literature by Large Language Models",
+      "description": "第72回応用物理学会春季学術講演会",
+      "link": ""
+    },
+    {
+      "date": "2025-03-16",
+      "category": "Conferences",
+      "title": "Overviewing the Past Studies of Inorganic Functional Materials by Principal Component Analysis of Chemical Composition Vectors",
+      "description": "第72回応用物理学会春季学術講演会",
+      "link": ""
+    },
+    {
+      "date": "2024-10-04",
+      "category": "Conferences",
+      "title": "Starrydata: A Data-Curation Project from Material Property Plots on Published Papers",
+      "description": "Tsukuba Global Science Week 2024（TGSW2024）",
+      "link": ""
+    },
+    {
+      "date": "2024-09-24",
+      "category": "Conferences",
+      "title": "Starrydataの大規模熱電材料データの2D/3D可視化ツール",
+      "description": "第21回日本熱電学会学術講演会 (TSJ2024)",
+      "link": ""
+    },
+    {
+      "date": "2024-09-17",
+      "category": "Conferences",
+      "title": "Starrydataにおける過去の熱電材料研究の化学組成分布",
+      "description": "第85回 応用物理学会 秋季学術講演会",
+      "link": ""
+    },
+    {
+      "date": "2024-07-02",
+      "category": "Conferences",
+      "title": "Starrydata dataset with experimental thermoelectric properties of 50,000+ samples from literature",
+      "description": "40th International and 20th European Thermoelectric Conference, ICT/ECT 2024",
+      "link": ""
+    },
+    {
+      "date": "2024-03-22",
+      "category": "Conferences",
+      "title": "Starrydataの大規模実験データを活用した機械学習の可能性",
+      "description": "第71回応用物理学会春季学術講演会",
+      "link": ""
+    },
+    {
+      "date": "2024",
+      "category": "Press",
+      "title": "科学に魅せられて 女性研究者という生き方",
+      "description": "出版社: 日本評論社",
+      "link": ""
+    },
+    {
+      "date": "2023-12-15",
+      "category": "Conferences",
+      "title": "Starrydata Database for Data-Driven Comparison of Thermoelectric Materials",
+      "description": "MRM2023/IUMRS-ICA2023",
+      "link": ""
+    },
+    {
+      "date": "2023-12-13",
+      "category": "Conferences",
+      "title": "Crystal Structure Builder Based on Delaunay Tetrahedral Chemistry",
+      "description": "MRM2023/IUMRS-ICA2023",
+      "link": ""
+    },
+    {
+      "date": "2023-09-19",
+      "category": "Conferences",
+      "title": "機械学習による物性に対応した新材料探索マップ",
+      "description": "2023年 第84回応用物理学会 秋季学術講演会",
+      "link": ""
+    },
+    {
+      "date": "2023-09-07",
+      "category": "Conferences",
+      "title": "Search for new thermoelectric materials from crystal structures and Starrydata literature database",
+      "description": "日本セラミックス協会 第36回秋季シンポジウム",
+      "link": ""
+    },
+    {
+      "date": "2023-09-07",
+      "category": "Conferences",
+      "title": "大規模実験データの機械学習と新規イオン制御技術による熱電材料探索",
+      "description": "日本セラミックス協会 第36回秋季シンポジウム",
+      "link": ""
+    },
+    {
+      "date": "2023-06-23",
+      "category": "Conferences",
+      "title": "Data-driven overview of thermoelectric materials in Starrydata literature database",
+      "description": "The 39th Annual International Conference on Thermoelectrics (ICT2023)",
+      "link": ""
+    },
+    {
+      "date": "2023-06-23",
+      "category": "Conferences",
+      "title": "What is the origin of the difference between aluminum and boron icosahedral clusters and cluster solids?",
+      "description": "The 15th International Conference on Quasicrystals",
+      "link": ""
+    },
+    {
+      "date": "2023-03-25",
+      "category": "Conferences",
+      "title": "Overviewing the world of thermoelectric materials by materials informatics",
+      "description": "The 103rd CSJ Annual Meeting (2023)",
+      "link": ""
+    },
+    {
+      "date": "2023-03-03",
+      "category": "Conferences",
+      "title": "AIとの共存と論文データインフォマティクスの可能性",
+      "description": "日本結晶成長学会 新技術・新材料分科会 第2回研究会",
+      "link": ""
+    },
+    {
+      "date": "2023",
+      "category": "Press",
+      "title": "AERA DIGITAL",
+      "link": "https://dot.asahi.com/articles/-/203851"
+    },
+    {
+      "date": "2023",
+      "category": "Press",
+      "title": "東大を選ぶ2024　東大未来 (現役東大生がつくる東大受験本)",
+      "description": "出版社: 東京大学新聞社",
+      "link": ""
+    },
+    {
+      "date": "2023",
+      "category": "Press",
+      "title": "東大新聞オンライン",
+      "link": "https://www.todaishimbun.org/visittograduates_2_20230221/"
+    },
+    {
+      "date": "2023",
+      "category": "Press",
+      "title": "東京大学新聞 2023年02月14日発売号",
+      "description": "出版社: 東京大学新聞社",
+      "link": ""
+    },
+    {
+      "date": "2022-11-16",
+      "category": "Conferences",
+      "title": "データを集める · データを使う – 材料科学の現場から –",
+      "description": "実践データ駆動科学オンラインセミナー第15回「データを集める・データを使う – 材料科学の現場から –」",
+      "link": ""
+    },
+    {
+      "date": "2022-10-28",
+      "category": "Conferences",
+      "title": "DX技術を用いた材料開発",
+      "description": "日本金属学会主催 第1回 新材料・新機能創成研究会",
+      "link": ""
+    },
+    {
+      "date": "2022-10-24",
+      "category": "Conferences",
+      "title": "Starrydata: 実験値Materials Informaticsのためのオープンデータベース",
+      "description": "第4回MIRCフォーラム 〜環境・基盤マテリアルの新展開〜",
+      "link": ""
+    },
+    {
+      "date": "2022-10-21",
+      "category": "Conferences",
+      "title": "Materials Informaticsと新規合成手法の開発による新物質探索研究",
+      "description": "公開シンポジウム「エネルギービームでつくる、見る −新しい物質創成−」",
+      "link": ""
+    },
+    {
+      "date": "2022-09-28",
+      "category": "Conferences",
+      "title": "Starrydata: an open literature-based experimental material property database",
+      "description": "The 13th Asian Thermophysical Properties Conference (ATPC2022)",
+      "link": ""
+    },
+    {
+      "date": "2022-09-20",
+      "category": "Conferences",
+      "title": "Starrydata: a large-scale data collection project from the materials science papers",
+      "description": "The 83rd JSAP Autumn Meeting 2022",
+      "link": ""
+    },
+    {
+      "date": "2022-09-15",
+      "category": "Conferences",
+      "title": "Materials Informatics の活用による新規材料の実験的探索プロジェクト",
+      "description": "公益社団法人日本セラミックス協会 第35回秋季シンポジウム",
+      "link": ""
+    },
+    {
+      "date": "2022-09-06",
+      "category": "Conferences",
+      "title": "論文からの大規模実験データの収集と理論物性科学への活用",
+      "description": "第76回 オンライン物性理論セミナー",
+      "link": ""
+    },
+    {
+      "date": "2022-08-09",
+      "category": "Conferences",
+      "title": "第一原理計算とボルツマン輸送方程式に基づく熱電特性のInverse Jonker Plot",
+      "description": "第19回 日本熱電学会学術講演会 (TSJ2022)",
+      "link": ""
+    },
+    {
+      "date": "2022-03-24",
+      "category": "Conferences",
+      "title": "Starrydataの大規模熱電特性データのInverse Jonker plot解析",
+      "description": "2022年 第69回 応用物理学会 春季学術講演会",
+      "link": ""
+    },
+    {
+      "date": "2022-02-18",
+      "category": "Conferences",
+      "title": "Starrydataにおける熱電材料の大規模実験データ収集とMaterials Informatics",
+      "description": "日本熱電学会 第13回プライムコア委員会交流会",
+      "link": ""
+    },
+    {
+      "date": "2021-12-14",
+      "category": "Conferences",
+      "title": "Starrydata: A Curation-Based Database of Published Plot Data in Materials Science",
+      "description": "The Material Research Meeting 2021 (MRM2021)",
+      "link": ""
+    },
+    {
+      "date": "2021-12-14",
+      "category": "Conferences",
+      "title": "Materials Informatics for the Experimental Search for New Inorganic Compounds",
+      "description": "The Material Research Meeting 2021 (MRM2021)",
+      "link": ""
+    },
+    {
+      "date": "2021-10-21",
+      "category": "Conferences",
+      "title": "論文データ収集と大規模合成実験による材料物性データベースの創成",
+      "description": "日本化学会秋季事業 第11回CSJ化学フェスタ",
+      "link": ""
+    },
+    {
+      "date": "2021-10-15",
+      "category": "Conferences",
+      "title": "Development of Thermoelectric Materials by Analysis of Experimental Data on Literature",
+      "description": "自動車技術会 2021年秋季大会学術講演会",
+      "link": ""
+    },
+    {
+      "date": "2021-10-11",
+      "category": "Conferences",
+      "title": "Starrydata: データ活用社会創成に向けた論文からの大規模実験データ収集",
+      "description": "データ活用社会創成シンポジウム",
+      "link": ""
+    },
+    {
+      "date": "2021-09-21",
+      "category": "Conferences",
+      "title": "論文からの実験データの蓄積と共有がもたらす革新と課題",
+      "description": "第82回応用物理学会秋季学術講演会",
+      "link": ""
+    },
+    {
+      "date": "2021-09-16",
+      "category": "Conferences",
+      "title": "Search for new nano-framework compounds by using materials informatics",
+      "description": "日本金属学会 2021年秋期講演大会",
+      "link": ""
+    },
+    {
+      "date": "2021-08-23",
+      "category": "Conferences",
+      "title": "熱電材料のデータベース化に向けた物性概念ツリーの開発",
+      "description": "日本熱電学会学術講演会 （Web開催）一般講演",
+      "link": ""
+    },
+    {
+      "date": "2021-07-02",
+      "category": "Conferences",
+      "title": "Data-driven approaches for experimental search for new functional materials",
+      "description": "応用物理学会 フォノンエンジニアリング研究会",
+      "link": ""
+    },
+    {
+      "date": "2021-03-23",
+      "category": "Conferences",
+      "title": "Starrydata: an open database for materials informatics of experimental plot data",
+      "description": "NSF-JST joint workshop",
+      "link": ""
+    },
+    {
+      "date": "2021-03-19",
+      "category": "Conferences",
+      "title": "\"Establishment of dataset for machine learning of physical properties of quasicrystals and their approximants \"",
+      "description": "2021年春季 第68回 応用物理学関係連合講演会",
+      "link": ""
+    },
+    {
+      "date": "2021-03-19",
+      "category": "Conferences",
+      "title": "Maps for New Materials Search Generated by Machine Learning",
+      "description": "2021年春季 第68回 応用物理学関係連合講演会",
+      "link": ""
+    },
+    {
+      "date": "2021-02-24",
+      "category": "Conferences",
+      "title": "Starrydata: 論文中のグラフから集めた材料実験データのデータベース",
+      "description": "物性科学におけるデータ科学の今と未来",
+      "link": ""
+    },
+    {
+      "date": "2021",
+      "category": "Press",
+      "title": "STI Horizon誌 Vol.07, No.04",
+      "description": "出版社: 科学技術・学術政策研究所",
+      "link": "https://doi.org/10.15108/stih.00269\nhttps://www.nistep.go.jp/activities/sti-horizon%E8%AA%8C/vol-07no-04/stih00269"
+    },
+    {
+      "date": "2020-12-19",
+      "category": "Conferences",
+      "title": "Collective analysis of experimental thermoelectric properties of the published plot data in Starrydata web system",
+      "description": "5th Asian Conference on Thermoelectrics",
+      "link": ""
+    },
+    {
+      "date": "2020-12-08",
+      "category": "Conferences",
+      "title": "第5回 ハイパーマテリアルWeb領域会議",
+      "description": "第5回 ハイパーマテリアルWeb領域会議",
+      "link": ""
+    },
+    {
+      "date": "2020-12-01",
       "category": "Awards",
-      "title": "優秀研究賞を受賞しました",
-      "description": "日本材料学会より優秀研究賞を受賞しました。",
+      "title": "科学技術への顕著な貢献2020（ナイスステップな研究者）",
+      "description": "主催: 科学技術・学術政策研究所. 論文から過去の実験データを集めることで大規模材料物性データベースStarrydataを構築 ―材料科学にデータ科学を取り入れたマテリアルズ・インフォマティクスに貢献―",
       "link": ""
     },
     {
-      "date": "2025-06-20",
-      "category": "News",
-      "title": "研究室セミナーのお知らせ",
-      "description": "研究室セミナーを開催します。",
+      "date": "2020-11-30",
+      "category": "Conferences",
+      "title": "Materials Informatics of large experimental data for thermoelectric materials",
+      "description": "名古屋工業技術協会研究会",
+      "link": ""
+    },
+    {
+      "date": "2020-09-18",
+      "category": "Conferences",
+      "title": "Atomic Descriptors Generated from Coordination Structures",
+      "description": "日本金属学会2020年秋季(第167回)講演大会",
+      "link": ""
+    },
+    {
+      "date": "2020-09-08",
+      "category": "Conferences",
+      "title": "Materials Informatics of Thermoelectric Materials by using Starrydata Web System",
+      "description": "第81回応用物理学会秋季学術講演会",
+      "link": ""
+    },
+    {
+      "date": "2020-06-10",
+      "category": "Conferences",
+      "title": "Starrydata: an open database of experimental data from published plot images",
+      "description": "Open Databases Integration for Materials Design",
+      "link": ""
+    },
+    {
+      "date": "2019-11-12",
+      "category": "Conferences",
+      "title": "実験値Materials Informaticsの実現に向けたStarrydata webシステムの開発",
+      "description": "第7回アライアンス若手交流会",
+      "link": ""
+    },
+    {
+      "date": "2019-09-18",
+      "category": "Conferences",
+      "title": "論文からの大規模実験データの機械学習による熱電特性の直接予測",
+      "description": "第80回応用物理学会秋季学術講演会",
+      "link": ""
+    },
+    {
+      "date": "2019-09-01",
+      "category": "Awards",
+      "title": "優秀論文賞",
+      "description": "主催: 一般社団法人日本熱電学会. Roles of Carrier Doping Band Gap and Electron Relaxation Time in the Boltzmann Transport Calculations of a Semiconductor's Thermoelectric Properties",
+      "link": ""
+    },
+    {
+      "date": "2019-09-01",
+      "category": "Awards",
+      "title": "進歩賞",
+      "description": "主催: 一般社団法人日本熱電学会. 一般社団法人日本熱電学会",
+      "link": ""
+    },
+    {
+      "date": "2019-09-01",
+      "category": "Awards",
+      "title": "第11回日本熱電学会学術講演会(TSJ2014) 講演奨励賞",
+      "description": "主催: 一般社団法人日本熱電学会",
+      "link": ""
+    },
+    {
+      "date": "2019-01-30",
+      "category": "Conferences",
+      "title": "論文からの実験データ収集 Web システムStarrydataの開発と熱電材料研究への応用",
+      "description": "MaDISシンポジウム 2019 AIで加速する材料開発とデータプラットフォーム戦略",
+      "link": ""
+    },
+    {
+      "date": "2019",
+      "category": "Press",
+      "title": "次世代熱電変換材料・モジュールの開発 －熱電発電の黎明－",
+      "description": "出版社: (株)シーエムシー出版",
+      "link": ""
+    },
+    {
+      "date": "2019",
+      "category": "Press",
+      "title": "次世代熱電変換材料・モジュールの開発 －熱電発電の黎明－",
+      "description": "出版社: (株)シーエムシー出版",
+      "link": ""
+    },
+    {
+      "date": "2019",
+      "category": "Press",
+      "title": "マテリアルズ・インフォマティクスによる材料開発と活用集－データベースの構築、記述子の設計法、モデル作成－",
+      "description": "出版社: 技術情報協会",
+      "link": ""
+    },
+    {
+      "date": "2018-11-13",
+      "category": "Conferences",
+      "title": "熱電材料の大規模実験データを用いたMaterials Informatics",
+      "description": "第39回日本熱物性シンポジウム",
+      "link": ""
+    },
+    {
+      "date": "2018-01-20",
+      "category": "Conferences",
+      "title": "熱電特性の実験値マテリアルズインフォマティクス",
+      "description": "第二回かけはし研究会「温度変化で発電するモバイル発電器」",
+      "link": ""
+    },
+    {
+      "date": "2017-11-08",
+      "category": "Conferences",
+      "title": "熱電特性実験データの大規模収集とマテリアルズインフォマティクスへの応用",
+      "description": "第38回日本熱物性シンポジウム",
+      "link": ""
+    },
+    {
+      "date": "2017-09-05",
+      "category": "Conferences",
+      "title": "熱電特性グラフデータの収集による実験値マテリアルズインフォマティクス",
+      "description": "第78回応用物理学会秋季学術講演会",
+      "link": ""
+    },
+    {
+      "date": "2017-08-27",
+      "category": "Conferences",
+      "title": "Theoretical considerations for enhancing thermoelectric properties",
+      "description": "2nd Asian Association of Thermoelectrics (AAT) Summer School",
+      "link": ""
+    },
+    {
+      "date": "2017-02-25",
+      "category": "Conferences",
+      "title": "ホールドープ型金属多ホウ化物KB6の合成と物性評価",
+      "description": "第11回日本ホウ素・ホウ化物研究会",
+      "link": ""
+    },
+    {
+      "date": "2016-12-08",
+      "category": "Conferences",
+      "title": "熱電変換技術の最新理論と材料インフォマティクスの熱電への応用～ 電子構造エンジニアリング＆材料インフォマティクス入門 ～",
+      "description": "CMCリサーチセミナー",
+      "link": ""
+    },
+    {
+      "date": "2016-11-10",
+      "category": "Conferences",
+      "title": "熱電特性の実験値のデータベース化に向けたデータ収集web システムの開発",
+      "description": "粉体粉末冶金協会 平成28年度秋季大会(第118回講演大会)",
+      "link": ""
+    },
+    {
+      "date": "2016-09-06",
+      "category": "Conferences",
+      "title": "電子構造エンジニアリング入門",
+      "description": "第13回日本熱電学会学術講演会",
+      "link": ""
+    },
+    {
+      "date": "2016-03-11",
+      "category": "Conferences",
+      "title": "熱電特性データベースWGのご案内",
+      "description": "日本熱電学会 計算＆データ研究会",
+      "link": ""
+    },
+    {
+      "date": "2016-03-10",
+      "category": "Conferences",
+      "title": "図解・第一原理計算入門",
+      "description": "日本熱電学会 計算＆データ研究会",
+      "link": ""
+    },
+    {
+      "date": "2015-03-14",
+      "category": "Conferences",
+      "title": "最低熱伝導率の観点に基づく低熱伝導率材料の候補物質",
+      "description": "第62回応用物理学会春季学術講演会 特別シンポジウム「フォノンエンジニアリング ナノスケール熱制御のための新しい材料科学、理論、シミュレーション、計測技術、およびびこれによるデバイス革新」",
+      "link": ""
+    },
+    {
+      "date": "2014-07-01",
+      "category": "Awards",
+      "title": "The 2014 ITS Outstanding Poster Award",
+      "description": "主催: International Thermoelectric Society, ITS. 33rd International Conference on Thermoelectrics (ICT2014)",
+      "link": ""
+    },
+    {
+      "date": "2013-11-23",
+      "category": "Conferences",
+      "title": "バンド計算で比較する熱電変換材料~新規材料探索への応用",
+      "description": "日本金属学会研究分科会 第5回熱電変換材料研究会「熱電変換材料の性能向上には今何が必要なのか？」",
+      "link": ""
+    },
+    {
+      "date": "2012-09-01",
+      "category": "Awards",
+      "title": "Award for Encouragement of Research in Materials Science",
+      "description": "主催: Materials Research Society of Japan. International Union of Materials Research Societies – International Conference on Electronic Materials (IUMRS-ICEM2012)",
+      "link": ""
+    },
+    {
+      "date": "2007-09-07",
+      "category": "Conferences",
+      "title": "新規ホウ化物超伝導体の探索 -MgB2への元素置換研究からの発展-",
+      "description": "2007年秋季 第68回応用物理学会学術講演会",
+      "link": ""
+    },
+    {
+      "date": "2007-03-01",
+      "category": "Awards",
+      "title": "第55回応用物理学関係連合講演会 講演奨励賞",
+      "description": "主催: 公益社団法人応用物理学会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Starrydata: a plot-mined database for published experimental data",
+      "description": "The 3rd Forum of Materials Genome Engineering (MGE2019)",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Starrydata熱電特性データベースの材料インフォマティクスへの応用",
+      "description": "第15回日本熱電学会学術講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "新規熱電材料探索の道のり〜実験・計算・データ科学への挑戦",
+      "description": "第15回日本熱電学会学術講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Starrydata: an open database for experimental data extracted from published plot images",
+      "description": "The 38th International Conference of Thermoelectrics (ICT2019)",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Materials informatics of thermoelectric materials using big literature data",
+      "description": "TMS2019 148th Annual meeting and exhibition",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Starrydata: a web system for materials data collection from published plots",
+      "description": "Japan Open Science Summit",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Unfolded band structures of alloyed thermoelectric materials:visualization of band degeneracy in solid solutions",
+      "description": "The 35th International Conference of Thermoelectrics (ICT2016) / 1st Asian Conference on Thermoelectrics (ACT2015)",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Material dependence of maximum possible ZT and minimum thermal conductivity",
+      "description": "The 34th International Conference of Thermoelectrics (ICT2015) / 13th European Conference on Thermoelectrics (ECT2015)",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Starrydata: a plot mining web system for experimental materials informatics",
+      "description": "PRESTO International symposium on materials informatics",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "First-principles calculation of minimum thermal conductivity to design low thermal conductivity materials",
+      "description": "The 2015 Symposium for the Promotion of Applied Research Collaboration in Asia (SPARCA 2015)",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "実験値データベースと第一原理計算による高性能PbTe系熱電変換材料の探索",
+      "description": "第15回日本熱電学会学術講演会（TSJ2018）",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "ニューラルネットワークに基づく PbTe系熱電材料の特性予測",
+      "description": "第15回日本熱電学会学術講演会（TSJ2018）",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "論文からの熱電特性データベース構築プロジェクトの課題と展望",
+      "description": "第15回日本熱電学会学術講演会（TSJ2018）",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Development of high-performance thermoelectric materials guided by large-scale experimental data",
+      "description": "37th International Conference on Thermoelectrics",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Data-driven materials design from large-scale experimental data",
+      "description": "37th International Conference on Thermoelectrics",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "A web application \"Starrydata\" for collecting and sharing plot data on published papers",
+      "description": "37th International Conference on Thermoelectrics",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "実験値データベースの応用による高性能SnTe熱電変換材料の開発",
+      "description": "第65回応用物理学会春季学術講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "論文内グラフデータを収集・共有できるWEBシステムの開発",
+      "description": "第65回応用物理学会春季学術講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "ニューラルネットワークに基づくPbTe系熱電材料の特性予測",
+      "description": "第65回応用物理学会春季学術講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "熱電材料の大規模文献データと第一原理計算に基づく電子緩和時間の推定",
+      "description": "第14回日本熱電学会学術講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Thermoelectric Properties of Ternary Sulfides with Open Tunnel-Like Channel Structure",
+      "description": "The 36th International Conference of Thermoelectrics (ICT2017)",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Investigation of Thermoelectric Properties of Distrontium Silicide (Sr2Si)",
+      "description": "The 36th International Conference of Thermoelectrics (ICT2017)",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Data-driven evaluation of effective relaxation times for real thermoelectric materials",
+      "description": "The 36th International Conference of Thermoelectrics (ICT2017)",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Estimation of effective electron relaxation times in real thermoelectric materials",
+      "description": "American Physical Society March Meeting 2017",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "トンネル構造を有する銅硫化物CuTaS3の熱電特性",
+      "description": "第13回日本熱電学会学術講演会（TSJ2016）",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "元素置換したチムニーラダー化合物FeGeγの熱電物性と結晶構造",
+      "description": "第13回日本熱電学会学術講演会（TSJ2016）",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Unfolded band structures of alloyed thermoelectric materials",
+      "description": "International Conference on Thermoelectric Materials Science 2015 (TMS2015)",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Band unfoldingによるランダム固溶熱電材料のバンド構造の考察",
+      "description": "第12回日本熱電学会学術講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "最低熱伝導率計算に基づく新規低熱伝導率材料の設計指針",
+      "description": "第11回日本熱電学会学術講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Ba3RE2M2Ch2O5の電子構造と発光特性",
+      "description": "第75回 応用物理学会秋季学術講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Material dependence of sound velocity and minimum phonon thermal conductivity from first-principles",
+      "description": "The 33rd International Conference of Thermoelectrics (ICT2014)",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "第一原理計算を用いた熱電特性のキャリア濃度依存性の解析",
+      "description": "第61回応用物理学会春季学術講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Towards discovery of new thermoelectric materials: a calculation-aided search",
+      "description": "The 32nd International Conference of Thermoelectrics (ICT2013)",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Possibility of Tin Sulfides as New Class of Thermoelectric Materials",
+      "description": "IUMRS-ICEM2012",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Possibility of MgSrSi-type compounds as new thermoelectric materials",
+      "description": "第9回日本熱電学会学術講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "MgSrSi-type semiconductors as possible new family of thermoelectric materials",
+      "description": "The 31st International Conference of Thermoelectrics (ICT2012)",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "スズ硫化物における新規熱電変換材料探索",
+      "description": "応用物理学会2012年春季 第59回 応用物理学関係連合講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Search for novel thermoelectric materials in MgSrSi-type compounds",
+      "description": "UK-Japan Meeting 2012 in Tokyo \"Novel Quantum Matter in Correlated Oxides\" \"Functional Oxide Materials Discovery Using Extreme Conditions",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "MgSrSi型構造化合物における新規熱電変換材料探索",
+      "description": "日本物理学会 2011年度年次大会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Electronic structures of 122- and 111-type silicides and germanides in comparison to iron pnictide superconductors",
+      "description": "American Physical Society March Meeting",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Discovery of New Layered Iron Pnictide Oxides (Fe2Pn2)(Sr4M2O6)",
+      "description": "9th International Conference on Materials and Mechanisms of Superconductivity (M2S-IX)",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "On the possibility of MgB2-like superconductivity in potassium hexaboride”",
+      "description": "9th International Conference on Materials and Mechanisms of Superconductivity (M2S-IX)",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Ca1+eCo4B4 and Ca1+eRu4B4: New Borides with One-Dimensional Channel Structures",
+      "description": "American Physical Society March Meeting",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Crystal Structure and Physical Properties of New Boride CaCo4B4",
+      "description": "16th International Symposium on Boron, Borides and Related Materials",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Crystal Structures and Physical Properties of One-Dimensional Borides A1+εM4B4 (A = Ca, Y; La; M = Fe, Co, Ru)",
+      "description": "American Physical Society March Meeting",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "銀添加MgB2線材の低温合成",
+      "description": "2007年度春季 第76回低温工学・超電導学会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "少量銀添加によるMgB2バルクの低温合成",
+      "description": "2007年(平成19年春季)第55回応用物理学関係連合講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "MgB2超伝導体への希土類元素置換効果",
+      "description": "2007年(平成19年春期)第55回応用物理学関係連合講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Effects of Rare Earth Doping on the Superconducting Properties of MgB2",
+      "description": "19th International Symposium on Superconductivity",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "磁気光学(MO)法と電磁気的測定によるMgB2多結晶体内の電流制 限機構の評価",
+      "description": "2006年秋季 第75回低温工学・超電導学会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Effects of Dopant Size on Critical Current Properties of MgB2 Bulks",
+      "description": "19th International Symposium on Superconductivity",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Excellent High Jc Achieved in Dense MgB2 Bulks Synthesized by Modified PICT-Diffusion Method",
+      "description": "8th International Conference on Materials and Mechanisms of Superconductivity",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Flux Pinning Properties of Undoped and C-doped MgB2 Bulks with Controlled Grain Sizes",
+      "description": "8th International Conference on Materials and Mechanisms of Superconductivity",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "高密度MgB2バルクの高臨界電流特性化",
+      "description": "2006年春季 第74回低温工学・超電導学会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "MgB2の超伝導特性に及ぼす金属炭化物の反応性と添加 効果",
+      "description": "2006年(平成18年) 春季 第53回応用物理学関係連合講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Enhancement of Critical Current Properties of MgB2 Bulks by Controlling Microstructure and Crystallinity",
+      "description": "2006 America Physics Society March Meeting",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Relationship Between Crystallinity and Flux Pinning Properties of MgB2 Bulks",
+      "description": "18th International Symposium on Superconductivity",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Doping Effects of TiC and Mo2C on the Critical Current Properties of MgB2 Tapes",
+      "description": "19th International Conference on Magnet Technology",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Improved Critical Current Properties of MgB2 Bulks by Controlling Microstructures",
+      "description": "7th European Conference on Applied Superconductivity",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "MgB2超伝導体の臨界電流特性決定因子",
+      "description": "2005年 (平成18年秋季) 第66回応用物理学会学術講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "MgB2の臨界電流特性におけるB4C及びSiCドープ効果",
+      "description": "2005年度春季 第72回 低温工学・超電導学会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "粒径制御したMgB2の臨界電流特性",
+      "description": "平成17年春季低温工学･超伝導学会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "MgB2バルクにおける結晶性, 不可逆磁界とC置換効果",
+      "description": "2005年(平成17年春季)第52回応用物理学関係連合講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Flux Pinning Properties of Impurity Doped MgB2 Bulks Synthesized by Diffusion Method",
+      "description": "17th Internatonal Symposium on Superconductivity",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Effects of Sintering Conditions on Critical Current Properties and Microstructures of MgB2 Bulks",
+      "description": "17th Internatonal Symposium on Superconductivity",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Critical Current Properties of Oxygen-Doped MgB2 Bulks",
+      "description": "17th International Symposium on Superconductivity",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "高密度MgB2バルクの臨界電流特性",
+      "description": "2004年度秋季 第71回 低温工学・超電導学会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "MgB2バルクにおける結晶性と磁束ピンニング",
+      "description": "2004年度秋季 第71回 低温工学・超電導学会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Doping Effects on Critical Current Properties of MgB2 Bulks Synthesized by Modified Powder-In-Tube Method",
+      "description": "Applied Superconductivity Conference 2004",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Generic Positive Effects of Low Level Impurity Doping on Flux Pinning Properties of HTSC and MgB2",
+      "description": "Applied Superconductivity Conference 2004",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "MgB2の臨界電流特性への酸素ドープ効果",
+      "description": "平成16年春季低温工学･超伝導学会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "微量Al置換によるMgB2バルクのピンニング特性の改善",
+      "description": "2004年 (平成16年)春季 第51回応用物理学関係連合講演会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "MgB2バルクにおける磁束ピンニングと元素置換効果",
+      "description": "2003年秋季 第69回 低温工学・超電導学会",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "Dramatic Effect of Metal Carbonate Doping on Flux Pinning Properties of MgB2",
+      "description": "16th International Workshop on Superconductivity",
+      "link": ""
+    },
+    {
+      "category": "Conferences",
+      "title": "MgB2バルクの臨界電流特性におけるC置換効果",
+      "description": "2003年(平成15年)秋季 第64回応用物理学会学術講演会",
       "link": ""
     }
   ]

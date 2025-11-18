@@ -2,6 +2,28 @@
   "publications": [
     {
       "type": "Journal",
+      "authors": "Tomoki Murata, Naoto Saito, Eiji Koyama, Ton Nu Thanh Phuong, Ryusuke Misawa, Satoshi Yokomizo,Tomoya Mato, Yu Takada, Sakyo Hirose, Yukari Katsura",
+      "title": "Data-driven analysis and visualization of dielectric properties curated from scientific literature",
+      "doi": "10.1080/27660400.2025.2485018",
+      "link": "https://doi.org/10.1080/27660400.2025.2485018",
+      "journal": "Science and Technology of Advanced Materials: Methods",
+      "volume": "5",
+      "pages": "2485018",
+      "year": 2025
+    },
+    {
+      "type": "Journal",
+      "authors": "Yukari Katsura, Masaya Kumagai, Tomoya Mato, Yu Takada, Yuki Ando, Erina Fujita, Fumikazu Hosono, Eiji Koyama, Farhan Mudasar, Ton Nu Thanh Phuong, Naoto Saito, Yoshihiro Sakamoto, Atsumi Tanaka, Dewi Yana, Kaoru Kimura, Koji Tsuda & Masahiko Demura",
+      "title": "Starrydata: from published plots to shared materials data",
+      "doi": "10.1080/27660400.2025.2506976",
+      "link": "https://doi.org/10.1080/27660400.2025.2506976",
+      "journal": "Science and Technology of Advanced Materials: Methods",
+      "volume": "5",
+      "pages": "2506976",
+      "year": 2025
+    },
+    {
+      "type": "Journal",
       "authors": "Yuki Inada, Masaya Fujioka, Haruhiko Morito, Tohru Sugahara, Hisanori Yamane, Yukari Katsura",
       "title": "Elemental Reactivity Maps for Materials Discovery",
       "doi": "10.1021/acs.chemmater.4c02259",
@@ -18,6 +40,8 @@
       "doi": "10.1038/s41597-024-04043-z",
       "link": "https://doi.org/10.1038/s41597-024-04043-z",
       "journal": "Scientific Data",
+      "volume": "11",
+      "pages": "1211",
       "year": 2024
     },
     {
@@ -28,6 +52,7 @@
       "link": "https://doi.org/10.1080/14686996.2024.2428154",
       "journal": "Science and Technology of Advanced Materials",
       "volume": "26",
+      "pages": "2428154",
       "year": 2025
     },
     {
@@ -58,6 +83,7 @@
       "link": "https://doi.org/10.1103/physrevmaterials.7.093805",
       "journal": "Physical Review Materials",
       "volume": "7",
+      "pages": "93805",
       "year": 2023
     },
     {
@@ -87,6 +113,8 @@
       "doi": "10.1021/acs.chemmater.3c00318",
       "link": "https://doi.org/10.1021/acs.chemmater.3c00318",
       "journal": "Chemistry of Materials",
+      "volume": "35",
+      "pages": "3008-3014",
       "year": 2023
     },
     {
@@ -107,6 +135,8 @@
       "doi": "10.1080/27660400.2022.2059336",
       "link": "https://doi.org/10.1080/27660400.2022.2059336",
       "journal": "Science and Technology of Advanced Materials: Methods",
+      "volume": "2",
+      "pages": "75-83",
       "year": 2022
     },
     {
@@ -149,6 +179,8 @@
       "doi": "10.26434/chemrxiv.14730126.v1",
       "link": "https://doi.org/10.26434/chemrxiv.14730126.v1",
       "journal": "Journal of Materials Chemistry A",
+      "volume": "9",
+      "pages": "22660-22669",
       "year": 2021
     },
     {
@@ -159,6 +191,7 @@
       "link": "https://doi.org/10.1016/j.actamat.2021.116867",
       "journal": "ACTA MATERIALIA",
       "volume": "212",
+      "pages": "116867",
       "year": 2021
     },
     {
@@ -169,6 +202,7 @@
       "link": "https://doi.org/10.1103/PhysRevB.103.085202",
       "journal": "PHYSICAL REVIEW B",
       "volume": "103",
+      "pages": "85202",
       "year": 2021
     },
     {
@@ -261,13 +295,13 @@
     },
     {
       "type": "Journal",
-      "authors": "Yukari Katsura",
-      "title": "Journal of the Japan Society of Powder and Powder Metallurgy Index",
-      "doi": "10.2497/jjspm.64.index64_1",
-      "link": "https://doi.org/10.2497/jjspm.64.index64_1",
+      "authors": "桂 ゆかり, 熊谷 将也, 郡司 咲子, 今井 庸二, 木村 薫",
+      "title": "実験的熱電特性のデータベース化に向けた論文データ収集WebシステムStarrydataの開発",
+      "doi": "10.2497/jjspm.64.467",
+      "link": "https://doi.org/10.2497/jjspm.64.467",
       "journal": "Journal of the Japan Society of Powder and Powder Metallurgy",
       "volume": "64",
-      "pages": "Index64_1-Index64_12",
+      "pages": "467-470",
       "year": 2017
     },
     {
@@ -278,6 +312,7 @@
       "link": "https://doi.org/10.7567/APEX.9.011801",
       "journal": "APPLIED PHYSICS EXPRESS",
       "volume": "9",
+      "pages": "11801",
       "year": 2016
     },
     {
@@ -293,23 +328,13 @@
     },
     {
       "type": "Journal",
-      "authors": "Tobita Kazuki,Sato Naoki,Kitahara Koichi,Takagiwa Yoshiki,Katsura Yukari,Kimura Kaoru",
-      "title": "Effect of Anomalous Crystal Structure of Iron Aluminides Fe2Al5 and Fe4Al13: Low Lattice Thermal Conductivity and Thermoelectric Properties.",
-      "doi": "10.11316/jpsgaiyo.71.2.0_1458",
-      "link": "https://doi.org/10.11316/jpsgaiyo.71.2.0_1458",
-      "journal": "Meeting Abstracts of the Physical Society of Japan",
-      "volume": "71",
-      "pages": "1458-1458",
-      "year": 2016
-    },
-    {
-      "type": "Journal",
       "authors": "Yunpeng Gu,Yukari Katsura,Takafumi Yoshino,Hidenori Takagi,Kouji Taniguchi",
       "title": "Rechargeable magnesium-ion battery based on a TiSe2-cathode with d-p orbital hybridized electronic structure",
       "doi": "10.1038/srep12486",
       "link": "https://doi.org/10.1038/srep12486",
       "journal": "SCIENTIFIC REPORTS",
       "volume": "5",
+      "pages": "12486",
       "year": 2015
     },
     {
@@ -325,8 +350,8 @@
     },
     {
       "type": "Journal",
-      "authors": "Yukari Katsura",
-      "title": "Material Dependence of Maximum Possible Thermoelectric Figures of Merit",
+      "authors": "桂 ゆかり",
+      "title": "熱電変換材料の無次元性能指数における理論的最大値の物質依存性",
       "doi": "10.2320/jinstmet.JA201523",
       "link": "https://doi.org/10.2320/jinstmet.JA201523",
       "journal": "JOURNAL OF THE JAPAN INSTITUTE OF METALS",
@@ -342,6 +367,7 @@
       "link": "https://doi.org/10.7566/JPSJ.83.023702",
       "journal": "JOURNAL OF THE PHYSICAL SOCIETY OF JAPAN",
       "volume": "83",
+      "pages": "23702",
       "year": 2014
     },
     {
@@ -363,6 +389,7 @@
       "link": "https://doi.org/10.1063/1.4764941",
       "journal": "APPLIED PHYSICS LETTERS",
       "volume": "101",
+      "pages": "191901",
       "year": 2012
     },
     {
@@ -373,6 +400,7 @@
       "link": "https://doi.org/10.1103/PhysRevLett.108.237001",
       "journal": "PHYSICAL REVIEW LETTERS",
       "volume": "108",
+      "pages": "237001",
       "year": 2012
     },
     {
@@ -405,6 +433,7 @@
       "link": "https://doi.org/10.1088/0953-2048/23/4/045001",
       "journal": "SUPERCONDUCTOR SCIENCE & TECHNOLOGY",
       "volume": "23",
+      "pages": "45001",
       "year": 2010
     },
     {
@@ -415,6 +444,7 @@
       "link": "https://doi.org/10.1088/1742-6596/234/1/012025",
       "journal": "9TH EUROPEAN CONFERENCE ON APPLIED SUPERCONDUCTIVITY (EUCAS 09)",
       "volume": "234",
+      "pages": "12025",
       "year": 2010
     },
     {
@@ -425,6 +455,7 @@
       "link": "https://doi.org/10.1088/0953-2048/22/8/085001",
       "journal": "SUPERCONDUCTOR SCIENCE & TECHNOLOGY",
       "volume": "22",
+      "pages": "85001",
       "year": 2009
     },
     {
@@ -435,6 +466,7 @@
       "link": "https://doi.org/10.1088/0953-2048/22/7/075008",
       "journal": "SUPERCONDUCTOR SCIENCE & TECHNOLOGY",
       "volume": "22",
+      "pages": "75008",
       "year": 2009
     },
     {
@@ -445,6 +477,7 @@
       "link": "https://doi.org/10.1143/APEX.2.063007",
       "journal": "APPLIED PHYSICS EXPRESS",
       "volume": "2",
+      "pages": "63007",
       "year": 2009
     },
     {
@@ -455,6 +488,7 @@
       "link": "https://doi.org/10.1088/1742-6596/176/1/012016",
       "journal": "16TH INTERNATIONAL SYMPOSIUM ON BORON, BORIDES AND RELATED MATERIALS (ISBB 2008)",
       "volume": "176",
+      "pages": "12016",
       "year": 2009
     },
     {
@@ -472,6 +506,7 @@
       "link": "https://doi.org/10.1088/1742-6596/97/1/012255",
       "journal": "8TH EUROPEAN CONFERENCE ON APPLIED SUPERCONDUCTIVITY (EUCAS'07)",
       "volume": "97",
+      "pages": "12255-12260",
       "year": 2008
     },
     {
@@ -575,30 +610,29 @@
     },
     {
       "type": "Journal",
-      "authors": "KATSURA Yukari,YAMAMOTO Akiyasu,IWAYAMA Isao,HORII Shigeru,SHIMOYAMA Jun-ichi,KISHIO Kohji",
-      "title": "Grain Size Determinants and Grain-Boundary Pinning in In-situ MgB2 Bulks",
+      "authors": "桂 ゆかり, 山本 明保, 岩山 功, 堀井 滋, 下山 淳一, 岸尾 光二",
+      "title": "In-situ法MgB2バルクの粒径支配因子と粒界ピンニング",
       "doi": "10.2221/jcsj.41.497",
       "link": "https://doi.org/10.2221/jcsj.41.497",
-      "journal": "TEION KOGAKU (Journal of the Cryogenic Society of Japan)",
       "volume": "41",
       "pages": "497-504",
       "year": 2006
     },
     {
       "type": "Journal",
-      "authors": "A. Yamamoto,J. Shimoyama,I. Iwayama,Y. Katsura,S. Horii,K. Kishio",
-      "title": "Carbon substitution effects on critical current properties of superconductor MgB2",
+      "authors": "山本 明保, 下山 淳一, 岩山 功, 桂 ゆかり, 堀井 滋, 岸尾 光二",
+      "title": "MgB2超伝導体の臨界電流特性における炭素置換効果",
       "doi": "10.2221/jcsj.41.489",
       "link": "https://doi.org/10.2221/jcsj.41.489",
       "journal": "Journal of the Cryogenic Society of Japan",
       "volume": "41",
-      "pages": "489",
+      "pages": "489-496",
       "year": 2006
     },
     {
       "type": "Journal",
-      "authors": "YAMAMOTO Akiyasu,SHIMOYAMA Jun-ichi,UEDA Shinya,IWAYAMA Isao,KATSURA Yukari,HORII Shigeru,KISHIO Kohji",
-      "title": "Relationship between Crystallinity and Critical Current Properties of MgB_2 Bulks",
+      "authors": "山本 明保, 下山 淳一, 上田 真也, 岩山 功, 桂 ゆかり, 堀井 滋, 岸尾 光二",
+      "title": "MgB2バルクにおける結晶性と臨界電流特性",
       "doi": "10.2221/jcsj.40.466",
       "link": "https://doi.org/10.2221/jcsj.40.466",
       "journal": "Journal of the Cryogenic Society of Japan",
@@ -608,8 +642,8 @@
     },
     {
       "type": "Journal",
-      "authors": "SHIMOYAMA Jun-ichi,UEDA Shinya,IWAYAMA Isao,YAMAMOTO Akiyasu,KATSURA Yukari,HORII Shigeru,KISHIO Kohji",
-      "title": "Synthesis of Dense MgB_2 Bulks and Their Critical Current Properties",
+      "authors": "下山 淳一, 上田 真也, 岩山 功, 山本 明保, 桂 ゆかり, 堀井 滋, 岸尾 光二",
+      "title": "高密度MgB2バルクの作製と臨界電流特性",
       "doi": "10.2221/jcsj.40.460",
       "link": "https://doi.org/10.2221/jcsj.40.460",
       "journal": "Journal of the Cryogenic Society of Japan",
@@ -669,6 +703,7 @@
       "link": "https://doi.org/10.1063/1.1939071",
       "journal": "APPLIED PHYSICS LETTERS",
       "volume": "86",
+      "pages": "222502",
       "year": 2005
     },
     {
@@ -679,6 +714,7 @@
       "link": "https://doi.org/10.1063/1.1937991",
       "journal": "APPLIED PHYSICS LETTERS",
       "volume": "86",
+      "pages": "212502",
       "year": 2005
     },
     {
@@ -702,7 +738,6 @@
       "volume": "17",
       "pages": "921-925",
       "year": 2004
-    },
-   
+    }
   ]
 }
