@@ -1,0 +1,85 @@
+{
+  "intro": {
+    "title": "― Painting Dreams on the Canvas of Logic ―",
+    "paragraphs": [
+      "Expanding the world we can intuitively understand by depicting things from new angles. Gaining new perspectives by incorporating newly developed technologies to search for the seeds of new discoveries. Guiding researchers from around the world to these seeds of discovery. Creating a team where not only selected elite researchers, but people with diverse cultures, backgrounds, and abilities can leverage their respective strengths and thrive while having fun. Thinking about research that we truly believe is necessary from the bottom of our hearts, rather than research done for the sake of being evaluated, and drawing out the logic toward its realization. While aspiring to become such a research leader, I will introduce the research I have been engaged in so far.",
+      "Recently, I have been working on Materials Informatics research. However, these studies are still just small seeds, and what I can do alone is only to show that they have the 'potential to grow.' To actually nurture them, I absolutely need members who will research with me. My research so far has been supported by academic and corporate researchers, students, web engineers, research staff, and users of the systems I developed. Moreover, responding to the interests and concerns of such people has also broadened my research, and I feel the joy of being able to conduct research within this expanded field of vision."
+    ]
+  },
+  "projects": [
+    {
+      "id": "collaboration",
+      "title": "Collaborative Research & Research Supervision",
+      "content": [
+        "I believe that matching is crucial in research, and that research progresses significantly when you meet someone with whom you can share ideas and purposes and hit it off. In search of such opportunities, I give lectures in various places, and each time I see my research from the other party's perspective, a different lecture is born. While I often introduce my own research in lectures, I can also give lectures for beginners using intuitive diagrams (thermoelectric materials, first-principles calculations, crystallography, etc.), and lectures on my research career (high school life abroad, life as a researcher, child-rearing, etc.). I would also be happy to interact with science communicators who share the aspiration to convey science in an enjoyable way.",
+        "My main affiliation is NIMS (Namiki campus), but through the NIMS joint graduate school system, I also serve as an Associate Professor in the International Materials Innovation Graduate Program at the University of Tsukuba. There, I teach Materials Informatics in small hands-on English lectures every year from October to December, and I also participate in research presentation sessions of the internationally diverse students in this degree program. I welcome applications to the University of Tsukuba's graduate school (master's and doctoral programs) with me as your supervisor, but I would like applicants whose research careers and interests match sufficiently. If you are interested, please contact me through the form below and introduce your past research and research plans in a web meeting.",
+        "I do not yet have an independent laboratory and need to gather students and collaborators from now on. However, if any of the research themes I will introduce resonates with you and you want to try it yourself, please contact me. I also welcome expanding your own research theme by combining it with mine. As I learn what you are interested in, what you like, and what abilities you have, we may be able to create the best research theme. If you have any dreams other than becoming a researcher, I would like to hear about them, and we may be able to think together about how to conduct research that leads to that dream."
+      ]
+    },
+    {
+      "id": "mi",
+      "title": "Materials Informatics",
+      "content": [
+        "Also called materials informatics, this is research that applies data science to materials science. By overviewing vast amounts of data, we can get a panoramic view of the entire field of materials science, creating an environment where we can conduct more strategic research. I also have expectations for reproducing 'the intuition of veterans' that theoretical calculations alone cannot cover. Researchers' intuition is honed by looking at large amounts of data, and by reproducing this through machine learning of large amounts of data, I believe beginners can also select 'plausible materials' like veterans.",
+        "Current MI is mainly a research field of 'methodology development.' This is research that brings novelty to the combination of datasets and data analysis methods and evaluates the effectiveness of those methods. What differs from simulations such as first-principles calculations is that MI does not have a 'correct calculation method,' and there are no physical grounds to trust the results. It is necessary to constantly doubt the AI and repeat trial and error until a good AI is created.",
+        "In MI research, it is common to find data analysis methods (such as machine learning algorithms) used in datasets from different fields and try them on materials science datasets."
+      ]
+    },
+    {
+      "id": "project2",
+      "title": "Research Theme 2",
+      "content": [
+        "The content of Research Theme 2 will be placed here. You can easily update the content by editing research_en.json on GitHub."
+      ]
+    },
+    {
+      "id": "project3",
+      "title": "Research Theme 3",
+      "content": [
+        "The content of Research Theme 3 will be placed here."
+      ]
+    },
+    {
+      "id": "project4",
+      "title": "Research Theme 4",
+      "content": [
+        "The content of Research Theme 4 will be placed here."
+      ]
+    },
+    {
+      "id": "project5",
+      "title": "Research Theme 5",
+      "content": [
+        "The content of Research Theme 5 will be placed here."
+      ]
+    },
+    {
+      "id": "project6",
+      "title": "Research Theme 6",
+      "content": [
+        "The content of Research Theme 6 will be placed here."
+      ]
+    },
+    {
+      "id": "project7",
+      "title": "Research Theme 7",
+      "content": [
+        "The content of Research Theme 7 will be placed here."
+      ]
+    },
+    {
+      "id": "project8",
+      "title": "Research Theme 8",
+      "content": [
+        "The content of Research Theme 8 will be placed here."
+      ]
+    },
+    {
+      "id": "project9",
+      "title": "Research Theme 9",
+      "content": [
+        "The content of Research Theme 9 will be placed here."
+      ]
+    }
+  ]
+}
