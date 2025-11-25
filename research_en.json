@@ -2,83 +2,92 @@
   "intro": {
     "title": "― Painting Dreams on the Canvas of Logic ―",
     "paragraphs": [
-      "Expanding the world we can intuitively understand by depicting things from new angles. Gaining new perspectives by incorporating newly developed technologies to search for the seeds of new discoveries. Guiding researchers from around the world to these seeds of discovery. Creating a team where not only selected elite researchers, but people with diverse cultures, backgrounds, and abilities can leverage their respective strengths and thrive while having fun. Thinking about research that we truly believe is necessary from the bottom of our hearts, rather than research done for the sake of being evaluated, and drawing out the logic toward its realization. While aspiring to become such a research leader, I will introduce the research I have been engaged in so far.",
-      "Recently, I have been working on Materials Informatics research. However, these studies are still just small seeds, and what I can do alone is only to show that they have the 'potential to grow.' To actually nurture them, I absolutely need members who will research with me. My research so far has been supported by academic and corporate researchers, students, web engineers, research staff, and users of the systems I developed. Moreover, responding to the interests and concerns of such people has also broadened my research, and I feel the joy of being able to conduct research within this expanded field of vision."
+      "We aim to expand intuitive understanding by exploring materials science from new perspectives, discover research opportunities through emerging technologies, and guide researchers worldwide to these discoveries. We strive to build inclusive research teams where people from diverse backgrounds can contribute their unique strengths, pursuing research driven by genuine scientific need rather than metrics. This page introduces our research activities guided by these principles."
     ]
   },
   "projects": [
     {
-      "id": "collaboration",
-      "title": "Collaborative Research & Research Supervision",
+      "id": "research",
+      "title": "Research Overview",
       "content": [
-        "I believe that matching is crucial in research, and that research progresses significantly when you meet someone with whom you can share ideas and purposes and hit it off. In search of such opportunities, I give lectures in various places, and each time I see my research from the other party's perspective, a different lecture is born. While I often introduce my own research in lectures, I can also give lectures for beginners using intuitive diagrams (thermoelectric materials, first-principles calculations, crystallography, etc.), and lectures on my research career (high school life abroad, life as a researcher, child-rearing, etc.). I would also be happy to interact with science communicators who share the aspiration to convey science in an enjoyable way.",
-        "My main affiliation is NIMS (Namiki campus), but through the NIMS joint graduate school system, I also serve as an Associate Professor in the International Materials Innovation Graduate Program at the University of Tsukuba. There, I teach Materials Informatics in small hands-on English lectures every year from October to December, and I also participate in research presentation sessions of the internationally diverse students in this degree program. I welcome applications to the University of Tsukuba's graduate school (master's and doctoral programs) with me as your supervisor, but I would like applicants whose research careers and interests match sufficiently. If you are interested, please contact me through the form below and introduce your past research and research plans in a web meeting.",
-        "I do not yet have an independent laboratory and need to gather students and collaborators from now on. However, if any of the research themes I will introduce resonates with you and you want to try it yourself, please contact me. I also welcome expanding your own research theme by combining it with mine. As I learn what you are interested in, what you like, and what abilities you have, we may be able to create the best research theme. If you have any dreams other than becoming a researcher, I would like to hear about them, and we may be able to think together about how to conduct research that leads to that dream."
+        "We develop original Materials Informatics methods for new applications in materials science. Our main achievements include the Starrydata database for extracting material properties from published graphs, Elemental Reactivity Maps for predicting ternary compound formation through machine learning, and the Crystal Structure Simulator for 3D crystal design.",
+        "Successful research depends on effective collaboration. Our work has grown through partnerships with academic and industrial researchers, students, engineers, and users whose diverse interests have broadened our research scope.",
+        "Our group is based at NIMS (Namiki district) with an affiliated position at the University of Tsukuba's International Materials Innovation Graduate Program. We teach Materials Informatics in English (October-December) and supervise graduate students in Master's and Doctoral programs.",
+        "We welcome inquiries from those interested in these research areas or potential collaboration. We can work together to develop research strategies aligned with your objectives."
       ]
     },
     {
       "id": "mi",
       "title": "Materials Informatics",
       "content": [
-        "Also called materials informatics, this is research that applies data science to materials science. By overviewing vast amounts of data, we can get a panoramic view of the entire field of materials science, creating an environment where we can conduct more strategic research. I also have expectations for reproducing 'the intuition of veterans' that theoretical calculations alone cannot cover. Researchers' intuition is honed by looking at large amounts of data, and by reproducing this through machine learning of large amounts of data, I believe beginners can also select 'plausible materials' like veterans.",
-        "Current MI is mainly a research field of 'methodology development.' This is research that brings novelty to the combination of datasets and data analysis methods and evaluates the effectiveness of those methods. What differs from simulations such as first-principles calculations is that MI does not have a 'correct calculation method,' and there are no physical grounds to trust the results. It is necessary to constantly doubt the AI and repeat trial and error until a good AI is created.",
-        "In MI research, it is common to find data analysis methods (such as machine learning algorithms) used in datasets from different fields and try them on materials science datasets."
+        "Materials Informatics applies data science to materials science. By analyzing large-scale datasets, we can identify patterns in materials behavior and enable strategic research planning. Machine learning captures empirical knowledge that theoretical calculations alone cannot reproduce, making expert-level materials development accessible to newcomers.",
+        "The field centers on methodology development—finding effective combinations of datasets and algorithms, then rigorously evaluating their performance. This interdisciplinary work requires expertise in both materials science and computational methods.",
+        "As an emerging field, MI offers numerous unexplored research opportunities. Young researchers can establish themselves as experts in this open, collaborative environment that values contribution over seniority.",
+        "We have launched three major projects: Starrydata for systematic data extraction from literature, Elemental Reactivity Maps for compound formation prediction, and Crystal Structure Simulator for intuitive structure design. These tools support materials discovery across the research community."
       ]
     },
     {
-      "id": "project2",
-      "title": "Research Theme 2",
+      "id": "starrydata",
+      "title": "Starrydata",
       "content": [
-        "The content of Research Theme 2 will be placed here. You can easily update the content by editing research_en.json on GitHub."
+        "Starrydata is a unique open database project extracting material property data from graphs in scientific papers. Launched in 2015, it addresses the critical shortage of experimental data needed for Materials Informatics.",
+        "Scientific papers contain valuable experimental data in graph format. By digitizing and sharing this data, Starrydata enables large-scale data analysis for all researchers. The current Starrydata2 system hosts the world's largest experimental database for thermoelectric materials.",
+        "Starting with support from the Japan Society of Thermoelectric Power Generation in 2015, the project evolved through the NIMS MI2I project and RIKEN AIP collaboration, becoming an official NIMS project in 2020. Our dedicated data collection team maintains high-quality standards through systematic paper analysis.",
+        "Future development focuses on expanding participation, implementing AI-assisted extraction, and extending coverage to additional materials classes, establishing Starrydata as essential infrastructure for data-driven materials research."
       ]
     },
     {
-      "id": "project3",
-      "title": "Research Theme 3",
+      "id": "element-map",
+      "title": "Elemental Reactivity Maps",
       "content": [
-        "The content of Research Theme 3 will be placed here."
+        "We developed Elemental Reactivity Maps, a new tool that uses machine learning to predict compound formation for all possible 1-, 2-, and 3-element combinations. The system consists of 80 matrices (80×80 elements each) covering the complete ternary chemical space.",
+        "Existing compounds appear in red tones (maroon to yellow), while unreported combinations show in blue tones (navy to light blue). Color intensity indicates machine learning formation probability, providing quantitative synthesis guidance.",
+        "This concept emerged from doctoral research on metal borides. Analysis of 700+ ternary borides revealed systematic gaps in compound space. Targeted synthesis in these gaps produced new materials including Ca1+eCo4B4 and Ca1+eRu4B4 with incommensurate structures.",
+        "The tool transforms expert intuition into quantitative predictions accessible to all researchers. It identifies both promising synthesis targets and combinations unlikely to form compounds."
       ]
     },
     {
-      "id": "project4",
-      "title": "Research Theme 4",
+      "id": "crystal-sim",
+      "title": "Crystal Structure Simulator",
       "content": [
-        "The content of Research Theme 4 will be placed here."
+        "While crystal structures involve complex mathematics, they are fundamentally patterns of atoms arranged in 3D space. We developed the Crystal Structure Simulator as a web application that lets users build crystals interactively, making crystallography accessible without specialized training.",
+        "Users select elements to generate spheres scaled to atomic/ionic radii, position them with mouse controls, and receive real-time feedback on bond distances through color coding. The system supports standard CIF format for compatibility with existing workflows.",
+        "We analyzed 30,000+ stable compounds to create a database of atomic arrangement patterns found in real crystals. This enables structure prediction based on chemical similarity to known compounds.",
+        "Future plans include educational content development, molecular dynamics integration for stability assessment, and catalyst design applications. We seek collaborators interested in extending functionality or developing specialized applications."
       ]
     },
     {
-      "id": "project5",
-      "title": "Research Theme 5",
+      "id": "thermoelectric",
+      "title": "Thermoelectric Materials Research",
       "content": [
-        "The content of Research Theme 5 will be placed here."
+        "Thermoelectric materials convert between heat and electricity through the Seebeck effect (temperature gradient to voltage) and Peltier effect (current to temperature gradient). These materials enable waste heat recovery and solid-state cooling. We work to discover materials with improved thermoelectric performance and establish design principles.",
+        "We combine first-principles calculations with Starrydata's experimental database to identify performance-limiting factors. Our analysis highlights band gap optimization and band degeneracy engineering as key strategies, while also targeting materials with favorable electronic structures.",
+        "With 15+ years in thermoelectric research spanning theory, synthesis, and device development, we contribute to the field through board membership in the Japan Society of Thermoelectric Power Generation, educational activities, and machine learning applications for accelerated materials screening."
       ]
     },
     {
-      "id": "project6",
-      "title": "Research Theme 6",
+      "id": "new-crystal",
+      "title": "New Materials Discovery",
       "content": [
-        "The content of Research Theme 6 will be placed here."
+        "New materials discovery involves finding compounds with unreported compositions or structures that may exhibit unexpected properties. We combine data analysis, chemical intuition, and Elemental Reactivity Map predictions for efficient exploration.",
+        "In metal borides, we established rules governing boron network formation (icosahedra, honeycomb sheets) and synthesized numerous new compounds. We now collaborate with experimental groups, providing data-driven synthesis recommendations.",
+        "Unexpected products often prove more interesting than initial targets. Our flexible approach accommodates both targeted and exploratory synthesis, maximizing discovery potential across diverse chemical systems."
       ]
     },
     {
-      "id": "project7",
-      "title": "Research Theme 7",
+      "id": "new-superconductor",
+      "title": "Superconductor Research",
       "content": [
-        "The content of Research Theme 7 will be placed here."
+        "Superconductors exhibit zero electrical resistance below critical temperatures (<i>T</i><sub>c</sub>), enabling applications in MRI systems, maglev trains, and quantum computers. We pursue discovery of practical superconductors with higher operating temperatures.",
+        "Previous work involved atomic-resolution structural characterization of novel superconductors using transmission electron microscopy, including structure determination of iron-based superconductors. Current efforts explore data-driven approaches to accelerate superconductor discovery."
       ]
     },
     {
-      "id": "project8",
-      "title": "Research Theme 8",
+      "id": "MgB2",
+      "title": "MgB<sub>2</sub> Critical Current Enhancement",
       "content": [
-        "The content of Research Theme 8 will be placed here."
-      ]
-    },
-    {
-      "id": "project9",
-      "title": "Research Theme 9",
-      "content": [
-        "The content of Research Theme 9 will be placed here."
+        "MgB<sub>2</sub> (<i>T</i><sub>c</sub>=39K) shows promise for practical superconducting applications. Undergraduate research demonstrated critical current improvement through microstructure optimization. Flux pinning centers—intentionally introduced defects—prevent flux motion that causes resistance.",
+        "Systematic studies identified grain boundaries as primary pinning sites in MgB<sub>2</sub>. Processing with fine boron powder under Mg-deficient conditions achieved enhanced performance through grain refinement and densification. These principles now guide commercial MgB<sub>2</sub> wire production."
       ]
     }
   ]
