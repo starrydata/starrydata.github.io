@@ -1,6 +1,21 @@
 {
   "news": [
     {
+      "date": "2025-05-25",
+      "category": "News",
+      "title": "NIMS一般公開2025にて、ラボ公開",
+      "description": "Starrydataプロジェクトの紹介、データ収集体験を実施",
+      "link": ""
+    },
+    {
+      "date": "2025-04-15",
+      "category": "Press",
+      "title": "NIMSプレスリリース：新物質を見つけるための地図を機械学習で開発して公開",
+      "description": "〜 3元素の反応可能性をまとめた「元素反応性マップ」80枚から、有望な元素の組3,000種類を提案 〜",
+      "link": "https://www.nims.go.jp/press/2025/04/202504150.html"
+    },    
+    
+    {
       "date": "2025-04-14",
       "category": "Conferences",
       "title": "Starrydataデータベースの論文データを用いたMaterials Informatics",
