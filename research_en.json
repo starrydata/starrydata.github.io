@@ -9,7 +9,7 @@
         "Our group is based at NIMS (Namiki district) with an affiliated position at the University of Tsukuba's International Materials Innovation Graduate Program. We teach Materials Informatics in English (October-December) and supervise graduate students in Master's and Doctoral programs.",
         "We welcome inquiries from those interested in these research areas or potential collaboration. We can work together to develop research strategies aligned with your objectives."
       ],
-      "image": "images/research.jpg"
+      "image": "https://starrydata.github.io/images/research.jpg"
     },
     {
       "id": "mi",
@@ -20,7 +20,7 @@
         "As an emerging field, MI offers numerous unexplored research opportunities. Young researchers can establish themselves as experts in this open, collaborative environment that values contribution over seniority.",
         "We have launched three major projects: Starrydata for systematic data extraction from literature, Elemental Reactivity Maps for compound formation prediction, and Crystal Structure Simulator for intuitive structure design. These tools support materials discovery across the research community."
       ],
-      "image": "images/mi.jpg"
+      "image": "https://starrydata.github.io/images/mi.jpg"
     },
     {
       "id": "starrydata",
@@ -31,7 +31,7 @@
         "Starting with support from the Japan Society of Thermoelectric Power Generation in 2015, the project evolved through the NIMS MI2I project and RIKEN AIP collaboration, becoming an official NIMS project in 2020. Our dedicated data collection team maintains high-quality standards through systematic paper analysis.",
         "Future development focuses on expanding participation, implementing AI-assisted extraction, and extending coverage to additional materials classes, establishing Starrydata as essential infrastructure for data-driven materials research."
       ],
-      "image": "images/starrydata.jpg"
+      "image": "https://starrydata.github.io/images/starrydata.jpg"
     },
     {
       "id": "element-map",
@@ -42,7 +42,7 @@
         "This concept emerged from doctoral research on metal borides. Analysis of 700+ ternary borides revealed systematic gaps in compound space. Targeted synthesis in these gaps produced new materials including Ca1+eCo4B4 and Ca1+eRu4B4 with incommensurate structures.",
         "The tool transforms expert intuition into quantitative predictions accessible to all researchers. It identifies both promising synthesis targets and combinations unlikely to form compounds."
       ],
-      "image": "images/element-map.jpg"
+      "image": "https://starrydata.github.io/images/element-map.jpg"
     },
     {
       "id": "crystal-sim",
@@ -53,7 +53,7 @@
         "We analyzed 30,000+ stable compounds to create a database of atomic arrangement patterns found in real crystals. This enables structure prediction based on chemical similarity to known compounds.",
         "Future plans include educational content development, molecular dynamics integration for stability assessment, and catalyst design applications. We seek collaborators interested in extending functionality or developing specialized applications."
       ],
-      "image": "images/crystal-sim.jpg"
+      "image": "https://starrydata.github.io/images/crystal-sim.jpg"
     },
     {
       "id": "thermoelectric",
@@ -63,7 +63,7 @@
         "We combine first-principles calculations with Starrydata's experimental database to identify performance-limiting factors. Our analysis highlights band gap optimization and band degeneracy engineering as key strategies, while also targeting materials with favorable electronic structures.",
         "With 15+ years in thermoelectric research spanning theory, synthesis, and device development, we contribute to the field through board membership in the Japan Society of Thermoelectric Power Generation, educational activities, and machine learning applications for accelerated materials screening."
       ],
-      "image": "images/thermoelectric.jpg"
+      "image": "https://starrydata.github.io/images/thermoelectric.jpg"
     },
     {
       "id": "new-crystal",
@@ -73,7 +73,7 @@
         "In metal borides, we established rules governing boron network formation (icosahedra, honeycomb sheets) and synthesized numerous new compounds. We now collaborate with experimental groups, providing data-driven synthesis recommendations.",
         "Unexpected products often prove more interesting than initial targets. Our flexible approach accommodates both targeted and exploratory synthesis, maximizing discovery potential across diverse chemical systems."
       ],
-      "image": "images/new-crystal.jpg"
+      "image": "https://starrydata.github.io/images/new-crystal.jpg"
     },
     {
       "id": "new-superconductor",
@@ -82,7 +82,7 @@
         "Superconductors exhibit zero electrical resistance below critical temperatures (<i>T</i><sub>c</sub>), enabling applications in MRI systems, maglev trains, and quantum computers. We pursue discovery of practical superconductors with higher operating temperatures.",
         "Previous work involved atomic-resolution structural characterization of novel superconductors using transmission electron microscopy, including structure determination of iron-based superconductors. Current efforts explore data-driven approaches to accelerate superconductor discovery."
       ],
-      "image": "images/new-superconductor.jpg"
+      "image": "https://starrydata.github.io/images/new-superconductor.jpg"
     },
     {
       "id": "MgB2",
@@ -91,7 +91,7 @@
         "MgB<sub>2</sub> (<i>T</i><sub>c</sub>=39K) shows promise for practical superconducting applications. Undergraduate research demonstrated critical current improvement through microstructure optimization. Flux pinning centers—intentionally introduced defects—prevent flux motion that causes resistance.",
         "Systematic studies identified grain boundaries as primary pinning sites in MgB<sub>2</sub>. Processing with fine boron powder under Mg-deficient conditions achieved enhanced performance through grain refinement and densification. These principles now guide commercial MgB<sub>2</sub> wire production."
       ],
-      "image": "images/mgb2.jpg"
+      "image": "https://starrydata.github.io/images/mgb2.jpg"
     }
   ]
 }
