@@ -2,13 +2,7 @@
   "pi": {
     "name": "桂 ゆかり",
     "photo": "https://starrydata.github.io/images/katsura.jpg",
-    "position": "(国研)物質・材料研究機構<br>マテリアル基盤研究センター 材料設計分野 材料モデリンググループ 主任研究員<br>
-                  National Institute for Materials Science (NIMS)<br> 
-                  Center for Basic Research on Materials (CBRM), Materials Modeling Group, Data-driven Materials Research Field<br>
-                  筑波大学 理工情報生命学術院 数理物質科学研究群<br>国際マテリアルズイノベーション学位プログラム 准教授<br>
-                  University of Tsukuba, Master's and Doctoral Program in Materials Innovation,Degree Programs in Pure and Applied Sciences, Graduate School of Science and Technology<br>
-                  特定国立研究開発法人理化学研究所 革新知能統合研究センター（理研AIP） 客員研究員<br>
-                  National Institute of RIKEN, Center for Advanced Intelligence Project (AIP)",
+    "position": "(国研)物質・材料研究機構<br>マテリアル基盤研究センター 材料設計分野 材料モデリンググループ 主任研究員<br>National Institute for Materials Science (NIMS)<br> Center for Basic Research on Materials (CBRM), Materials Modeling Group, Data-driven Materials Research Field<br>筑波大学 理工情報生命学術院 数理物質科学研究群<br>国際マテリアルズイノベーション学位プログラム 准教授<br>University of Tsukuba, Master's and Doctoral Program in Materials Innovation,Degree Programs in Pure and Applied Sciences, Graduate School of Science and Technology<br>特定国立研究開発法人理化学研究所 革新知能統合研究センター（理研AIP） 客員研究員<br>National Institute of RIKEN, Center for Advanced Intelligence Project (AIP)",
     "work": "マテリアルズインフォマティクス, データベース, 第一原理計算, 熱電材料, 超伝導, ホウ化物"
   },
   "staff": [
