@@ -1,0 +1,34 @@
+{
+  "pi": {
+    "name": "Yukari Katsura",
+    "photo": "https://starrydata.github.io/images/katsura.jpg",
+    "position": "National Institute for Materials Science (NIMS)<br>Center for Basic Research on Materials, Materials Design Field, Materials Modeling Group, Senior Researcher<br>University of Tsukuba, Graduate School of Pure and Applied Sciences<br>International Materials Innovation Degree Program, Associate Professor<br>RIKEN Center for Advanced Intelligence Project (AIP), Visiting Researcher",
+    "work": "Materials Informatics, Database, First-principles Calculations, Thermoelectric Materials, Superconductivity, Borides"
+  },
+  "staff": [
+    {
+      "name": "Tomoya Mato",
+      "photo": "https://starrydata.github.io/images/mato.jpg",
+      "position": "National Institute for Materials Science (NIMS)<br>NIMS Engineer",
+      "work": "Web Development"
+    },
+    {
+      "name": "Atsumi Tanaka",
+      "photo": "https://starrydata.github.io/images/tanaka.jpg",
+      "position": "National Institute for Materials Science (NIMS)",
+      "work": "Project Management (Research Administrator)"
+    },
+    {
+      "name": "Dewi Yana",
+      "photo": "https://starrydata.github.io/images/dewi.jpg",
+      "position": "National Institute for Materials Science (NIMS)",
+      "work": "Data Collection, Data Analysis"
+    },
+    {
+      "name": "Eiji Koyama",
+      "photo": "https://starrydata.github.io/images/koyama.jpg",
+      "position": "National Institute for Materials Science (NIMS)",
+      "work": "Data Collection"
+    }
+  ]
+}

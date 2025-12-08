@@ -1,0 +1,34 @@
+{
+  "pi": {
+    "name": "桂 ゆかり",
+    "photo": "https://starrydata.github.io/images/katsura.jpg",
+    "position": "国立研究開発法人物質・材料研究機構<br>マテリアル基盤研究センター 材料設計分野 材料モデリンググループ 主任研究員<br>筑波大学 理工情報生命学術院 数理物質科学研究群<br>国際マテリアルズイノベーション学位プログラム 准教授<br>特定国立研究開発法人理化学研究所 革新知能統合研究センター（理研AIP） 客員研究員",
+    "work": "マテリアルズインフォマティクス, データベース, 第一原理計算, 熱電材料, 超伝導, ホウ化物"
+  },
+  "staff": [
+    {
+      "name": "間藤 智也",
+      "photo": "https://starrydata.github.io/images/mato.jpg",
+      "position": "国立研究開発法人物質・材料研究機構<br>NIMSエンジニア",
+      "work": "Web開発"
+    },
+    {
+      "name": "田中 敦美",
+      "photo": "https://starrydata.github.io/images/tanaka.jpg",
+      "position": "国立研究開発法人物質・材料研究機構",
+      "work": "プロジェクト運営 (リサーチアドミニストレーター)"
+    },
+    {
+      "name": "Dewi Yana",
+      "photo": "https://starrydata.github.io/images/dewi.jpg",
+      "position": "国立研究開発法人物質・材料研究機構",
+      "work": "データ収集, データ解析"
+    },
+    {
+      "name": "小山 栄二",
+      "photo": "https://starrydata.github.io/images/koyama.jpg",
+      "position": "国立研究開発法人物質・材料研究機構",
+      "work": "データ収集"
+    }
+  ]
+}
