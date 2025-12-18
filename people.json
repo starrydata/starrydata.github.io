@@ -3,9 +3,9 @@
     "name": "桂 ゆかり",
     "name_en": "Yukari Katsura",
     "photo": "https://starrydata.github.io/images/katsura.jpg",
-    "position1": "(国研)物質・材料研究機構<br>マテリアル基盤研究センター 材料設計分野 材料モデリンググループ 主任研究員<br>Senior Researcher, Materials Modeling Group, Data-driven Materials Research Field, Center for Basic Research on Materials, National Institute for Materials Science",
-    "position2": "筑波大学 理工情報生命学術院 数理物質科学研究群<br>国際マテリアルズイノベーション学位プログラム 准教授<br>Associate Professor, Master's and Doctorial Program in Materials Innovation, Degree Programs in Pure and Applied Sciences, Graduate School of Science and Technology, University of Tsukuba",
-    "position3": "特定国立研究開発法人理化学研究所 革新知能統合研究センター（理研AIP） 客員研究員<br>Guest Researcher, Molecular Informatics Team, RIKEN Center for Advanced Intelligence Project, RIKEN",
+    "position1": "国立研究開発法人物質・材料研究機構<br>マテリアル基盤研究センター 材料設計分野 材料モデリンググループ 主任研究員",
+    "position2": "筑波大学<br>理工情報生命学術院 数理物質科学研究群 国際マテリアルズイノベーション学位プログラム 准教授",
+    "position3": "特定国立研究開発法人理化学研究所<br>革新知能統合研究センター（理研AIP） 客員研究員",
     "work": "マテリアルズインフォマティクス, データベース, 第一原理計算, 熱電材料, 超伝導, ホウ化物"
   },
   "staff": [
@@ -13,29 +13,71 @@
       "name": "間藤 智也",
       "name_en": "Tomoya Mato",
       "photo": "https://starrydata.github.io/images/mato.jpg",
-      "position1": "(国研)物質・材料研究機構<br>マテリアル基盤研究センター 材料設計分野 材料モデリンググループ　NIMSエンジニア<br>Materials Modeling Group, Data-driven Materials Research Field, Center for Basic Research on Materials, National Institute for Materials Science",
+      "position1": "国立研究開発法人物質・材料研究機構<br>NIMSエンジニア",
       "work": "Web開発"
     },
     {
       "name": "田中 敦美",
       "name_en": "Atsumi Tanaka",
       "photo": "https://starrydata.github.io/images/tanaka.jpg",
-      "position1": "(国研)物質・材料研究機構<br>マテリアル基盤研究センター 材料設計分野 材料モデリンググループ<br>Materials Modeling Group, Data-driven Materials Research Field, Center for Basic Research on Materials, National Institute for Materials Science",
+      "position1": "国立研究開発法人物質・材料研究機構",
       "work": "プロジェクト運営 (リサーチアドミニストレーター)"
     },
     {
-      "name": "デウィ ヤナ",
+      "name": "Dewi Yana",
       "name_en": "Dewi Yana",
       "photo": "https://starrydata.github.io/images/dewi.jpg",
-      "position1": "(国研)物質・材料研究機構<br>マテリアル基盤研究センター 材料設計分野 材料モデリンググループ<br>Materials Modeling Group, Data-driven Materials Research Field, Center for Basic Research on Materials, National Institute for Materials Science",
+      "position1": "国立研究開発法人物質・材料研究機構",
       "work": "データ収集, データ解析"
     },
     {
       "name": "小山 栄二",
-      "name_en": "Eiji Koyama",      
+      "name_en": "Eiji Koyama",
       "photo": "https://starrydata.github.io/images/koyama.jpg",
-      "position1": "(国研)物質・材料研究機構<br>マテリアル基盤研究センター 材料設計分野 材料モデリンググループ<br>Materials Modeling Group, Data-driven Materials Research Field, Center for Basic Research on Materials, National Institute for Materials Science",
+      "position1": "国立研究開発法人物質・材料研究機構",
       "work": "データ収集"
+    }
+  ],
+  "former_staff": [
+    {
+      "name": "髙田 悠",
+      "name_en": "Yu Takada",
+      "period": "2021.12.01 - 2025.03.31"
+    },
+    {
+      "name": "細野 史一",
+      "name_en": "Fumikazu Hosono",
+      "period": "2022.02.21 - 2025.03.31"
+    },
+    {
+      "name": "斉藤 直人",
+      "name_en": "Naoto Saito",
+      "period": "2022.12.01 - 2025.03.31"
+    },
+    {
+      "name": "郡 俊二",
+      "name_en": "Shunji Koori",
+      "period": "2022.07.13 - 2024.03.31"
+    },
+    {
+      "name": "トン ヌ フン タン",
+      "name_en": "Ton Nu Phuong Thanh",
+      "period": "2022.12.01 - 2024.03.31"
+    },
+    {
+      "name": "藤本 雅之",
+      "name_en": "Masayuki Fujimoto",
+      "period": "2021.09.01 - 2023.12.31"
+    },
+    {
+      "name": "片柳 渡",
+      "name_en": "Wataru Katayanagi",
+      "period": "2021.09.13 - 2022.04.30"
+    },
+    {
+      "name": "安藤 有希",
+      "name_en": "Yuki Ando",
+      "period": "2018.04.01 - 2020.03.31 / 2021.04.01 - 2021.09.30"
     }
   ]
 }
