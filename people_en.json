@@ -2,34 +2,34 @@
   "pi": {
     "name": "Yukari Katsura",
     "photo": "https://starrydata.github.io/images/katsura.jpg",
-    "position1": "National Institute for Materials Science (NIMS)<br>Center for Basic Research on Materials, Materials Design Field, Materials Modeling Group, Senior Researcher",
-    "position2": "University of Tsukuba<br>Graduate School of Pure and Applied Sciences, International Materials Innovation Degree Program, Associate Professor",
-    "position3": "RIKEN<br>Center for Advanced Intelligence Project (AIP), Visiting Researcher",
+    "position1": "Senior Researcher, Materials Modeling Group, Data-Driven Materials Research Field, Center for Basic Research on Materials, National Institute for Materials Science",
+    "position2": "Associate Professor, Master's and Doctorial Program in Materials Innovation, Degree Programs in Pure and Applied Sciences, Graduate School of Science and Technology, University of Tsukuba",
+    "position3": "Guest Researcher, Molecular Informatics Team, RIKEN Center for Advanced Intelligence Project, RIKEN",
     "work": "Materials Informatics, Database, First-principles Calculations, Thermoelectric Materials, Superconductivity, Borides"
   },
   "staff": [
     {
       "name": "Tomoya Mato",
       "photo": "https://starrydata.github.io/images/mato.jpg",
-      "position1": "National Institute for Materials Science (NIMS)<br>NIMS Engineer",
+      "position1": "NIMS Engineer, Materials Modeling Group, Data-Driven Materials Research Field, Center for Basic Research on Materials, National Institute for Materials Science",
       "work": "Web Development"
     },
     {
       "name": "Atsumi Tanaka",
       "photo": "https://starrydata.github.io/images/tanaka.jpg",
-      "position1": "National Institute for Materials Science (NIMS)",
+      "position1": "Materials Modeling Group, Data-Driven Materials Research Field, Center for Basic Research on Materials, National Institute for Materials Science",
       "work": "Project Management (Research Administrator)"
     },
     {
       "name": "Dewi Yana",
       "photo": "https://starrydata.github.io/images/dewi.jpg",
-      "position1": "National Institute for Materials Science (NIMS)",
+      "position1": "Materials Modeling Group, Data-Driven Materials Research Field, Center for Basic Research on Materials, National Institute for Materials Science",
       "work": "Data Collection, Data Analysis"
     },
     {
       "name": "Eiji Koyama",
       "photo": "https://starrydata.github.io/images/koyama.jpg",
-      "position1": "National Institute for Materials Science (NIMS)",
+      "position1": "Materials Modeling Group, Data-Driven Materials Research Field, Center for Basic Research on Materials, National Institute for Materials Science",
       "work": "Data Collection"
     }
   ],
