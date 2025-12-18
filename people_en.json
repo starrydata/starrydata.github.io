@@ -35,24 +35,8 @@
   ],
   "former_staff": [
     {
-      "name": "Yu Takada",
-      "period": "2021.12.01 - 2025.03.31"
-    },
-    {
-      "name": "Fumikazu Hosono",
-      "period": "2022.02.21 - 2025.03.31"
-    },
-    {
-      "name": "Naoto Saito",
-      "period": "2022.12.01 - 2025.03.31"
-    },
-    {
-      "name": "Shunji Koori",
-      "period": "2022.07.13 - 2024.03.31"
-    },
-    {
-      "name": "Ton Nu Phuong Thanh",
-      "period": "2022.12.01 - 2024.03.31"
+      "name": "Yuki Ando",
+      "period": "2018.04.01 - 2020.03.31<br>2021.04.01 - 2021.09.30"
     },
     {
       "name": "Masayuki Fujimoto",
@@ -63,8 +47,24 @@
       "period": "2021.09.13 - 2022.04.30"
     },
     {
-      "name": "Yuki Ando",
-      "period": "2018.04.01 - 2020.03.31 / 2021.04.01 - 2021.09.30"
+      "name": "Yu Takada",
+      "period": "2021.12.01 - 2025.03.31"
+    },
+    {
+      "name": "Fumikazu Hosono",
+      "period": "2022.02.21 - 2025.03.31"
+    },
+    {
+      "name": "Shunji Koori",
+      "period": "2022.07.13 - 2024.03.31"
+    },
+    {
+      "name": "Naoto Saito",
+      "period": "2022.12.01 - 2025.03.31"
+    },
+    {
+      "name": "Ton Nu Phuong Thanh",
+      "period": "2022.12.01 - 2024.03.31"
     }
   ]
 }
