@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Research Introduction Site</title>
+    <style>
+        /* ========================================
+           基本スタイル
+        ======================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        /* ========================================
+           メニューバー
+        ======================================== */
+        nav {
+            background: #3d4f5c;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-menu {
+            display: flex;
+            justify-content: stretch;
+            gap: 0;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+            max-width: 1286px;
+        }
+
+        .menu-item {
+            color: white;
+            text-decoration: none;
+            padding: 16px 10px;
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            flex: 1 1 0;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .menu-item:last-child {
+            border-right: none;
+        }
+
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-item.active {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .menu-item-wrapper {
+            position: relative;
+            flex: 1 1 0;
+        }
+
+        .menu-item-wrapper .menu-item {
+            flex: none;
+            width: 100%;
+        }
+
+        /* ドロップダウンメニュー */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #3d4f5c;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .menu-item-wrapper:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .dropdown-item.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 16px 12px;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            flex: 0 0 auto;
+        }
+
+        .lang-switch svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
+            flex-shrink: 0;
+        }
+
+        .lang-btn {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 2px 4px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-btn.active {
+            font-weight: 700;
+            cursor: default;
+        }
+
+        .lang-separator {
+            color: white;
+            opacity: 0.5;
+            margin: 0 1px;
+            font-size: 13px;
+        }
+
+        /* ========================================
+           メインコンテンツエリア
+        ======================================== */
+        .main-content {
+            background: white;
+            max-width: 1286px;
+            margin: 0 auto;
+            min-height: 80vh;
+        }
+
+        .content {
+            padding: 40px 20px 60px 20px;
+        }
+
+        /* ========================================
+           ページタイトル
+        ======================================== */
+        .page-title {
+            margin: 0 0 10px 0;
+        }
+
+        .page-title h1 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .title-underline {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 2px;
+            margin-bottom: 40px;
+        }
+
+        /* ========================================
+           年別セクション
+        ======================================== */
+        .year-section {
+            margin-bottom: 30px;
+        }
+
+        .year-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        /* ========================================
+           論文アイテム
+        ======================================== */
+        .publication-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .publication-item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 12px 16px;
+            transition: all 0.3s ease;
+        }
+
+        .publication-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+            border-color: #3b82f6;
+        }
+
+        .publication-type {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .type-journal {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .type-conference {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .type-book {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .publication-authors {
+            color: #6b7280;
+            font-size: 12px;
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }
+
+        .publication-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 4px;
+            line-height: 1.6;
+        }
+
+        .publication-title a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .publication-title a:hover {
+            color: #3b82f6;
+        }
+
+        .publication-details {
+            color: #6b7280;
+            font-size: 12px;
+            line-height: 1.2;
+        }
+
+        .publication-doi {
+            margin-top: 4px;
+            font-size: 13px;
+        }
+
+        .publication-doi a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .publication-doi a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========================================
+           ローディング・エラー表示
+        ======================================== */
+        .loading {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6b7280;
+            font-size: 15px;
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 40px 20px;
+            color: #ef4444;
+        }
+
+        /* ========================================
+           フッター
+        ======================================== */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* ========================================
+           レスポンシブ対応
+        ======================================== */
+        @media (max-width: 768px) {
+            .main-menu {
+                flex-wrap: wrap;
+            }
+
+            .menu-item {
+                flex: 1 1 auto;
+                padding: 12px 16px;
+                font-size: 13px;
+                text-align: center;
+                border-right: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                min-width: 80px;
+            }
+
+            .content {
+                padding: 20px 15px 40px 15px;
+            }
+
+            .page-title h1 {
+                font-size: 24px;
+            }
+
+            .year-title {
+                font-size: 20px;
+            }
+
+            .publication-item {
+                padding: 10px 12px;
+            }
+
+            .publication-title {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- メニューバー -->
+    <nav>
+        <div class="main-menu">
+            <a href="index_en.html" class="menu-item">Top</a>
+            <a href="research_en.html" class="menu-item">Research</a>
+            <a href="systems_en.html" class="menu-item">Web Systems</a>
+            <a href="news_en.html" class="menu-item">News</a>
+            <a href="publications_en.html" class="menu-item active">Publications</a>
+            <a href="conferences_en.html" class="menu-item">Conferences</a>
+            <a href="people_en.html" class="menu-item">People</a>
+            <a href="contact_en.html" class="menu-item">Contact</a>
+            <div class="lang-switch">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/>
+                </svg>
+                <a href="/cbrm/about/modeling_group/yukarikatsura/publications.html" class="lang-btn">JP</a>
+                <span class="lang-separator">/</span>
+                <span class="lang-btn active">EN</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <div class="main-content">
+        <div class="content">
+            <!-- ページタイトル -->
+            <div class="page-title">
+                <h1>Publications</h1>
+                <div class="title-underline"></div>
+            </div>
+
+            <!-- 論文リスト（動的生成） -->
+            <div id="publications-container">
+                <p class="loading">Loading publications...</p>
+            </div>
+        </div>
+
+        <!-- フッター -->
+        <footer class="footer">
+            <p>&copy; 2025 Yukari Katsura's Research Projects - Materials Informatics</p>
+        </footer>
+    </div>
+
+    <!-- publications_en.jsonのデータを読み込み -->
+    <script src="publications-data_en.js"></script>
+
+    <script>
+        // ========================================
+        // 設定
+        // ========================================
+        const CONFIG = {
+            jsonUrl: 'https://starrydata.github.io/publications_en.json'
+        };
+
+        // ========================================
+        // 論文表示
+        // ========================================
+
+        // タイプに応じたクラス名を取得
+        function getTypeClass(type) {
+            const classes = {
+                'Journal': 'type-journal',
+                'Conference': 'type-conference',
+                'Book': 'type-book'
+            };
+            return classes[type] || 'type-journal';
+        }
+
+        // 論文を年別にグループ化
+        function groupByYear(publications) {
+            const grouped = {};
+            publications.forEach(pub => {
+                if (!grouped[pub.year]) {
+                    grouped[pub.year] = [];
+                }
+                grouped[pub.year].push(pub);
+            });
+            return grouped;
+        }
+
+        // 論文を表示
+        function displayPublications(publications) {
+            const container = document.getElementById('publications-container');
+
+            if (!publications || publications.length === 0) {
+                container.innerHTML = '<p class="loading">No publications available.</p>';
+                return;
+            }
+
+            // 年別にグループ化
+            const groupedPubs = groupByYear(publications);
+
+            // 年を降順にソート
+            const years = Object.keys(groupedPubs).sort((a, b) => b - a);
+
+            const sectionsHtml = years.map(year => {
+                const yearPubs = groupedPubs[year];
+
+                const pubsHtml = yearPubs.map(pub => {
+                    const typeClass = getTypeClass(pub.type);
+                    const hasLink = pub.link && pub.link !== '';
+                    const titleHtml = hasLink
+                        ? `<a href="${pub.link}" target="_blank">${pub.title}</a>`
+                        : pub.title;
+
+                    let detailsHtml = '';
+                    if (pub.journal) {
+                        detailsHtml = pub.journal;
+                        if (pub.volume) detailsHtml += `, ${pub.volume}`;
+                        if (pub.pages) detailsHtml += `, ${pub.pages}`;
+                    }
+
+                    const doiHtml = pub.doi
+                        ? `<div class="publication-doi">DOI: <a href="${pub.link}" target="_blank">${pub.doi}</a></div>`
+                        : '';
+
+                    return `
+                        <div class="publication-item">
+                            <span class="publication-type ${typeClass}">${pub.type}</span>
+                            <div class="publication-authors">${pub.authors}</div>
+                            <div class="publication-title">${titleHtml}</div>
+                            <div class="publication-details">${detailsHtml}</div>
+                            ${doiHtml}
+                        </div>
+                    `;
+                }).join('');
+
+                return `
+                    <div class="year-section">
+                        <h2 class="year-title">${year}</h2>
+                        <div class="publication-list">
+                            ${pubsHtml}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            container.innerHTML = sectionsHtml;
+        }
+
+        // 論文データを読み込み
+        async function loadPublications() {
+            try {
+                console.log('論文データを読み込み中...');
+
+                let publications = [];
+
+                // まずローカルのpublications-data.jsを使用
+                if (typeof PUBLICATIONS_DATA !== 'undefined' &&
+                    PUBLICATIONS_DATA.publications &&
+                    Array.isArray(PUBLICATIONS_DATA.publications)) {
+                    publications = PUBLICATIONS_DATA.publications;
+                    console.log('✅ publications-data.js読み込み完了:', publications.length, '件');
+                } else {
+                    // フォールバック: リモートのJSONを読み込み
+                    console.log('publications-data.jsが見つかりません。リモートから読み込みます...');
+                    const response = await fetch(CONFIG.jsonUrl, {
+                        method: 'GET',
+                        mode: 'cors',
+                        cache: 'no-cache'
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    if (!data.publications || !Array.isArray(data.publications)) {
+                        throw new Error('データ形式が正しくありません');
+                    }
+
+                    publications = data.publications;
+                    console.log('✅ リモートデータ読み込み完了:', publications.length, '件');
+                }
+
+                displayPublications(publications);
+                console.log('✅ 論文データの読み込みが完了しました');
+            } catch (error) {
+                console.error('❌ 論文データの読み込みに失敗しました:', error);
+                document.getElementById('publications-container').innerHTML =
+                    '<p class="error-message">Failed to load publications. Please try again later.</p>';
+            }
+        }
+
+        // ページ読み込み時に初期化
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('ページ読み込み完了 - 初期化開始');
+            loadPublications();
+        });
+    </script>
+</body>
+</html>

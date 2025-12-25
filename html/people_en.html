@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People - Research Introduction Site</title>
+    <style>
+        /* ========================================
+           基本スタイル
+        ======================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        /* ========================================
+           メニューバー
+        ======================================== */
+        nav {
+            background: #3d4f5c;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-menu {
+            display: flex;
+            justify-content: stretch;
+            gap: 0;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+            max-width: 1286px;
+        }
+
+        .menu-item {
+            color: white;
+            text-decoration: none;
+            padding: 16px 10px;
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            flex: 1 1 0;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .menu-item:last-child {
+            border-right: none;
+        }
+
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-item.active {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 16px 12px;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            flex: 0 0 auto;
+        }
+
+        .lang-switch svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
+            flex-shrink: 0;
+        }
+
+        .lang-btn {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 2px 4px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-btn.active {
+            font-weight: 700;
+            cursor: default;
+        }
+
+        .lang-separator {
+            color: white;
+            opacity: 0.5;
+            margin: 0 1px;
+            font-size: 13px;
+        }
+
+        /* ========================================
+           メインコンテンツエリア
+        ======================================== */
+        .main-content {
+            background: white;
+            max-width: 1286px;
+            margin: 0 auto;
+            min-height: 80vh;
+        }
+
+        .content {
+            padding: 40px 20px 60px 20px;
+        }
+
+        /* ========================================
+           ページタイトル
+        ======================================== */
+        .page-title {
+            margin: 0 0 10px 0;
+        }
+
+        .page-title h1 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .title-underline {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 2px;
+            margin-bottom: 40px;
+        }
+
+        /* ========================================
+           セクション
+        ======================================== */
+        .member-section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: #6b7280;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        /* ========================================
+           スタッフカード（1カラム）
+        ======================================== */
+        .staff-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .staff-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .staff-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .staff-photo {
+            width: 150px;
+            height: 200px;
+            border-radius: 8px;
+            flex-shrink: 0;
+            overflow: hidden;
+            background: #f3f4f6;
+        }
+
+        .staff-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .staff-info {
+            flex: 1;
+        }
+
+        .staff-name {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+
+        .staff-name-en {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .staff-position {
+            color: #6b7280;
+            margin-bottom: 16px;
+            font-size: 14px;
+            line-height: 1.3;
+        }
+
+        .staff-position .position-item {
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .staff-position .position-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .staff-work {
+            color: #4b5563;
+            font-size: 15px;
+            line-height: 1.7;
+            padding-top: 16px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        /* ========================================
+           メンバー画像セクション
+        ======================================== */
+        .member-image-section {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .member-image-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ========================================
+           Former Staff
+        ======================================== */
+        .former-staff-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .former-staff-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px 20px;
+        }
+
+        .former-staff-name {
+            font-size: 16px;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .former-staff-period {
+            font-size: 13px;
+            color: #9ca3af;
+        }
+
+        /* ========================================
+           ローディング
+        ======================================== */
+        .loading {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6b7280;
+        }
+
+        /* ========================================
+           フッター
+        ======================================== */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* ========================================
+           レスポンシブ対応
+        ======================================== */
+        @media (max-width: 768px) {
+            .main-menu {
+                flex-wrap: wrap;
+            }
+
+            .menu-item {
+                flex: 1 1 auto;
+                padding: 12px 16px;
+                font-size: 13px;
+                text-align: center;
+                border-right: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                min-width: 80px;
+            }
+
+            .content {
+                padding: 20px 15px 40px 15px;
+            }
+
+            .page-title h1 {
+                font-size: 24px;
+            }
+
+            .staff-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 24px 20px;
+            }
+
+            .staff-photo {
+                width: 120px;
+                height: 160px;
+            }
+
+            .staff-name {
+                font-size: 18px;
+            }
+
+            .staff-name-en {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- メニューバー -->
+    <nav>
+        <div class="main-menu">
+            <a href="index_en.html" class="menu-item">Top</a>
+            <a href="research_en.html" class="menu-item">Research</a>
+            <a href="systems_en.html" class="menu-item">Web Systems</a>
+            <a href="news_en.html" class="menu-item">News</a>
+            <a href="publications_en.html" class="menu-item">Publications</a>
+            <a href="conferences_en.html" class="menu-item">Conferences</a>
+            <a href="people_en.html" class="menu-item active">People</a>
+            <a href="contact_en.html" class="menu-item">Contact</a>
+            <div class="lang-switch">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/>
+                </svg>
+                <a href="/cbrm/about/modeling_group/yukarikatsura/people.html" class="lang-btn">JP</a>
+                <span class="lang-separator">/</span>
+                <span class="lang-btn active">EN</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <div class="main-content">
+        <div class="content">
+            <!-- ページタイトル -->
+            <div class="page-title">
+                <h1>People</h1>
+                <div class="title-underline"></div>
+            </div>
+
+            <!-- Principal Investigator -->
+            <div class="member-section">
+                <h2 class="section-title">Principal Investigator</h2>
+                <div id="pi-container">
+                    <p class="loading">Loading...</p>
+                </div>
+            </div>
+
+            <!-- Staff -->
+            <div class="member-section">
+                <h2 class="section-title">Staff</h2>
+                <div id="staff-container">
+                    <p class="loading">Loading...</p>
+                </div>
+            </div>
+
+            <!-- Former Staff -->
+            <div class="member-section">
+                <h2 class="section-title">Former Staff</h2>
+                <div id="former-staff-container">
+                    <p class="loading">Loading...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- フッター -->
+        <footer class="footer">
+            <p>&copy; 2025 Yukari Katsura's Research Projects - Materials Informatics</p>
+        </footer>
+    </div>
+
+    <script>
+        const CONFIG = {
+            peopleUrl: 'https://starrydata.github.io/people_en.json',
+            formerStaffUrl: 'https://starrydata.github.io/former_staff_en.json'
+        };
+
+        // 複数のpositionを結合
+        function buildPositions(member) {
+            let positions = [];
+            for (let i = 1; i <= 10; i++) {
+                const key = 'position' + i;
+                if (member[key]) {
+                    positions.push(`<span class="position-item">${member[key]}</span>`);
+                }
+            }
+            return positions.join('');
+        }
+
+        // スタッフカードを生成
+        function createStaffCard(member) {
+            const positionsHtml = buildPositions(member);
+            const nameJpHtml = member.name_jp ? `<p class="staff-name-en">${member.name_jp}</p>` : '';
+            return `
+                <div class="staff-card">
+                    <div class="staff-photo">
+                        <img src="${member.photo}" alt="${member.name}">
+                    </div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">${member.name}</h3>
+                        ${nameJpHtml}
+                        <p class="staff-position">${positionsHtml}</p>
+                        <p class="staff-work">${member.work}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // メンバーデータを読み込み
+        async function loadPeople() {
+            try {
+                console.log('Loading member data...', CONFIG.peopleUrl);
+
+                const response = await fetch(CONFIG.peopleUrl, {
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: 'no-cache'
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // PI表示
+                if (data.pi) {
+                    document.getElementById('pi-container').innerHTML = createStaffCard(data.pi);
+                }
+
+                // Staff表示
+                if (data.staff && Array.isArray(data.staff)) {
+                    const staffHtml = data.staff.map(member => createStaffCard(member)).join('');
+                    document.getElementById('staff-container').innerHTML = `<div class="staff-list">${staffHtml}</div>`;
+                }
+
+                console.log('✅ Member data loaded successfully');
+            } catch (error) {
+                console.error('❌ Failed to load member data:', error);
+                document.getElementById('pi-container').innerHTML = '<p class="loading">Failed to load data.</p>';
+                document.getElementById('staff-container').innerHTML = '<p class="loading">Failed to load data.</p>';
+            }
+        }
+
+        // Former Staffデータを読み込み
+        async function loadFormerStaff() {
+            try {
+                console.log('Loading Former Staff data...', CONFIG.formerStaffUrl);
+
+                const response = await fetch(CONFIG.formerStaffUrl, {
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: 'no-cache'
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // Former Staff表示
+                if (data.former_staff && Array.isArray(data.former_staff)) {
+                    const formerStaffHtml = data.former_staff.map(member => `
+                        <div class="former-staff-card">
+                            <p class="former-staff-name">${member.name}</p>
+                            <p class="former-staff-period">${member.period}</p>
+                        </div>
+                    `).join('');
+                    document.getElementById('former-staff-container').innerHTML = `<div class="former-staff-list">${formerStaffHtml}</div>`;
+                }
+
+                console.log('✅ Former Staff data loaded successfully');
+            } catch (error) {
+                console.error('❌ Failed to load Former Staff data:', error);
+                document.getElementById('former-staff-container').innerHTML = '<p class="loading">Failed to load data.</p>';
+            }
+        }
+
+        // ページ読み込み時に初期化
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPeople();
+            loadFormerStaff();
+        });
+    </script>
+</body>
+</html>

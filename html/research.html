@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - 研究紹介サイト</title>
+    <style>
+        /* ========================================
+           基本スタイル
+        ======================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        /* ========================================
+           メニューバー
+        ======================================== */
+        nav {
+            background: #3d4f5c;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-menu {
+            display: flex;
+            justify-content: stretch;
+            gap: 0;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+            max-width: 1286px;
+        }
+
+        .menu-item {
+            color: white;
+            text-decoration: none;
+            padding: 16px 10px;
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            flex: 1 1 0;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .menu-item:last-child {
+            border-right: none;
+        }
+
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-item.active {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .menu-item-wrapper {
+            position: relative;
+            flex: 1 1 0;
+        }
+
+        .menu-item-wrapper .menu-item {
+            flex: none;
+            width: 100%;
+        }
+
+        /* ドロップダウンメニュー */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #3d4f5c;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .menu-item-wrapper:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .dropdown-item.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 16px 12px;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            flex: 0 0 auto;
+        }
+
+        .lang-switch svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
+            flex-shrink: 0;
+        }
+
+        .lang-btn {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 2px 4px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-btn.active {
+            font-weight: 700;
+            cursor: default;
+        }
+
+        .lang-separator {
+            color: white;
+            opacity: 0.5;
+            margin: 0 1px;
+            font-size: 13px;
+        }
+
+        /* ========================================
+           メインコンテンツエリア
+        ======================================== */
+        .main-content {
+            background: white;
+            max-width: 1286px;
+            margin: 0 auto;
+            min-height: 80vh;
+        }
+
+        .content {
+            padding: 40px 20px 60px 20px;
+        }
+
+        /* ========================================
+           ページタイトル
+        ======================================== */
+        .page-title {
+            margin: 0 0 10px 0;
+        }
+
+        .page-title h1 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .title-underline {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 2px;
+            margin-bottom: 40px;
+        }
+
+        /* ========================================
+           タブメニュー
+        ======================================== */
+        .research-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e5e7eb;
+            flex-wrap: wrap;
+            overflow-x: auto;
+        }
+
+        .research-tab {
+            padding: 12px 20px;
+            border: none;
+            background: transparent;
+            color: #6b7280;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            position: relative;
+            bottom: -2px;
+            white-space: nowrap;
+        }
+
+        .research-tab:hover {
+            color: #3b82f6;
+            background: #f3f4f6;
+        }
+
+        .research-tab.active {
+            color: #3b82f6;
+            border-bottom-color: #3b82f6;
+            font-weight: 600;
+        }
+
+        /* ========================================
+           研究コンテンツエリア
+        ======================================== */
+        .research-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+            line-height: 1.6;
+        }
+
+        .research-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(10px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        /* ========================================
+           研究詳細カード
+        ======================================== */
+        .research-detail {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .research-detail h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .research-detail p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #4b5563;
+            margin-bottom: 20px;
+        }
+
+        .research-detail p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ========================================
+           ローディング・エラー表示
+        ======================================== */
+        .loading-message {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6b7280;
+            font-size: 15px;
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 40px 20px;
+            color: #ef4444;
+        }
+
+        .error-message h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .error-details {
+            background: #f3f4f6;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+            max-width: 600px;
+            margin: 20px auto 0;
+            color: #4b5563;
+        }
+
+        .error-details h4 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+
+        .error-details ul {
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+
+        .error-details a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .error-details a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========================================
+           フッター
+        ======================================== */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* ========================================
+           レスポンシブ対応
+        ======================================== */
+        @media (max-width: 768px) {
+            .main-menu {
+                flex-wrap: wrap;
+            }
+
+            .menu-item {
+                flex: 1 1 auto;
+                padding: 12px 16px;
+                font-size: 13px;
+                text-align: center;
+                border-right: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                min-width: 80px;
+            }
+
+            .content {
+                padding: 20px 15px 40px 15px;
+            }
+
+            .page-title h1 {
+                font-size: 24px;
+            }
+
+            .research-tabs {
+                gap: 8px;
+            }
+
+            .research-tab {
+                padding: 10px 16px;
+                font-size: 13px;
+                flex: 1 1 auto;
+                min-width: 100px;
+                text-align: center;
+            }
+
+            .research-detail {
+                padding: 24px;
+            }
+
+            .research-detail h3 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- メニューバー -->
+    <nav>
+        <div class="main-menu">
+            <a href="index.html" class="menu-item">Top</a>
+            <a href="research.html" class="menu-item active">Research</a>
+            <a href="systems.html" class="menu-item">Web Systems</a>
+            <a href="news.html" class="menu-item">News</a>
+            <a href="publications.html" class="menu-item">Publications</a>
+            <a href="conferences.html" class="menu-item">Conferences</a>
+            <a href="people.html" class="menu-item">People</a>
+            <a href="contact.html" class="menu-item">Contact</a>
+            <div class="lang-switch">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/>
+                </svg>
+                <span class="lang-btn active">JP</span>
+                <span class="lang-separator">/</span>
+                <a href="/cbrm/en/about/modeling_group/yukarikatsura/research_en.html" class="lang-btn">EN</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <div class="main-content">
+        <div class="content">
+            <!-- ページタイトル -->
+            <div class="page-title">
+                <h1>Research</h1>
+                <div class="title-underline"></div>
+            </div>
+
+            <!-- タブメニュー（動的生成） -->
+            <div class="research-tabs" id="research-tabs">
+                <!-- JavaScriptで動的に生成されます -->
+            </div>
+
+            <!-- 研究コンテンツエリア（動的生成） -->
+            <div id="research-content-container">
+                <!-- JavaScriptで動的に生成されます -->
+            </div>
+        </div>
+
+        <!-- フッター -->
+        <footer class="footer">
+            <p>&copy; 2025 Yukari Katsura's Research Projects - Materials Informatics</p>
+        </footer>
+    </div>
+
+    <script>
+        // ========================================
+        // 研究データ管理
+        // ========================================
+        
+        // 設定
+        const CONFIG = {
+            jsonUrl: 'https://starrydata.github.io/research.json'
+        };
+
+        // タブ切り替え関数（グローバルスコープに配置）
+        function switchTab(tabId) {
+            console.log('タブ切り替え:', tabId);
+            
+            // 全てのタブを非アクティブに
+            document.querySelectorAll('.research-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // 全てのコンテンツを非アクティブに
+            document.querySelectorAll('.research-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // クリックされたタブをアクティブに
+            const clickedTab = event.target;
+            if (clickedTab) {
+                clickedTab.classList.add('active');
+            }
+
+            // 対応するコンテンツをアクティブに
+            const targetContent = document.getElementById(tabId);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        }
+
+        // タブメニューを動的生成
+        function generateTabs(projects) {
+            const tabsContainer = document.getElementById('research-tabs');
+            if (!tabsContainer || !projects || projects.length === 0) {
+                console.error('タブの生成に失敗しました');
+                return;
+            }
+
+            const tabsHtml = projects.map((project, index) => {
+                const activeClass = index === 0 ? 'active' : '';
+                return `<button class="research-tab ${activeClass}" onclick="switchTab('${project.id}')">${project.title}</button>`;
+            }).join('');
+
+            tabsContainer.innerHTML = tabsHtml;
+            console.log('タブを生成しました:', projects.length + '個');
+        }
+
+        // 研究コンテンツを動的生成
+        function generateContent(projects) {
+            const contentContainer = document.getElementById('research-content-container');
+            if (!contentContainer || !projects || projects.length === 0) {
+                console.error('コンテンツの生成に失敗しました');
+                return;
+            }
+
+            const contentHtml = projects.map((project, index) => {
+                const activeClass = index === 0 ? 'active' : '';
+                const paragraphs = project.content
+                    .map(p => `<p>${p}</p>`)
+                    .join('');
+
+                // 画像がある場合は表示
+                const imageHtml = project.image
+                    ? `<div style="margin-top: 20px; text-align: center;">
+                         <img src="${project.image}" alt="${project.title}" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                       </div>`
+                    : '';
+
+                return `
+                    <div id="${project.id}" class="research-content ${activeClass}">
+                        <div class="research-detail">
+                            <h3>${project.title}</h3>
+                            ${paragraphs}
+                            ${imageHtml}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            contentContainer.innerHTML = contentHtml;
+            console.log('コンテンツを生成しました:', projects.length + '個');
+        }
+
+        // エラー表示
+        function showError(errorMessage) {
+            const contentContainer = document.getElementById('research-content-container');
+
+            const errorHtml = `
+                <div class="error-message">
+                    <h3>❌ 研究データの読み込みに失敗しました</h3>
+                    <p>エラー詳細: ${errorMessage || '不明なエラー'}</p>
+                    <div class="error-details">
+                        <h4>確認事項：</h4>
+                        <ul>
+                            <li>research.json が GitHub にアップロードされているか確認してください</li>
+                            <li>URL: <a href="${CONFIG.jsonUrl}" target="_blank">${CONFIG.jsonUrl}</a></li>
+                            <li>ブラウザのコンソール（F12キー）でエラーメッセージを確認してください</li>
+                            <li>JSONフォーマットが正しいか確認してください</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+
+            if (contentContainer) {
+                contentContainer.innerHTML = errorHtml;
+            }
+        }
+
+        // 研究データを読み込み
+        async function loadResearch() {
+            try {
+                console.log('研究データを読み込み中...', CONFIG.jsonUrl);
+                
+                const response = await fetch(CONFIG.jsonUrl, {
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: 'no-cache'
+                });
+
+                console.log('Response status:', response.status);
+                console.log('Response OK:', response.ok);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                console.log('読み込んだデータ:', data);
+
+                // データの検証
+                if (!data.projects) {
+                    throw new Error('データ形式が正しくありません');
+                }
+
+                // タブとコンテンツを生成
+                generateTabs(data.projects);
+                generateContent(data.projects);
+
+                console.log('✅ 研究データの読み込みが完了しました');
+                return true;
+            } catch (error) {
+                console.error('❌ 研究データの読み込みに失敗しました:', error);
+                console.error('Error details:', error.message);
+                showError(error.message);
+                return false;
+            }
+        }
+
+        // ページ読み込み時に初期化
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('ページ読み込み完了 - 初期化開始');
+            loadResearch();
+        });
+    </script>
+</body>
+</html>
