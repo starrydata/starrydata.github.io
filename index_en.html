@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top - Research Introduction Site</title>
+    <style>
+        /* ========================================
+           基本スタイル
+        ======================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        /* ========================================
+           メニューバー
+        ======================================== */
+        nav {
+            background: #3d4f5c;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-menu {
+            display: flex;
+            justify-content: stretch;
+            gap: 0;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+            max-width: 1286px;
+        }
+
+        .menu-item {
+            color: white;
+            text-decoration: none;
+            padding: 16px 10px;
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            flex: 1 1 0;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .menu-item:last-child {
+            border-right: none;
+        }
+
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-item.active {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .menu-item-wrapper {
+            position: relative;
+            flex: 1 1 0;
+        }
+
+        .menu-item-wrapper .menu-item {
+            flex: none;
+            width: 100%;
+        }
+
+        /* ドロップダウンメニュー */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #3d4f5c;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .menu-item-wrapper:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .dropdown-item.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 16px 12px;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            flex: 0 0 auto;
+        }
+
+        .lang-switch svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
+            flex-shrink: 0;
+        }
+
+        .lang-btn {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 2px 4px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-btn.active {
+            font-weight: 700;
+            cursor: default;
+        }
+
+        .lang-separator {
+            color: white;
+            opacity: 0.5;
+            margin: 0 1px;
+            font-size: 13px;
+        }
+
+        /* ========================================
+           メインコンテンツエリア
+        ======================================== */
+        .main-content {
+            background: white;
+            max-width: 1286px;
+            margin: 0 auto;
+            min-height: 80vh;
+        }
+
+        .content {
+            padding: 20px 20px 60px 20px;
+        }
+
+        /* ========================================
+           ページタイトル
+        ======================================== */
+        .page-title {
+            margin: 0 0 10px 0;
+        }
+
+        .page-title h1 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .title-underline {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 2px;
+            margin-bottom: 16px;
+        }
+
+        /* ========================================
+           セクション
+        ======================================== */
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .section-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .section-link:hover {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+
+        /* ========================================
+           ヒーローセクション
+        ======================================== */
+        .hero-section {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            width: 100%;
+            min-width: 100%;
+            height: 400px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            background: white;
+            padding: 40px;
+            border: 1px solid #e5e7eb;
+            border-top: none;
+        }
+
+        .hero-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .hero-description {
+            font-size: 16px;
+            color: #4b5563;
+            line-height: 1.2;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* ========================================
+           ニュースアイテム
+        ======================================== */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .news-item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 12px 16px;
+            transition: all 0.3s ease;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .news-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+            border-color: #3b82f6;
+        }
+
+        .news-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
+        }
+
+        .news-date {
+            color: #6b7280;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .news-category {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .cat-news {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .cat-publications {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .cat-conferences {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .cat-press {
+            background: #fce7f3;
+            color: #9f1239;
+        }
+
+        .cat-awards {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .news-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c3e50;
+            line-height: 1.2;
+        }
+
+        /* ========================================
+           研究テーマグリッド
+        ======================================== */
+        .research-description {
+            font-size: 15px;
+            line-height: 1.9;
+            color: #4b5563;
+            margin-bottom: 30px;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Web systemグリッド */
+        .systems-grid-top {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .system-card-top {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .system-card-top:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transform: translateY(-4px);
+            border-color: #3b82f6;
+        }
+
+        .system-card-image-top {
+            width: 100%;
+            height: 140px;
+            position: relative;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+
+        .system-card-image-top img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .system-card-image-top img.fit-contain {
+            object-fit: contain;
+        }
+
+        .system-card-content-top {
+            padding: 14px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .system-card-title-top {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .system-card-url-top {
+            font-size: 12px;
+            color: #3b82f6;
+            margin-bottom: 0;
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .research-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .research-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transform: translateY(-4px);
+            border-color: #3b82f6;
+        }
+
+        .research-card-image {
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: 600;
+        }
+
+        .research-card-content {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .research-card-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2c3e50;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* ========================================
+           論文アイテム
+        ======================================== */
+        .publication-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .publication-item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 12px 16px;
+            transition: all 0.3s ease;
+        }
+
+        .publication-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+            border-color: #3b82f6;
+        }
+
+        .publication-type {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .type-journal {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .type-conference {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .publication-year {
+            color: #6b7280;
+            font-size: 12px;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        .publication-authors {
+            color: #6b7280;
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .publication-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2c3e50;
+            line-height: 1.2;
+        }
+
+        .publication-title a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .publication-title a:hover {
+            color: #3b82f6;
+        }
+
+        /* ========================================
+           ローディング
+        ======================================== */
+        .loading {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* ========================================
+           お問い合わせセクション
+        ======================================== */
+        .contact-box {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .contact-description {
+            font-size: 15px;
+            color: #4b5563;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .contact-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .contact-item-icon {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .contact-item-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: #6b7280;
+        }
+
+        .contact-item-content {
+            flex: 1;
+        }
+
+        .contact-item-label {
+            font-size: 13px;
+            color: #6b7280;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .contact-item-text {
+            font-size: 14px;
+            color: #2c3e50;
+            line-height: 1.5;
+        }
+
+        .contact-item-text a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .contact-item-text a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 10px 24px;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .contact-button:hover {
+            background: #2563eb;
+        }
+
+        /* ========================================
+           フッター
+        ======================================== */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* ========================================
+           レスポンシブ対応
+        ======================================== */
+        @media (max-width: 1024px) {
+            .systems-grid-top {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .research-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-image {
+                height: 250px;
+            }
+
+            .hero-content {
+                padding: 24px 20px;
+            }
+
+            .hero-title {
+                font-size: 22px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .main-menu {
+                flex-wrap: wrap;
+            }
+
+            .menu-item {
+                flex: 1 1 auto;
+                padding: 12px 16px;
+                font-size: 13px;
+                text-align: center;
+                border-right: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                min-width: 80px;
+            }
+
+            .content {
+                padding: 20px 15px 40px 15px;
+            }
+
+            .page-title h1 {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .research-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 12px;
+            }
+
+            .news-item {
+                padding: 16px;
+            }
+
+            .news-title {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- メニューバー -->
+    <nav>
+        <div class="main-menu">
+            <a href="index_en.html" class="menu-item active">Top</a>
+            <a href="research_en.html" class="menu-item">Research</a>
+            <a href="systems_en.html" class="menu-item">Web Systems</a>
+            <a href="news_en.html" class="menu-item">News</a>
+            <a href="publications_en.html" class="menu-item">Publications</a>
+            <a href="conferences_en.html" class="menu-item">Conferences</a>
+            <a href="people_en.html" class="menu-item">People</a>
+            <a href="contact_en.html" class="menu-item">Contact</a>
+            <div class="lang-switch">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/>
+                </svg>
+                <a href="/cbrm/about/modeling_group/yukarikatsura/index.html" class="lang-btn">JP</a>
+                <span class="lang-separator">/</span>
+                <span class="lang-btn active">EN</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <div class="main-content">
+        <!-- ヒーローセクション -->
+        <div class="hero-section">
+            <div class="hero-image">
+                <img src="https://starrydata.github.io/images/hero-project.jpg" alt="Materials Informatics Research">
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Materials Informatics Research</h1>
+                <p class="hero-description" id="hero-description">
+                    Loading...
+                </p>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Newsセクション -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">News</h2>
+                    <a href="news_en.html" class="section-link">View all →</a>
+                </div>
+                <div class="title-underline"></div>
+                <div class="news-list" id="news-list">
+                    <p class="loading">Loading news...</p>
+                </div>
+            </section>
+
+            <!-- Publications セクション -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Publications</h2>
+                    <a href="publications_en.html" class="section-link">View all →</a>
+                </div>
+                <div class="title-underline"></div>
+                <div class="publication-list" id="publication-list">
+                    <p class="loading">Loading publications...</p>
+                </div>
+            </section>
+
+            <!-- Conferences セクション -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Conferences</h2>
+                    <a href="conferences_en.html" class="section-link">View all →</a>
+                </div>
+                <div class="title-underline"></div>
+                <div class="publication-list" id="conferences-list">
+                    <p class="loading">Loading conferences...</p>
+                </div>
+            </section>
+
+            <!-- コンタクトセクション -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Contact</h2>
+                    <a href="contact_en.html" class="section-link">View more →</a>
+                </div>
+                <div class="title-underline"></div>
+                <div class="contact-box">
+                    <p class="contact-description">
+                        We actively collaborate with companies, domestic and international research institutions, and accept graduate students (Master's and PhD).
+                    </p>
+                    <div class="contact-info-list">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-item-content">
+                                <div class="contact-item-label">Email</div>
+                                <div class="contact-item-text">
+                                    <a href="mailto:KATSURA.Yukari@nims.go.jp">KATSURA.Yukari@nims.go.jp</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-item-content">
+                                <div class="contact-item-label">Affiliation</div>
+                                <div class="contact-item-text">
+                                    National Institute for Materials Science (NIMS)<br>
+                                    Materials-Based Fundamental Research Center, Materials Modeling Group
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-item-content">
+                                <div class="contact-item-label">Address</div>
+                                <div class="contact-item-text">
+                                    1-1 Namiki, Tsukuba, Ibaraki 305-0044, Japan
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="mailto:KATSURA.Yukari@nims.go.jp" class="contact-button">Contact via Email</a>
+                </div>
+            </section>
+        </div>
+
+        <!-- フッター -->
+        <footer class="footer">
+            <p>&copy; 2025 Yukari Katsura's Research Projects - Materials Informatics</p>
+        </footer>
+    </div>
+
+    <!-- データファイルを読み込み -->
+    <script src="news-data_en.js"></script>
+    <script src="conferences-data_en.js"></script>
+
+    <script>
+        // ========================================
+        // 設定
+        // ========================================
+        const CONFIG = {
+            heroUrl: 'https://starrydata.github.io/hero_en.json',
+            newsUrl: 'https://starrydata.github.io/news_en.json',
+            publicationsUrl: 'https://starrydata.github.io/publications_en.json',
+            conferencesUrl: 'https://starrydata.github.io/conferences_en.json',
+            maxNewsItems: 5,
+            maxPublicationsItems: 5,
+            maxConferencesItems: 5
+        };
+
+        // ========================================
+        // Hero Description
+        // ========================================
+        async function loadHeroDescription() {
+            try {
+                const response = await fetch(CONFIG.heroUrl, {
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: 'no-cache'
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                if (data.description) {
+                    document.getElementById('hero-description').innerHTML = data.description;
+                }
+            } catch (error) {
+                console.error('❌ Failed to load hero description:', error);
+            }
+        }
+
+        // ========================================
+        // ニュース表示
+        // ========================================
+
+        // カテゴリーに応じたクラス名を取得
+        function getCategoryClass(category) {
+            const classes = {
+                'News': 'cat-news',
+                'Publications': 'cat-publications',
+                'Conferences': 'cat-conferences',
+                'Press': 'cat-press',
+                'Awards': 'cat-awards'
+            };
+            return classes[category] || 'cat-news';
+        }
+
+        // ニュースを表示（最新5件）
+        function displayNews(news) {
+            const newsList = document.getElementById('news-list');
+
+            if (!news || news.length === 0) {
+                newsList.innerHTML = '<p class="loading">No news available.</p>';
+                return;
+            }
+
+            // 最新5件のみ取得
+            const latestNews = news.slice(0, CONFIG.maxNewsItems);
+
+            const newsHtml = latestNews.map(item => {
+                const categoryClass = getCategoryClass(item.category);
+                const link = item.link ? `href="${item.link}" target="_blank"` : 'href="news_en.html"';
+
+                return `
+                    <a class="news-item" ${link}>
+                        <div class="news-header">
+                            <span class="news-date">${item.date}</span>
+                            <span class="news-category ${categoryClass}">${item.category}</span>
+                        </div>
+                        <h3 class="news-title">${item.title}</h3>
+                    </a>
+                `;
+            }).join('');
+
+            newsList.innerHTML = newsHtml;
+        }
+
+        // ニュースデータを読み込み
+        async function loadNews() {
+            try {
+                console.log('Loading news...');
+
+                let newsItems = [];
+
+                // リモートのnews_en.jsonを優先的に読み込み
+                try {
+                    const response = await fetch(CONFIG.newsUrl, {
+                        method: 'GET',
+                        mode: 'cors',
+                        cache: 'no-cache'
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data.news && Array.isArray(data.news)) {
+                            newsItems = data.news;
+                            console.log('✅ Remote news_en.json loaded:', newsItems.length, 'items');
+                        }
+                    }
+                } catch (error) {
+                    console.warn('⚠️ Failed to load news.json. Using local data:', error);
+
+                    // フォールバック: ローカルのnews-data_en.jsから読み込み
+                    if (typeof NEWS_DATA !== 'undefined' && NEWS_DATA.news && Array.isArray(NEWS_DATA.news)) {
+                        newsItems = NEWS_DATA.news;
+                        console.log('✅ news-data_en.js loaded:', newsItems.length, 'items');
+                    }
+                }
+
+                // 日付でソート（新しい順）
+                newsItems.sort((a, b) => {
+                    const dateA = a.date || '';
+                    const dateB = b.date || '';
+                    return dateB.localeCompare(dateA);
+                });
+
+                displayNews(newsItems);
+                console.log('✅ News loading completed');
+            } catch (error) {
+                console.error('❌ Failed to load news:', error);
+                document.getElementById('news-list').innerHTML =
+                    '<p class="loading">Failed to load news.</p>';
+            }
+        }
+
+        // ========================================
+        // 論文表示
+        // ========================================
+
+        // タイプに応じたクラス名を取得
+        function getTypeClass(type) {
+            const classes = {
+                'Journal': 'type-journal',
+                'Conference': 'type-conference',
+                'Book': 'type-book'
+            };
+            return classes[type] || 'type-journal';
+        }
+
+        // 論文を表示（最新5件）
+        function displayPublications(publications) {
+            const publicationList = document.getElementById('publication-list');
+
+            if (!publications || publications.length === 0) {
+                publicationList.innerHTML = '<p class="loading">No publications available.</p>';
+                return;
+            }
+
+            // 最新5件のみ取得
+            const latestPubs = publications.slice(0, CONFIG.maxPublicationsItems);
+
+            const pubsHtml = latestPubs.map(pub => {
+                const typeClass = getTypeClass(pub.type);
+                const hasLink = pub.link && pub.link !== '';
+                const titleHtml = hasLink
+                    ? `<a href="${pub.link}" target="_blank">${pub.title}</a>`
+                    : pub.title;
+
+                return `
+                    <div class="publication-item">
+                        <div>
+                            <span class="publication-type ${typeClass}">${pub.type}</span>
+                            <span class="publication-year">${pub.year}</span>
+                        </div>
+                        <div class="publication-authors">${pub.authors}</div>
+                        <div class="publication-title">${titleHtml}</div>
+                    </div>
+                `;
+            }).join('');
+
+            publicationList.innerHTML = pubsHtml;
+        }
+
+        // 論文データを読み込み
+        async function loadPublications() {
+            try {
+                console.log('論文を読み込み中...', CONFIG.publicationsUrl);
+
+                const response = await fetch(CONFIG.publicationsUrl, {
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: 'no-cache'
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                if (!data.publications || !Array.isArray(data.publications)) {
+                    throw new Error('データ形式が正しくありません');
+                }
+
+                displayPublications(data.publications);
+                console.log('✅ 論文の読み込みが完了しました');
+            } catch (error) {
+                console.error('❌ 論文の読み込みに失敗しました:', error);
+                document.getElementById('publication-list').innerHTML =
+                    '<p class="loading">Failed to load publications.</p>';
+            }
+        }
+
+        // ========================================
+        // Conferences（学会発表）表示
+        // ========================================
+
+        // Conferencesを表示（最新5件）
+        function displayConferences(conferences) {
+            const conferencesList = document.getElementById('conferences-list');
+
+            if (!conferences || conferences.length === 0) {
+                conferencesList.innerHTML = '<p class="loading">No conferences available.</p>';
+                return;
+            }
+
+            // 日付でソート（日付ありを優先、新しい順）
+            const sortedConfs = [...conferences].sort((a, b) => {
+                const dateA = a.date || '';
+                const dateB = b.date || '';
+                // 日付なしは後ろに
+                if (!dateA && dateB) return 1;
+                if (dateA && !dateB) return -1;
+                // 新しい順
+                return dateB.localeCompare(dateA);
+            });
+
+            // 最新5件のみ取得
+            const latestConfs = sortedConfs.slice(0, CONFIG.maxConferencesItems);
+
+            const confsHtml = latestConfs.map(conf => {
+                const hasLink = conf.link && conf.link !== '';
+                const titleHtml = hasLink
+                    ? `<a href="${conf.link}" target="_blank">${conf.title}</a>`
+                    : conf.title;
+                const venueHtml = conf.venue ? ` (${conf.venue})` : '';
+                const dateHtml = conf.date || '';
+
+                return `
+                    <div class="publication-item">
+                        <div class="publication-authors">${dateHtml}</div>
+                        <div class="publication-title">${titleHtml}</div>
+                        <div class="publication-authors">${conf.description || ''}${venueHtml}</div>
+                    </div>
+                `;
+            }).join('');
+
+            conferencesList.innerHTML = confsHtml;
+        }
+
+        // Conferencesデータを読み込み
+        async function loadConferences() {
+            try {
+                console.log('Loading conferences...', CONFIG.conferencesUrl);
+
+                const response = await fetch(CONFIG.conferencesUrl, {
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: 'no-cache'
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                if (!data.conferences || !Array.isArray(data.conferences)) {
+                    throw new Error('Invalid data format');
+                }
+
+                displayConferences(data.conferences);
+                console.log('✅ Conferences loading completed');
+            } catch (error) {
+                console.error('❌ Failed to load conferences:', error);
+                document.getElementById('conferences-list').innerHTML =
+                    '<p class="loading">Failed to load conferences.</p>';
+            }
+        }
+
+        // ========================================
+        // ページ読み込み時に初期化
+        // ========================================
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Page loaded - initializing');
+            loadHeroDescription();
+            loadNews();
+            loadPublications();
+            loadConferences();
+        });
+    </script>
+</body>
+</html>
