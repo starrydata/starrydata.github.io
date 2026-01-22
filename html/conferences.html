@@ -398,7 +398,7 @@
                 </svg>
                 <span class="lang-btn active">JP</span>
                 <span class="lang-separator">/</span>
-                <a href="/cbrm/en/about/modeling_group/yukarikatsura/conferences_en.html" class="lang-btn">EN</a>
+                <a href="conferences_en.html" class="lang-btn">EN</a>
             </div>
         </div>
     </nav>
@@ -480,12 +480,11 @@
 
                 const confsHtml = yearConfs.map(conf => {
                     const hasLink = conf.link && conf.link !== '';
-                    const titleHtml = hasLink
-                        ? `<a href="${conf.link}" target="_blank">${conf.title}</a>`
-                        : conf.title;
-
-                    // descriptionを詳細情報として表示
-                    const detailsHtml = conf.description || '';
+                    // 学会名（description）を大きく表示
+                    const conferenceNameHtml = hasLink
+                        ? `<a href="${conf.link}" target="_blank">${conf.description || ''}</a>`
+                        : (conf.description || '');
+                    const venueHtml = conf.venue ? ` (${conf.venue})` : '';
 
                     // 日付を表示
                     const dateHtml = conf.date ? `<div class="publication-authors">${conf.date}</div>` : '';
@@ -493,8 +492,8 @@
                     return `
                         <div class="publication-item">
                             ${dateHtml}
-                            <div class="publication-title">${titleHtml}</div>
-                            <div class="publication-details">${detailsHtml}</div>
+                            <div class="publication-title">${conferenceNameHtml}${venueHtml}</div>
+                            <div class="publication-details">${conf.title}</div>
                         </div>
                     `;
                 }).join('');
@@ -517,8 +516,6 @@
             try {
                 console.log('論文データを読み込み中...');
 
-                let conferences = [];
-
                 // リモートのJSONを読み込み
                 console.log('リモートから学会発表データを読み込みます...');
                 const response = await fetch(CONFIG.jsonUrl, {
@@ -536,9 +533,8 @@
                     throw new Error('データ形式が正しくありません');
                 }
 
-                conferences = data.conferences;
-                console.log('✅ リモートデータ読み込み完了:', conferences.length, '件');
-
+                const conferences = data.conferences;
+                console.log('✅ データ読み込み完了:', conferences.length, '件');
                 displayPublications(conferences);
                 console.log('✅ 論文データの読み込みが完了しました');
             } catch (error) {
