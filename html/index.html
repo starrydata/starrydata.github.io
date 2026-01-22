@@ -884,18 +884,18 @@
     </div>
 
     <!-- データファイルを読み込み -->
-    <script src="news-data.js"></script>
-    <script src="conferences-data.js"></script>
+    <script src="../js/news-data.js"></script>
+    <script src="../js/conferences-data.js"></script>
 
     <script>
         // ========================================
         // 設定
         // ========================================
         const CONFIG = {
-            heroUrl: 'https://starrydata.github.io/hero.json',
-            newsUrl: 'https://starrydata.github.io/news.json',
-            publicationsUrl: 'https://starrydata.github.io/publications.json',
-            conferencesUrl: 'https://starrydata.github.io/conferences.json',
+            heroUrl: 'https://starrydata.github.io/json/hero.json',
+            newsUrl: 'https://starrydata.github.io/json/news.json',
+            publicationsUrl: 'https://starrydata.github.io/json/publications.json',
+            conferencesUrl: 'https://starrydata.github.io/json/conferences.json',
             maxNewsItems: 5,
             maxPublicationsItems: 5,
             maxConferencesItems: 5
@@ -1115,19 +1115,32 @@
                 return;
             }
 
+            // 日付でソート（日付ありを優先、新しい順）
+            const sortedConfs = [...conferences].sort((a, b) => {
+                const dateA = a.date || '';
+                const dateB = b.date || '';
+                // 日付なしは後ろに
+                if (!dateA && dateB) return 1;
+                if (dateA && !dateB) return -1;
+                // 新しい順
+                return dateB.localeCompare(dateA);
+            });
+
             // 最新5件のみ取得
-            const latestConfs = conferences.slice(0, CONFIG.maxConferencesItems);
+            const latestConfs = sortedConfs.slice(0, CONFIG.maxConferencesItems);
 
             const confsHtml = latestConfs.map(conf => {
                 const hasLink = conf.link && conf.link !== '';
                 const conferenceNameHtml = hasLink
                     ? `<a href="${conf.link}" target="_blank">${conf.description || ''}</a>`
                     : (conf.description || '');
+                const venueHtml = conf.venue ? ` (${conf.venue})` : '';
+                const dateHtml = conf.date || '';
 
                 return `
                     <div class="publication-item">
-                        <div class="publication-authors">${conf.date}</div>
-                        <div class="publication-title">${conferenceNameHtml}</div>
+                        <div class="publication-authors">${dateHtml}</div>
+                        <div class="publication-title">${conferenceNameHtml}${venueHtml}</div>
                         <div class="publication-authors">${conf.title}</div>
                     </div>
                 `;
