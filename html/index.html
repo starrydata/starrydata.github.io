@@ -552,6 +552,12 @@
             margin-bottom: 4px;
         }
 
+        .publication-details {
+            color: #6b7280;
+            font-size: 12px;
+            line-height: 1.2;
+        }
+
         .publication-title {
             font-size: 15px;
             font-weight: 600;
@@ -1141,7 +1147,7 @@
                     <div class="publication-item">
                         <div class="publication-authors">${dateHtml}</div>
                         <div class="publication-title">${conferenceNameHtml}${venueHtml}</div>
-                        <div class="publication-authors">${conf.title}</div>
+                        <div class="publication-details">${conf.title}</div>
                     </div>
                 `;
             }).join('');
