@@ -744,6 +744,32 @@
                     twinkleAmp: brightness > 0.5 ? 0.1 + brightness * 0.15 : 0.03,
                     twinkleSpeed: 0.2 + Math.random() * 0.8,
                     phase: Math.random() * Math.PI * 2,
+                    firstMag: false,
+                });
+            }
+
+            // First-magnitude stars: 5-8 bright stars scattered across the sky
+            const firstCount = 5 + Math.floor(Math.random() * 4);
+            const firstColors = [
+                { cr: 180, cg: 195, cb: 255 },  // Rigel-like (blue)
+                { cr: 255, cg: 210, cb: 160 },  // Capella-like (warm yellow)
+                { cr: 200, cg: 215, cb: 255 },  // Sirius-like (blue-white)
+                { cr: 255, cg: 190, cb: 140 },  // Betelgeuse-like (orange)
+                { cr: 235, cg: 240, cb: 255 },  // Vega-like (white)
+            ];
+            for (let i = 0; i < firstCount; i++) {
+                const col = firstColors[Math.floor(Math.random() * firstColors.length)];
+                stars.push({
+                    x: w * 0.05 + Math.random() * w * 0.9,
+                    y: h * 0.02 + Math.random() * h * 0.96,
+                    r: 1.8 + Math.random() * 1.0,
+                    brightness: 1,
+                    cr: col.cr, cg: col.cg, cb: col.cb,
+                    alpha: 0.9 + Math.random() * 0.1,
+                    twinkleAmp: 0.08 + Math.random() * 0.1,
+                    twinkleSpeed: 0.15 + Math.random() * 0.4,
+                    phase: Math.random() * Math.PI * 2,
+                    firstMag: true,
                 });
             }
         }
@@ -757,21 +783,53 @@
                 const t = Math.sin(time * 0.001 * s.twinkleSpeed + s.phase);
                 const alpha = s.alpha * (1 - s.twinkleAmp + t * s.twinkleAmp);
 
-                // Soft glow for brighter stars
-                if (s.brightness > 0.5) {
-                    const gr = s.r * (2 + s.brightness * 3);
-                    const grad = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, gr);
-                    grad.addColorStop(0, `rgba(${s.cr}, ${s.cg}, ${s.cb}, ${alpha * 0.08})`);
-                    grad.addColorStop(1, `rgba(${s.cr}, ${s.cg}, ${s.cb}, 0)`);
-                    ctx.fillStyle = grad;
-                    ctx.fillRect(s.x - gr, s.y - gr, gr * 2, gr * 2);
-                }
+                if (s.firstMag) {
+                    // Wide soft halo
+                    const haloR = s.r * 12;
+                    const halo = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, haloR);
+                    halo.addColorStop(0, `rgba(${s.cr}, ${s.cg}, ${s.cb}, ${alpha * 0.06})`);
+                    halo.addColorStop(0.3, `rgba(${s.cr}, ${s.cg}, ${s.cb}, ${alpha * 0.025})`);
+                    halo.addColorStop(1, `rgba(${s.cr}, ${s.cg}, ${s.cb}, 0)`);
+                    ctx.fillStyle = halo;
+                    ctx.fillRect(s.x - haloR, s.y - haloR, haloR * 2, haloR * 2);
 
-                // Star point
-                ctx.beginPath();
-                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${s.cr}, ${s.cg}, ${s.cb}, ${alpha})`;
-                ctx.fill();
+                    // Inner glow
+                    const glowR = s.r * 5;
+                    const glow = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, glowR);
+                    glow.addColorStop(0, `rgba(${s.cr}, ${s.cg}, ${s.cb}, ${alpha * 0.25})`);
+                    glow.addColorStop(0.5, `rgba(${s.cr}, ${s.cg}, ${s.cb}, ${alpha * 0.06})`);
+                    glow.addColorStop(1, `rgba(${s.cr}, ${s.cg}, ${s.cb}, 0)`);
+                    ctx.fillStyle = glow;
+                    ctx.fillRect(s.x - glowR, s.y - glowR, glowR * 2, glowR * 2);
+
+                    // Bright core
+                    ctx.beginPath();
+                    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${s.cr}, ${s.cg}, ${s.cb}, ${alpha})`;
+                    ctx.fill();
+
+                    // White-hot center
+                    ctx.beginPath();
+                    ctx.arc(s.x, s.y, s.r * 0.4, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.9})`;
+                    ctx.fill();
+                } else {
+                    // Soft glow for brighter normal stars
+                    if (s.brightness > 0.5) {
+                        const gr = s.r * (2 + s.brightness * 3);
+                        const grad = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, gr);
+                        grad.addColorStop(0, `rgba(${s.cr}, ${s.cg}, ${s.cb}, ${alpha * 0.08})`);
+                        grad.addColorStop(1, `rgba(${s.cr}, ${s.cg}, ${s.cb}, 0)`);
+                        ctx.fillStyle = grad;
+                        ctx.fillRect(s.x - gr, s.y - gr, gr * 2, gr * 2);
+                    }
+
+                    // Star point
+                    ctx.beginPath();
+                    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${s.cr}, ${s.cg}, ${s.cb}, ${alpha})`;
+                    ctx.fill();
+                }
             }
 
             requestAnimationFrame(draw);
