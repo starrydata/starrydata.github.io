@@ -1,53 +1,76 @@
 {
-  "papers": 46827,
+  "papers": 14284,
+  "figures": 59345,
   "samples": 90547,
   "curves": 210332,
   "projects": {
-    "AirBatteryMaterials": {
-      "papers": 55,
-      "curves": 1176
+    "ThermoelectricMaterials": {
+      "papers": 9406,
+      "figures": 39449,
+      "samples": 54305,
+      "curves": 153692
     },
     "BatteryMaterials": {
-      "papers": 3110,
+      "papers": 1651,
+      "figures": 12769,
+      "samples": 13728,
       "curves": 31809
     },
-    "CondensedMatter": {
-      "papers": 1345,
-      "curves": 6589
+    "MagneticMaterials": {
+      "papers": 2183,
+      "figures": 4779,
+      "samples": 16153,
+      "curves": 16472
     },
     "GeneralDB": {
-      "papers": 1812,
+      "papers": 292,
+      "figures": 1637,
+      "samples": 2111,
       "curves": 7435
     },
+    "CondensedMatter": {
+      "papers": 797,
+      "figures": 1866,
+      "samples": 4174,
+      "curves": 6589
+    },
+    "LowThermalConductivityMaterials": {
+      "papers": 269,
+      "figures": 830,
+      "samples": 1608,
+      "curves": 3477
+    },
     "HighThermalConductivityMaterials": {
-      "papers": 420,
+      "papers": 349,
+      "figures": 714,
+      "samples": 1725,
       "curves": 2626
     },
     "Hypermaterial": {
-      "papers": 305,
+      "papers": 259,
+      "figures": 760,
+      "samples": 1449,
       "curves": 2376
     },
-    "LowThermalConductivityMaterials": {
-      "papers": 2891,
-      "curves": 3477
-    },
-    "MagneticMaterials": {
-      "papers": 8708,
-      "curves": 16472
-    },
-    "PiezoelectricMaterials": {
-      "papers": 135,
-      "curves": 5
-    },
     "SolidStateBatteryMaterials": {
-      "papers": 157,
+      "papers": 109,
+      "figures": 644,
+      "samples": 967,
       "curves": 2002
     },
-    "ThermoelectricMaterials": {
-      "papers": 29460,
-      "curves": 153692
+    "AirBatteryMaterials": {
+      "papers": 45,
+      "figures": 292,
+      "samples": 529,
+      "curves": 1176
+    },
+    "PiezoelectricMaterials": {
+      "papers": 2,
+      "figures": 3,
+      "samples": 5,
+      "curves": 5
     }
   },
   "dataset_title": "20260301_starrydata2",
-  "updated_at": "2026-03-26T02:33:25.005704+00:00"
+  "updated_at": "2026-03-26T04:16:52.610844+00:00"
 }

@@ -448,16 +448,20 @@
                 </p>
                 <div class="stats-row">
                     <div class="stat-item">
-                        <div class="stat-number" id="count-curves">--</div>
-                        <div class="stat-label">Curves</div>
+                        <div class="stat-number" id="count-papers">--</div>
+                        <div class="stat-label">Papers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="count-figures">--</div>
+                        <div class="stat-label">Figures</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number" id="count-samples">--</div>
                         <div class="stat-label">Samples</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number" id="count-papers">--</div>
-                        <div class="stat-label">Papers</div>
+                        <div class="stat-number" id="count-curves">--</div>
+                        <div class="stat-label">Curves</div>
                     </div>
                 </div>
                 <div class="stat-updated" id="stat-updated"></div>
@@ -473,12 +477,14 @@
                     <tr>
                         <th>Project</th>
                         <th class="num">Papers</th>
+                        <th class="num">Figures</th>
+                        <th class="num">Samples</th>
                         <th class="num">Curves</th>
                         <th class="bar-cell"></th>
                     </tr>
                 </thead>
                 <tbody id="project-tbody">
-                    <tr><td colspan="4" style="color:#64748b; text-align:center; padding:24px;">Loading...</td></tr>
+                    <tr><td colspan="6" style="color:#64748b; text-align:center; padding:24px;">Loading...</td></tr>
                 </tbody>
             </table>
         </div>
@@ -671,7 +677,7 @@
             'PiezoelectricMaterials': 'Piezoelectric Materials',
         };
 
-        function renderProjectTable(projects, totalPapers, totalCurves) {
+        function renderProjectTable(projects, totals) {
             const tbody = document.getElementById('project-tbody');
             const entries = Object.entries(projects).sort((a, b) => b[1].curves - a[1].curves);
             const maxCurves = entries.length ? entries[0][1].curves : 1;
@@ -683,14 +689,18 @@
                 html += `<tr>
                     <td class="project-name">${label}</td>
                     <td class="num">${val.papers.toLocaleString()}</td>
+                    <td class="num">${(val.figures || 0).toLocaleString()}</td>
+                    <td class="num">${(val.samples || 0).toLocaleString()}</td>
                     <td class="num">${val.curves.toLocaleString()}</td>
                     <td class="bar-cell"><div class="bar-bg"><div class="bar-fill" style="width:${pct}%"></div></div></td>
                 </tr>`;
             }
             html += `<tr class="total-row">
                 <td>Total</td>
-                <td class="num">${totalPapers.toLocaleString()}</td>
-                <td class="num">${totalCurves.toLocaleString()}</td>
+                <td class="num">${totals.papers.toLocaleString()}</td>
+                <td class="num">${totals.figures.toLocaleString()}</td>
+                <td class="num">${totals.samples.toLocaleString()}</td>
+                <td class="num">${totals.curves.toLocaleString()}</td>
                 <td></td>
             </tr>`;
             tbody.innerHTML = html;
@@ -699,9 +709,10 @@
         fetch('https://starrydata.github.io/json/counts.json')
             .then(r => r.json())
             .then(data => {
-                animateCount(document.getElementById('count-curves'), data.curves, 1500);
-                animateCount(document.getElementById('count-samples'), data.samples, 1500);
                 animateCount(document.getElementById('count-papers'), data.papers, 1500);
+                animateCount(document.getElementById('count-figures'), data.figures, 1500);
+                animateCount(document.getElementById('count-samples'), data.samples, 1500);
+                animateCount(document.getElementById('count-curves'), data.curves, 1500);
 
                 if (data.dataset_title) {
                     const match = data.dataset_title.match(/(\d{4})(\d{2})(\d{2})/);
@@ -712,15 +723,21 @@
                 }
 
                 if (data.projects) {
-                    renderProjectTable(data.projects, data.papers, data.curves);
+                    renderProjectTable(data.projects, {
+                        papers: data.papers,
+                        figures: data.figures,
+                        samples: data.samples,
+                        curves: data.curves,
+                    });
                 }
             })
             .catch(() => {
-                document.getElementById('count-curves').textContent = '210,332';
+                document.getElementById('count-papers').textContent = '14,284';
+                document.getElementById('count-figures').textContent = '59,345';
                 document.getElementById('count-samples').textContent = '90,547';
-                document.getElementById('count-papers').textContent = '46,827';
+                document.getElementById('count-curves').textContent = '210,332';
                 document.getElementById('project-tbody').innerHTML =
-                    '<tr><td colspan="4" style="color:#64748b;text-align:center;padding:24px;">Could not load data</td></tr>';
+                    '<tr><td colspan="6" style="color:#64748b;text-align:center;padding:24px;">Could not load data</td></tr>';
             });
     </script>
 </body>
