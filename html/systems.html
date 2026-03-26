@@ -647,55 +647,210 @@
         const canvas = document.getElementById('starfield');
         const ctx = canvas.getContext('2d');
         let stars = [];
+        let milkyWayData = null;
+
+        // Star color by spectral type (temperature)
+        const STAR_COLORS = [
+            { r: 155, g: 176, b: 255 },  // O/B - blue-white (hot)
+            { r: 170, g: 191, b: 255 },  // A - white-blue
+            { r: 202, g: 215, b: 255 },  // F - white
+            { r: 248, g: 247, b: 255 },  // G - yellow-white (sun-like)
+            { r: 255, g: 224, b: 178 },  // K - orange
+            { r: 255, g: 189, b: 135 },  // M - red-orange (cool)
+        ];
+
+        // Magnitude distribution: most stars are faint
+        function randomMagnitude() {
+            // Power-law: many dim, few bright
+            const u = Math.random();
+            return Math.pow(u, 3.5); // 0 = brightest, 1 = faintest
+        }
 
         function resize() {
             canvas.width = window.innerWidth;
             canvas.height = document.documentElement.scrollHeight;
         }
 
+        // Milky Way: a luminous band across the canvas
+        function createMilkyWay() {
+            const w = canvas.width, h = canvas.height;
+            const offscreen = document.createElement('canvas');
+            offscreen.width = w;
+            offscreen.height = h;
+            const octx = offscreen.getContext('2d');
+
+            // Main band: diagonal across the page
+            const angle = -25 * Math.PI / 180;
+            const cx = w / 2, cy = h / 2;
+
+            // Multiple passes for a natural cloudy look
+            for (let pass = 0; pass < 3; pass++) {
+                const bandWidth = (pass === 0 ? h * 0.25 : pass === 1 ? h * 0.15 : h * 0.08);
+                const alpha = pass === 0 ? 0.03 : pass === 1 ? 0.04 : 0.06;
+
+                for (let i = 0; i < 800; i++) {
+                    const t = (Math.random() - 0.5) * Math.max(w, h) * 1.8;
+                    const spread = (Math.random() - 0.5) * bandWidth;
+                    // Add noise for irregular edges
+                    const noise = (Math.random() - 0.5) * bandWidth * 0.6;
+
+                    const px = cx + t * Math.cos(angle) - (spread + noise) * Math.sin(angle);
+                    const py = cy + t * Math.sin(angle) + (spread + noise) * Math.cos(angle);
+
+                    const size = Math.random() * bandWidth * 0.3 + 10;
+                    const grad = octx.createRadialGradient(px, py, 0, px, py, size);
+                    const hue = 200 + Math.random() * 40;
+                    grad.addColorStop(0, `hsla(${hue}, 30%, 80%, ${alpha * (0.5 + Math.random() * 0.5)})`);
+                    grad.addColorStop(1, 'hsla(220, 30%, 80%, 0)');
+                    octx.fillStyle = grad;
+                    octx.fillRect(px - size, py - size, size * 2, size * 2);
+                }
+            }
+
+            // Dense star clusters within the milky way
+            for (let i = 0; i < 5000; i++) {
+                const t = (Math.random() - 0.5) * Math.max(w, h) * 1.8;
+                const spread = (Math.random() - 0.5) * h * 0.2;
+                const noise = (Math.random() - 0.5) * h * 0.12;
+                const px = cx + t * Math.cos(angle) - (spread + noise) * Math.sin(angle);
+                const py = cy + t * Math.sin(angle) + (spread + noise) * Math.cos(angle);
+
+                if (px < -10 || px > w + 10 || py < -10 || py > h + 10) continue;
+
+                const mag = Math.pow(Math.random(), 2);
+                const r = 0.2 + mag * 0.6;
+                const a = 0.15 + (1 - mag) * 0.5;
+                octx.beginPath();
+                octx.arc(px, py, r, 0, Math.PI * 2);
+                octx.fillStyle = `rgba(220, 225, 255, ${a})`;
+                octx.fill();
+            }
+
+            milkyWayData = offscreen;
+        }
+
         function createStars() {
             stars = [];
-            const count = Math.floor((canvas.width * canvas.height) / 2000);
+            const w = canvas.width, h = canvas.height;
+            const area = w * h;
+
+            // Background stars: magnitude-based distribution
+            const count = Math.floor(area / 800);
             for (let i = 0; i < count; i++) {
+                const mag = randomMagnitude();
+                const colorIdx = Math.floor(Math.random() * STAR_COLORS.length);
+                // Weighted towards cooler stars (more common)
+                const weightedIdx = Math.min(
+                    STAR_COLORS.length - 1,
+                    Math.floor(Math.pow(Math.random(), 0.6) * STAR_COLORS.length)
+                );
+                const color = STAR_COLORS[weightedIdx];
+
+                // Radius from magnitude: bright stars are larger
+                const brightness = 1 - mag;
+                const r = brightness < 0.02 ? 0.3 + Math.random() * 0.3    // very faint
+                        : brightness < 0.1  ? 0.4 + Math.random() * 0.5
+                        : brightness < 0.3  ? 0.6 + Math.random() * 0.8
+                        : brightness < 0.7  ? 1.0 + Math.random() * 1.0
+                        : 1.5 + Math.random() * 1.5;                       // brightest
+
                 stars.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    r: Math.random() * 1.5 + 0.3,
-                    baseAlpha: Math.random() * 0.6 + 0.4,
-                    speed: Math.random() * 0.8 + 0.2,
-                    phase: Math.random() * Math.PI * 2
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    r,
+                    brightness,
+                    color,
+                    baseAlpha: 0.2 + brightness * 0.8,
+                    // Only bright stars twinkle noticeably
+                    twinkleAmp: brightness > 0.3 ? 0.15 + brightness * 0.2 : 0.05,
+                    twinkleSpeed: 0.3 + Math.random() * 1.2,
+                    phase: Math.random() * Math.PI * 2,
+                    // Diffraction spikes for very bright stars
+                    hasSpikes: brightness > 0.85,
                 });
+            }
+        }
+
+        function drawStar(s, time) {
+            const twinkle = Math.sin(time * 0.001 * s.twinkleSpeed + s.phase);
+            const flicker = 1 - s.twinkleAmp + twinkle * s.twinkleAmp;
+            const alpha = s.baseAlpha * flicker;
+            const { r: cr, g: cg, b: cb } = s.color;
+
+            // Outer glow for bright stars
+            if (s.brightness > 0.15) {
+                const glowR = s.r * (2 + s.brightness * 4);
+                const grad = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, glowR);
+                grad.addColorStop(0, `rgba(${cr}, ${cg}, ${cb}, ${alpha * 0.12})`);
+                grad.addColorStop(0.4, `rgba(${cr}, ${cg}, ${cb}, ${alpha * 0.04})`);
+                grad.addColorStop(1, `rgba(${cr}, ${cg}, ${cb}, 0)`);
+                ctx.fillStyle = grad;
+                ctx.fillRect(s.x - glowR, s.y - glowR, glowR * 2, glowR * 2);
+            }
+
+            // Star core
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${cr}, ${cg}, ${cb}, ${alpha})`;
+            ctx.fill();
+
+            // Bright white center for luminous stars
+            if (s.brightness > 0.4) {
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.r * 0.4, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.8})`;
+                ctx.fill();
+            }
+
+            // Diffraction spikes for the brightest stars
+            if (s.hasSpikes) {
+                const spikeLen = s.r * (4 + s.brightness * 6);
+                const spikeAlpha = alpha * 0.25;
+                ctx.strokeStyle = `rgba(${cr}, ${cg}, ${cb}, ${spikeAlpha})`;
+                ctx.lineWidth = 0.5;
+                ctx.beginPath();
+                ctx.moveTo(s.x - spikeLen, s.y);
+                ctx.lineTo(s.x + spikeLen, s.y);
+                ctx.moveTo(s.x, s.y - spikeLen);
+                ctx.lineTo(s.x, s.y + spikeLen);
+                ctx.stroke();
             }
         }
 
         function draw(time) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (const s of stars) {
-                const twinkle = Math.sin(time * 0.001 * s.speed + s.phase) * 0.3 + 0.7;
-                const alpha = s.baseAlpha * twinkle;
-                ctx.beginPath();
-                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-                ctx.fill();
-                if (s.r > 1.2) {
-                    ctx.beginPath();
-                    ctx.arc(s.x, s.y, s.r * 2.5, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(180, 200, 255, ${alpha * 0.08})`;
-                    ctx.fill();
-                }
+
+            // Draw milky way layer
+            if (milkyWayData) {
+                ctx.drawImage(milkyWayData, 0, 0);
             }
+
+            // Draw all stars
+            for (const s of stars) {
+                drawStar(s, time);
+            }
+
             requestAnimationFrame(draw);
         }
 
         function init() {
             resize();
+            createMilkyWay();
             createStars();
             requestAnimationFrame(draw);
         }
 
-        window.addEventListener('resize', () => { resize(); createStars(); });
+        window.addEventListener('resize', () => {
+            resize();
+            createMilkyWay();
+            createStars();
+        });
         init();
-        new ResizeObserver(() => { resize(); createStars(); }).observe(document.body);
+        new ResizeObserver(() => {
+            resize();
+            createMilkyWay();
+            createStars();
+        }).observe(document.body);
     </script>
 
     <script>
