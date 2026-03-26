@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starrydata - Systems</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif;
+            background: radial-gradient(ellipse at 30% 30%, #0d1b3e 0%, #060e24 40%, #030812 100%);
+            min-height: 100vh;
+            color: #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px 60px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        #starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .header, .container, .footer {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .header-logo {
+            max-width: 400px;
+            width: 80%;
+            height: auto;
+            filter: invert(1) brightness(1);
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #94a3b8;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        /* ======== Main System ======== */
+        .main-system {
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            background: linear-gradient(135deg, #111b33 0%, #1a1040 100%);
+            border: 1px solid rgba(96, 165, 250, 0.25);
+            border-radius: 0;
+            margin-bottom: 48px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .main-system:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 48px rgba(59, 130, 246, 0.3);
+            border-color: rgba(96, 165, 250, 0.5);
+        }
+
+        .main-img-wrap {
+            position: relative;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+
+        .main-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            background: #fff;
+        }
+
+        .main-info {
+            padding: 36px 36px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .main-label {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #60a5fa;
+            background: rgba(96, 165, 250, 0.15);
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+            width: fit-content;
+        }
+
+        .main-info h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .main-info .url {
+            font-size: 14px;
+            color: #93c5fd;
+            margin-bottom: 14px;
+        }
+
+        .main-info .desc {
+            font-size: 15px;
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        /* Stats */
+        .stats-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 80px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 14px 16px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #60a5fa;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+            text-align: center;
+        }
+
+        .stat-updated {
+            font-size: 11px;
+            color: #64748b;
+            margin-top: 10px;
+        }
+
+        .main-visit {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 20px;
+            padding: 10px 22px;
+            background: linear-gradient(135deg, #e04a2b, #c0392b);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            color: white;
+            width: fit-content;
+            transition: all 0.3s ease;
+        }
+
+        .main-system:hover .main-visit {
+            box-shadow: 0 4px 20px rgba(224, 74, 43, 0.4);
+        }
+
+        /* ======== Section Label ======== */
+        .section-label {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #64748b;
+            margin-bottom: 20px;
+            padding-left: 4px;
+        }
+
+        /* ======== Tools Grid (4 columns) ======== */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .tool-card {
+            display: flex;
+            flex-direction: column;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 0;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-3px);
+            background: rgba(30, 41, 59, 1);
+            border-color: rgba(96, 165, 250, 0.35);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .tool-img-wrap {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: #fff;
+            flex-shrink: 0;
+        }
+
+        .tool-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .tool-body {
+            padding: 14px 16px 16px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .tool-card h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 3px;
+            line-height: 1.3;
+        }
+
+        .tool-card .url {
+            font-size: 11px;
+            color: #60a5fa;
+            margin-bottom: 8px;
+        }
+
+        .tool-card .desc {
+            font-size: 12px;
+            color: #94a3b8;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .tool-card .open-link {
+            font-size: 12px;
+            color: #60a5fa;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .tool-card:hover .open-link {
+            color: #93c5fd;
+        }
+
+        /* ======== Project Table ======== */
+        .project-section {
+            margin-top: 48px;
+            margin-bottom: 48px;
+        }
+
+
+        /* ======== Pie Charts ======== */
+        .pie-charts-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 28px;
+        }
+
+        .pie-chart-card {
+            text-align: center;
+        }
+
+        .pie-chart-card h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 12px;
+        }
+
+        .pie-chart-card canvas {
+            max-width: 100%;
+        }
+
+        .pie-legend {
+            margin-top: 12px;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .pie-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+            font-size: 11px;
+            color: #94a3b8;
+        }
+
+        .pie-legend-color {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        /* ======== Project Table ======== */
+        .project-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 32px;
+        }
+
+        .project-table th {
+            text-align: left;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            padding: 10px 16px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+        }
+
+        .project-table th.num {
+            text-align: right;
+        }
+
+        .project-table td {
+            padding: 12px 16px;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.07);
+        }
+
+        .project-table tr:hover td {
+            background: rgba(96, 165, 250, 0.05);
+        }
+
+        .project-name-cell {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+
+        .project-color-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .project-table td.num {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            color: #94a3b8;
+        }
+
+        .project-table tr.total-row td {
+            border-top: 2px solid rgba(96, 165, 250, 0.3);
+            border-bottom: none;
+            font-weight: 700;
+            color: #60a5fa;
+            padding-top: 14px;
+        }
+
+        /* ======== Footer ======== */
+        .footer {
+            margin-top: 56px;
+            text-align: center;
+            font-size: 13px;
+            color: #475569;
+        }
+
+        /* ======== Responsive ======== */
+        @media (max-width: 1024px) {
+            .tools-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .pie-charts-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-system {
+                grid-template-columns: 1fr;
+            }
+
+            .main-img-wrap img {
+                max-height: 250px;
+            }
+
+            .main-info {
+                padding: 24px;
+            }
+
+            .main-info h2 {
+                font-size: 22px;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .stat-number {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 24px 12px 48px;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .stats-row {
+                gap: 10px;
+            }
+
+            .stat-item {
+                min-width: 80px;
+                padding: 10px 8px;
+            }
+
+            .stat-number {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+
+    <div class="header">
+        <img src="../images/Starrydata_goods_logo_wide.png" alt="Starrydata" class="header-logo">
+        <p>Materials science open data platform &amp; tools</p>
+    </div>
+
+    <div class="container">
+        <!-- ===== Main System ===== -->
+        <a href="https://starrydata.nims.go.jp/starrydata2/" target="_blank" class="main-system">
+            <div class="main-img-wrap">
+                <img src="https://starrydata.github.io/images/starrydata2.png" alt="Starrydata2 Web System">
+            </div>
+            <div class="main-info">
+                <div class="main-label">Main System</div>
+                <h2>Starrydata2 Web System</h2>
+                <div class="url">starrydata.nims.go.jp/starrydata2/</div>
+                <p class="desc">
+                    論文中のグラフ画像から材料特性データを収集・構造化した大規模オープンデータベース。世界中の研究者が協力してデータを登録しています。
+                </p>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <div class="stat-number" id="count-papers">--</div>
+                        <div class="stat-label">Papers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="count-figures">--</div>
+                        <div class="stat-label">Figures</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="count-samples">--</div>
+                        <div class="stat-label">Samples</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="count-curves">--</div>
+                        <div class="stat-label">Curves</div>
+                    </div>
+                </div>
+                <div class="stat-updated" id="stat-updated"></div>
+                <div class="main-visit">Open System &#8599;</div>
+            </div>
+        </a>
+
+        <!-- ===== Project Breakdown ===== -->
+        <div class="project-section">
+            <div class="section-label">Data by Project</div>
+            <div class="pie-charts-grid" id="pie-charts">
+                <div style="grid-column:1/-1;text-align:center;color:#64748b;padding:24px;">Loading...</div>
+            </div>
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th class="num">Papers</th>
+                        <th class="num">Figures</th>
+                        <th class="num">Samples</th>
+                        <th class="num">Curves</th>
+                    </tr>
+                </thead>
+                <tbody id="project-tbody">
+                    <tr><td colspan="5" style="color:#64748b; text-align:center; padding:24px;">Loading...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ===== Tools ===== -->
+        <div class="section-label">Applications &amp; Tools</div>
+
+        <div class="tools-grid">
+            <a href="https://visualizer.starrydata.org/" target="_blank" class="tool-card">
+                <div class="tool-img-wrap">
+                    <img src="https://starrydata.github.io/images/visualizer.png" alt="Visualizer">
+                </div>
+                <div class="tool-body">
+                    <h3>Starrydata Visualizer</h3>
+                    <div class="url">visualizer.starrydata.org</div>
+                    <p class="desc">ビッグデータの概要を可視化したグラフを提供。毎日更新。</p>
+                    <div class="open-link">Open &#8599;</div>
+                </div>
+            </a>
+
+            <a href="https://explorer.starrydata.org/" target="_blank" class="tool-card">
+                <div class="tool-img-wrap">
+                    <img src="https://starrydata.github.io/images/sample-explorer.png" alt="Sample Explorer">
+                </div>
+                <div class="tool-body">
+                    <h3>Sample Explorer</h3>
+                    <div class="url">explorer.starrydata.org</div>
+                    <p class="desc">化学組成に基づくデータ検索・フィルタリングとダウンロード。</p>
+                    <div class="open-link">Open &#8599;</div>
+                </div>
+            </a>
+
+            <a href="https://explorer-3d.starrydata.org/" target="_blank" class="tool-card">
+                <div class="tool-img-wrap">
+                    <img src="https://starrydata.github.io/images/explorer-3d.png" alt="Explorer 3D">
+                </div>
+                <div class="tool-body">
+                    <h3>Explorer 3D</h3>
+                    <div class="url">explorer-3d.starrydata.org</div>
+                    <p class="desc">熱電特性の分布を3Dプロットとして閲覧。</p>
+                    <div class="open-link">Open &#8599;</div>
+                </div>
+            </a>
+
+            <a href="https://app.digitizer.starrydata.org/" target="_blank" class="tool-card">
+                <div class="tool-img-wrap">
+                    <img src="https://starrydata.github.io/images/digitizer.png" alt="StarryDigitizer">
+                </div>
+                <div class="tool-body">
+                    <h3>StarryDigitizer</h3>
+                    <div class="url">app.digitizer.starrydata.org</div>
+                    <p class="desc">グラフ画像からデータを抽出・デジタル化。</p>
+                    <div class="open-link">Open &#8599;</div>
+                </div>
+            </a>
+
+            <a href="https://auto-summary.starrydata.org/" target="_blank" class="tool-card">
+                <div class="tool-img-wrap">
+                    <img src="https://starrydata.github.io/images/auto-summary.png" alt="Auto-Summary Viewer">
+                </div>
+                <div class="tool-body">
+                    <h3>Auto-Summary Viewer</h3>
+                    <div class="url">auto-summary.starrydata.org</div>
+                    <p class="desc">データの自動サマリーを閲覧できるビューアー。</p>
+                    <div class="open-link">Open &#8599;</div>
+                </div>
+            </a>
+
+            <a href="https://cssim.starrydata.org/" target="_blank" class="tool-card">
+                <div class="tool-img-wrap">
+                    <img src="https://starrydata.github.io/images/cssim.png" alt="Crystal Structure Simulator">
+                </div>
+                <div class="tool-body">
+                    <h3>Crystal Structure Simulator</h3>
+                    <div class="url">cssim.starrydata.org</div>
+                    <p class="desc">結晶構造のシミュレーションと可視化。</p>
+                    <div class="open-link">Open &#8599;</div>
+                </div>
+            </a>
+
+            <a href="https://erm.starrydata.org/" target="_blank" class="tool-card">
+                <div class="tool-img-wrap">
+                    <img src="https://starrydata.github.io/images/erm.png" alt="Elemental Reactivity Map">
+                </div>
+                <div class="tool-body">
+                    <h3>Elemental Reactivity Map</h3>
+                    <div class="url">erm.starrydata.org</div>
+                    <p class="desc">元素の反応性マップを可視化。</p>
+                    <div class="open-link">Open &#8599;</div>
+                </div>
+            </a>
+
+            <a href="https://dsxrd.starrydata.org/" target="_blank" class="tool-card">
+                <div class="tool-img-wrap">
+                    <img src="https://starrydata.github.io/images/dsxrd.png" alt="Debye-Scherrer XRD Plots">
+                </div>
+                <div class="tool-body">
+                    <h3>Debye-Scherrer XRD Plots</h3>
+                    <div class="url">dsxrd.starrydata.org</div>
+                    <p class="desc">XRDプロットを生成・可視化。</p>
+                    <div class="open-link">Open &#8599;</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 Starrydata Project</p>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+        let bgLayer = null;
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = document.documentElement.scrollHeight;
+        }
+
+        // Static background: nebula haze + milky way glow + tiny dust stars
+        function createBackground() {
+            const w = canvas.width, h = canvas.height;
+            const off = document.createElement('canvas');
+            off.width = w; off.height = h;
+            const c = off.getContext('2d');
+
+            // Soft nebula haze patches (blue/purple atmospheric glow)
+            const hazes = [
+                { x: w * 0.2, y: h * 0.15, rx: w * 0.5, ry: h * 0.35, hue: 215, alpha: 0.035 },
+                { x: w * 0.7, y: h * 0.3, rx: w * 0.4, ry: h * 0.3, hue: 230, alpha: 0.025 },
+                { x: w * 0.4, y: h * 0.6, rx: w * 0.35, ry: h * 0.25, hue: 245, alpha: 0.02 },
+                { x: w * 0.8, y: h * 0.75, rx: w * 0.3, ry: h * 0.2, hue: 210, alpha: 0.02 },
+            ];
+            for (const hz of hazes) {
+                const grad = c.createRadialGradient(hz.x, hz.y, 0, hz.x, hz.y, Math.max(hz.rx, hz.ry));
+                grad.addColorStop(0, `hsla(${hz.hue}, 50%, 60%, ${hz.alpha})`);
+                grad.addColorStop(0.5, `hsla(${hz.hue}, 40%, 40%, ${hz.alpha * 0.4})`);
+                grad.addColorStop(1, 'transparent');
+                c.fillStyle = grad;
+                c.fillRect(0, 0, w, h);
+            }
+
+            // Milky way: very soft diagonal glow
+            const angle = -30 * Math.PI / 180;
+            const cx = w * 0.45, cy = h * 0.4;
+            for (let i = 0; i < 300; i++) {
+                const t = (Math.random() - 0.5) * Math.max(w, h) * 2;
+                const spread = (Math.random() - 0.5) * h * 0.22;
+                const noise = (Math.random() - 0.5) * h * 0.15;
+                const px = cx + t * Math.cos(angle) - (spread + noise) * Math.sin(angle);
+                const py = cy + t * Math.sin(angle) + (spread + noise) * Math.cos(angle);
+                const size = 30 + Math.random() * 80;
+                const grad = c.createRadialGradient(px, py, 0, px, py, size);
+                grad.addColorStop(0, `hsla(${210 + Math.random() * 30}, 30%, 70%, ${0.01 + Math.random() * 0.015})`);
+                grad.addColorStop(1, 'transparent');
+                c.fillStyle = grad;
+                c.fillRect(px - size, py - size, size * 2, size * 2);
+            }
+
+            // Milky way dust stars (tiny, faint)
+            for (let i = 0; i < 800; i++) {
+                const t = (Math.random() - 0.5) * Math.max(w, h) * 2;
+                const spread = (Math.random() - 0.5) * h * 0.18;
+                const noise = (Math.random() - 0.5) * h * 0.1;
+                const px = cx + t * Math.cos(angle) - (spread + noise) * Math.sin(angle);
+                const py = cy + t * Math.sin(angle) + (spread + noise) * Math.cos(angle);
+                if (px < 0 || px > w || py < 0 || py > h) continue;
+                c.beginPath();
+                c.arc(px, py, 0.2 + Math.random() * 0.4, 0, Math.PI * 2);
+                c.fillStyle = `rgba(200, 210, 240, ${0.1 + Math.random() * 0.25})`;
+                c.fill();
+            }
+
+            bgLayer = off;
+        }
+
+        function createStars() {
+            stars = [];
+            const w = canvas.width, h = canvas.height;
+            const count = Math.floor((w * h) / 5000);
+
+            for (let i = 0; i < count; i++) {
+                // Power-law: most stars very faint
+                const mag = Math.pow(Math.random(), 4);
+                const brightness = 1 - mag;
+
+                // Size by brightness
+                let r;
+                if (brightness > 0.9)      r = 1.2 + Math.random() * 0.6;   // rare bright
+                else if (brightness > 0.6)  r = 0.7 + Math.random() * 0.5;
+                else if (brightness > 0.3)  r = 0.4 + Math.random() * 0.3;
+                else                        r = 0.2 + Math.random() * 0.25;  // most stars
+
+                // Color: slight tint, mostly white/blue-white
+                const tint = Math.random();
+                let cr, cg, cb;
+                if (tint < 0.6)       { cr = 200; cg = 210; cb = 240; }  // blue-white
+                else if (tint < 0.8)  { cr = 240; cg = 235; cb = 245; }  // white
+                else if (tint < 0.93) { cr = 245; cg = 225; cb = 190; }  // warm
+                else                  { cr = 180; cg = 195; cb = 255; }  // blue
+
+                stars.push({
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    r, brightness, cr, cg, cb,
+                    alpha: 0.15 + brightness * 0.85,
+                    twinkleAmp: brightness > 0.5 ? 0.1 + brightness * 0.15 : 0.03,
+                    twinkleSpeed: 0.2 + Math.random() * 0.8,
+                    phase: Math.random() * Math.PI * 2,
+                    firstMag: false,
+                });
+            }
+
+            // First-magnitude stars: 5-8 bright stars scattered across the sky
+            const firstCount = 5 + Math.floor(Math.random() * 4);
+            const firstColors = [
+                { cr: 180, cg: 195, cb: 255 },  // Rigel-like (blue)
+                { cr: 255, cg: 210, cb: 160 },  // Capella-like (warm yellow)
+                { cr: 200, cg: 215, cb: 255 },  // Sirius-like (blue-white)
+                { cr: 255, cg: 190, cb: 140 },  // Betelgeuse-like (orange)
+                { cr: 235, cg: 240, cb: 255 },  // Vega-like (white)
+            ];
+            for (let i = 0; i < firstCount; i++) {
+                const col = firstColors[Math.floor(Math.random() * firstColors.length)];
+                stars.push({
+                    x: w * 0.05 + Math.random() * w * 0.9,
+                    y: h * 0.02 + Math.random() * h * 0.96,
+                    r: 1.8 + Math.random() * 1.0,
+                    brightness: 1,
+                    cr: col.cr, cg: col.cg, cb: col.cb,
+                    alpha: 0.9 + Math.random() * 0.1,
+                    twinkleAmp: 0.08 + Math.random() * 0.1,
+                    twinkleSpeed: 0.15 + Math.random() * 0.4,
+                    phase: Math.random() * Math.PI * 2,
+                    firstMag: true,
+                });
+            }
+        }
+
+        function draw(time) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            if (bgLayer) ctx.drawImage(bgLayer, 0, 0);
+
+            for (const s of stars) {
+                const t = Math.sin(time * 0.001 * s.twinkleSpeed + s.phase);
+                const alpha = s.alpha * (1 - s.twinkleAmp + t * s.twinkleAmp);
+
+                if (s.firstMag) {
+                    // Wide soft halo
+                    const haloR = s.r * 12;
+                    const halo = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, haloR);
+                    halo.addColorStop(0, `rgba(${s.cr}, ${s.cg}, ${s.cb}, ${alpha * 0.06})`);
+                    halo.addColorStop(0.3, `rgba(${s.cr}, ${s.cg}, ${s.cb}, ${alpha * 0.025})`);
+                    halo.addColorStop(1, `rgba(${s.cr}, ${s.cg}, ${s.cb}, 0)`);
+                    ctx.fillStyle = halo;
+                    ctx.fillRect(s.x - haloR, s.y - haloR, haloR * 2, haloR * 2);
+
+                    // Inner glow
+                    const glowR = s.r * 5;
+                    const glow = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, glowR);
+                    glow.addColorStop(0, `rgba(${s.cr}, ${s.cg}, ${s.cb}, ${alpha * 0.25})`);
+                    glow.addColorStop(0.5, `rgba(${s.cr}, ${s.cg}, ${s.cb}, ${alpha * 0.06})`);
+                    glow.addColorStop(1, `rgba(${s.cr}, ${s.cg}, ${s.cb}, 0)`);
+                    ctx.fillStyle = glow;
+                    ctx.fillRect(s.x - glowR, s.y - glowR, glowR * 2, glowR * 2);
+
+                    // Bright core
+                    ctx.beginPath();
+                    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${s.cr}, ${s.cg}, ${s.cb}, ${alpha})`;
+                    ctx.fill();
+
+                    // White-hot center
+                    ctx.beginPath();
+                    ctx.arc(s.x, s.y, s.r * 0.4, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.9})`;
+                    ctx.fill();
+                } else {
+                    // Soft glow for brighter normal stars
+                    if (s.brightness > 0.5) {
+                        const gr = s.r * (2 + s.brightness * 3);
+                        const grad = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, gr);
+                        grad.addColorStop(0, `rgba(${s.cr}, ${s.cg}, ${s.cb}, ${alpha * 0.08})`);
+                        grad.addColorStop(1, `rgba(${s.cr}, ${s.cg}, ${s.cb}, 0)`);
+                        ctx.fillStyle = grad;
+                        ctx.fillRect(s.x - gr, s.y - gr, gr * 2, gr * 2);
+                    }
+
+                    // Star point
+                    ctx.beginPath();
+                    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${s.cr}, ${s.cg}, ${s.cb}, ${alpha})`;
+                    ctx.fill();
+                }
+            }
+
+            requestAnimationFrame(draw);
+        }
+
+        function init() {
+            resize();
+            createBackground();
+            createStars();
+            requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('resize', () => { resize(); createBackground(); createStars(); });
+        init();
+        new ResizeObserver(() => { resize(); createBackground(); createStars(); }).observe(document.body);
+    </script>
+
+    <script>
+        // Fetch dataset counts from starrydata.github.io
+        function animateCount(el, target, duration) {
+            const start = performance.now();
+            const update = (now) => {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.floor(target * eased).toLocaleString();
+                if (progress < 1) requestAnimationFrame(update);
+            };
+            requestAnimationFrame(update);
+        }
+
+        const PROJECT_LABELS = {
+            'ThermoelectricMaterials': 'Thermoelectric Materials',
+            'MagneticMaterials': 'Magnetic Materials',
+            'BatteryMaterials': 'Battery Materials',
+            'LowThermalConductivityMaterials': 'Low Thermal Conductivity Materials',
+            'HighThermalConductivityMaterials': 'High Thermal Conductivity Materials',
+            'GeneralDB': 'General DB',
+            'CondensedMatter': 'Condensed Matter',
+            'Hypermaterial': 'Hypermaterial',
+            'SolidStateBatteryMaterials': 'Solid State Battery Materials',
+            'AirBatteryMaterials': 'Air Battery Materials',
+            'PiezoelectricMaterials': 'Piezoelectric Materials',
+        };
+
+        const PIE_COLORS = [
+            '#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981',
+            '#06b6d4', '#f43f5e', '#84cc16', '#a855f7', '#14b8a6', '#6366f1'
+        ];
+
+        function drawPieChart(canvasId, entries, total) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const size = 200;
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = size * dpr;
+            canvas.height = size * dpr;
+            canvas.style.width = size + 'px';
+            canvas.style.height = size + 'px';
+            ctx.scale(dpr, dpr);
+
+            const cx = size / 2, cy = size / 2, r = size / 2 - 4;
+            let startAngle = -Math.PI / 2;
+
+            for (let i = 0; i < entries.length; i++) {
+                const slice = (entries[i].value / total) * Math.PI * 2;
+                ctx.beginPath();
+                ctx.moveTo(cx, cy);
+                ctx.arc(cx, cy, r, startAngle, startAngle + slice);
+                ctx.closePath();
+                ctx.fillStyle = PIE_COLORS[i % PIE_COLORS.length];
+                ctx.fill();
+                startAngle += slice;
+            }
+
+            // Center hole (donut)
+            ctx.beginPath();
+            ctx.arc(cx, cy, r * 0.55, 0, Math.PI * 2);
+            ctx.fillStyle = '#111b33';
+            ctx.fill();
+
+            // Total in center
+            ctx.fillStyle = '#e2e8f0';
+            ctx.font = `bold ${size * 0.11}px -apple-system, sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(total.toLocaleString(), cx, cy);
+        }
+
+        function buildLegend(entries, total) {
+            return entries.map((e, i) => {
+                const pct = ((e.value / total) * 100).toFixed(1);
+                return `<div class="pie-legend-item">
+                    <span class="pie-legend-color" style="background:${PIE_COLORS[i % PIE_COLORS.length]}"></span>
+                    ${e.label} (${pct}%)
+                </div>`;
+            }).join('');
+        }
+
+        function renderProjectTable(projects, totals) {
+            const tbody = document.getElementById('project-tbody');
+            const entries = Object.entries(projects).sort((a, b) => b[1].curves - a[1].curves);
+
+            let html = '';
+            for (let i = 0; i < entries.length; i++) {
+                const [key, val] = entries[i];
+                const label = PROJECT_LABELS[key] || key;
+                const color = PIE_COLORS[i % PIE_COLORS.length];
+                html += `<tr>
+                    <td><div class="project-name-cell"><span class="project-color-dot" style="background:${color}"></span>${label}</div></td>
+                    <td class="num">${val.papers.toLocaleString()}</td>
+                    <td class="num">${(val.figures || 0).toLocaleString()}</td>
+                    <td class="num">${(val.samples || 0).toLocaleString()}</td>
+                    <td class="num">${val.curves.toLocaleString()}</td>
+                </tr>`;
+            }
+            html += `<tr class="total-row">
+                <td>Total</td>
+                <td class="num">${totals.papers.toLocaleString()}</td>
+                <td class="num">${totals.figures.toLocaleString()}</td>
+                <td class="num">${totals.samples.toLocaleString()}</td>
+                <td class="num">${totals.curves.toLocaleString()}</td>
+            </tr>`;
+            tbody.innerHTML = html;
+        }
+
+        function renderPieCharts(projects, totals) {
+            const container = document.getElementById('pie-charts');
+            const entries = Object.entries(projects).sort((a, b) => b[1].curves - a[1].curves);
+
+            const metrics = [
+                { key: 'papers', title: 'Papers', total: totals.papers },
+                { key: 'figures', title: 'Figures', total: totals.figures },
+                { key: 'samples', title: 'Samples', total: totals.samples },
+                { key: 'curves', title: 'Curves', total: totals.curves },
+            ];
+
+            let html = '';
+            for (const m of metrics) {
+                const canvasId = `pie-${m.key}`;
+                html += `<div class="pie-chart-card">
+                    <h4>${m.title}</h4>
+                    <canvas id="${canvasId}"></canvas>
+                    <div class="pie-legend" id="legend-${m.key}"></div>
+                </div>`;
+            }
+            container.innerHTML = html;
+
+            for (const m of metrics) {
+                const data = entries
+                    .map(([k, v]) => ({ label: PROJECT_LABELS[k] || k, value: v[m.key] || 0 }))
+                    .filter(d => d.value > 0);
+                drawPieChart(`pie-${m.key}`, data, m.total);
+                document.getElementById(`legend-${m.key}`).innerHTML = buildLegend(data, m.total);
+            }
+        }
+
+        fetch('https://starrydata.github.io/json/counts.json')
+            .then(r => r.json())
+            .then(data => {
+                animateCount(document.getElementById('count-papers'), data.papers, 1500);
+                animateCount(document.getElementById('count-figures'), data.figures, 1500);
+                animateCount(document.getElementById('count-samples'), data.samples, 1500);
+                animateCount(document.getElementById('count-curves'), data.curves, 1500);
+
+                if (data.dataset_title) {
+                    const match = data.dataset_title.match(/(\d{4})(\d{2})(\d{2})/);
+                    if (match) {
+                        const dateStr = `${match[1]}/${match[2]}/${match[3]}`;
+                        document.getElementById('stat-updated').textContent = `Dataset: ${dateStr} update`;
+                    }
+                }
+
+                if (data.projects) {
+                    const totals = {
+                        papers: data.papers,
+                        figures: data.figures,
+                        samples: data.samples,
+                        curves: data.curves,
+                    };
+                    renderPieCharts(data.projects, totals);
+                    renderProjectTable(data.projects, totals);
+                }
+            })
+            .catch(() => {
+                document.getElementById('count-papers').textContent = '14,284';
+                document.getElementById('count-figures').textContent = '59,345';
+                document.getElementById('count-samples').textContent = '90,547';
+                document.getElementById('count-curves').textContent = '210,332';
+                document.getElementById('pie-charts').innerHTML =
+                    '<div style="grid-column:1/-1;text-align:center;color:#64748b;padding:24px;">Could not load data</div>';
+                document.getElementById('project-tbody').innerHTML =
+                    '<tr><td colspan="5" style="color:#64748b;text-align:center;padding:24px;">Could not load data</td></tr>';
+            });
+    </script>
+</body>
+</html>
