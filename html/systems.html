@@ -291,73 +291,50 @@
             margin-bottom: 48px;
         }
 
-        .project-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+
+        /* ======== Pie Charts ======== */
+        .pie-charts-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 28px;
         }
 
-        .project-table th {
-            text-align: left;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #64748b;
-            padding: 10px 16px;
-            border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+        .pie-chart-card {
+            text-align: center;
         }
 
-        .project-table th.num {
-            text-align: right;
-        }
-
-        .project-table td {
-            padding: 12px 16px;
+        .pie-chart-card h4 {
             font-size: 14px;
-            border-bottom: 1px solid rgba(148, 163, 184, 0.07);
-        }
-
-        .project-table tr:hover td {
-            background: rgba(96, 165, 250, 0.05);
-        }
-
-        .project-name {
+            font-weight: 600;
             color: #e2e8f0;
-            font-weight: 500;
+            margin-bottom: 12px;
         }
 
-        .project-table td.num {
-            text-align: right;
-            font-variant-numeric: tabular-nums;
+        .pie-chart-card canvas {
+            max-width: 100%;
+        }
+
+        .pie-legend {
+            margin-top: 12px;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .pie-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+            font-size: 11px;
             color: #94a3b8;
         }
 
-        .project-table tr.total-row td {
-            border-top: 2px solid rgba(96, 165, 250, 0.3);
-            border-bottom: none;
-            font-weight: 700;
-            color: #60a5fa;
-            padding-top: 14px;
-        }
-
-        .bar-cell {
-            width: 30%;
-        }
-
-        .bar-bg {
-            width: 100%;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            border-radius: 3px;
-            transition: width 1s ease;
+        .pie-legend-color {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            flex-shrink: 0;
         }
 
         /* ======== Footer ======== */
@@ -372,6 +349,12 @@
         @media (max-width: 1024px) {
             .tools-grid {
                 grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .pie-charts-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -474,21 +457,9 @@
         <!-- ===== Project Breakdown ===== -->
         <div class="project-section">
             <div class="section-label">Data by Project</div>
-            <table class="project-table">
-                <thead>
-                    <tr>
-                        <th>Project</th>
-                        <th class="num">Papers</th>
-                        <th class="num">Figures</th>
-                        <th class="num">Samples</th>
-                        <th class="num">Curves</th>
-                        <th class="bar-cell"></th>
-                    </tr>
-                </thead>
-                <tbody id="project-tbody">
-                    <tr><td colspan="6" style="color:#64748b; text-align:center; padding:24px;">Loading...</td></tr>
-                </tbody>
-            </table>
+            <div class="pie-charts-grid" id="pie-charts">
+                <div style="grid-column:1/-1;text-align:center;color:#64748b;padding:24px;">Loading...</div>
+            </div>
         </div>
 
         <!-- ===== Tools ===== -->
@@ -679,33 +650,90 @@
             'PiezoelectricMaterials': 'Piezoelectric Materials',
         };
 
-        function renderProjectTable(projects, totals) {
-            const tbody = document.getElementById('project-tbody');
+        const PIE_COLORS = [
+            '#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981',
+            '#06b6d4', '#f43f5e', '#84cc16', '#a855f7', '#14b8a6', '#6366f1'
+        ];
+
+        function drawPieChart(canvasId, entries, total) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const size = 200;
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = size * dpr;
+            canvas.height = size * dpr;
+            canvas.style.width = size + 'px';
+            canvas.style.height = size + 'px';
+            ctx.scale(dpr, dpr);
+
+            const cx = size / 2, cy = size / 2, r = size / 2 - 4;
+            let startAngle = -Math.PI / 2;
+
+            for (let i = 0; i < entries.length; i++) {
+                const slice = (entries[i].value / total) * Math.PI * 2;
+                ctx.beginPath();
+                ctx.moveTo(cx, cy);
+                ctx.arc(cx, cy, r, startAngle, startAngle + slice);
+                ctx.closePath();
+                ctx.fillStyle = PIE_COLORS[i % PIE_COLORS.length];
+                ctx.fill();
+                startAngle += slice;
+            }
+
+            // Center hole (donut)
+            ctx.beginPath();
+            ctx.arc(cx, cy, r * 0.55, 0, Math.PI * 2);
+            ctx.fillStyle = '#111b33';
+            ctx.fill();
+
+            // Total in center
+            ctx.fillStyle = '#e2e8f0';
+            ctx.font = `bold ${size * 0.11}px -apple-system, sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(total.toLocaleString(), cx, cy);
+        }
+
+        function buildLegend(entries, total) {
+            return entries.map((e, i) => {
+                const pct = ((e.value / total) * 100).toFixed(1);
+                return `<div class="pie-legend-item">
+                    <span class="pie-legend-color" style="background:${PIE_COLORS[i % PIE_COLORS.length]}"></span>
+                    ${e.label} (${pct}%)
+                </div>`;
+            }).join('');
+        }
+
+        function renderPieCharts(projects, totals) {
+            const container = document.getElementById('pie-charts');
             const entries = Object.entries(projects).sort((a, b) => b[1].curves - a[1].curves);
-            const maxCurves = entries.length ? entries[0][1].curves : 1;
+
+            const metrics = [
+                { key: 'papers', title: 'Papers', total: totals.papers },
+                { key: 'figures', title: 'Figures', total: totals.figures },
+                { key: 'samples', title: 'Samples', total: totals.samples },
+                { key: 'curves', title: 'Curves', total: totals.curves },
+            ];
 
             let html = '';
-            for (const [key, val] of entries) {
-                const label = PROJECT_LABELS[key] || key;
-                const pct = (val.curves / maxCurves * 100).toFixed(1);
-                html += `<tr>
-                    <td class="project-name">${label}</td>
-                    <td class="num">${val.papers.toLocaleString()}</td>
-                    <td class="num">${(val.figures || 0).toLocaleString()}</td>
-                    <td class="num">${(val.samples || 0).toLocaleString()}</td>
-                    <td class="num">${val.curves.toLocaleString()}</td>
-                    <td class="bar-cell"><div class="bar-bg"><div class="bar-fill" style="width:${pct}%"></div></div></td>
-                </tr>`;
+            for (const m of metrics) {
+                const canvasId = `pie-${m.key}`;
+                html += `<div class="pie-chart-card">
+                    <h4>${m.title}</h4>
+                    <canvas id="${canvasId}"></canvas>
+                    <div class="pie-legend" id="legend-${m.key}"></div>
+                </div>`;
             }
-            html += `<tr class="total-row">
-                <td>Total</td>
-                <td class="num">${totals.papers.toLocaleString()}</td>
-                <td class="num">${totals.figures.toLocaleString()}</td>
-                <td class="num">${totals.samples.toLocaleString()}</td>
-                <td class="num">${totals.curves.toLocaleString()}</td>
-                <td></td>
-            </tr>`;
-            tbody.innerHTML = html;
+            container.innerHTML = html;
+
+            for (const m of metrics) {
+                const data = entries
+                    .map(([k, v]) => ({ label: PROJECT_LABELS[k] || k, value: v[m.key] || 0 }))
+                    .filter(d => d.value > 0);
+                drawPieChart(`pie-${m.key}`, data, m.total);
+                document.getElementById(`legend-${m.key}`).innerHTML = buildLegend(data, m.total);
+            }
         }
 
         fetch('https://starrydata.github.io/json/counts.json')
@@ -725,7 +753,7 @@
                 }
 
                 if (data.projects) {
-                    renderProjectTable(data.projects, {
+                    renderPieCharts(data.projects, {
                         papers: data.papers,
                         figures: data.figures,
                         samples: data.samples,
@@ -738,8 +766,8 @@
                 document.getElementById('count-figures').textContent = '59,345';
                 document.getElementById('count-samples').textContent = '90,547';
                 document.getElementById('count-curves').textContent = '210,332';
-                document.getElementById('project-tbody').innerHTML =
-                    '<tr><td colspan="6" style="color:#64748b;text-align:center;padding:24px;">Could not load data</td></tr>';
+                document.getElementById('pie-charts').innerHTML =
+                    '<div style="grid-column:1/-1;text-align:center;color:#64748b;padding:24px;">Could not load data</div>';
             });
     </script>
 </body>
