@@ -708,7 +708,7 @@
             }
 
             // Dense star clusters within the milky way
-            for (let i = 0; i < 5000; i++) {
+            for (let i = 0; i < 2000; i++) {
                 const t = (Math.random() - 0.5) * Math.max(w, h) * 1.8;
                 const spread = (Math.random() - 0.5) * h * 0.2;
                 const noise = (Math.random() - 0.5) * h * 0.12;
@@ -735,7 +735,7 @@
             const area = w * h;
 
             // Background stars: magnitude-based distribution
-            const count = Math.floor(area / 800);
+            const count = Math.floor(area / 3000);
             for (let i = 0; i < count; i++) {
                 const mag = randomMagnitude();
                 const colorIdx = Math.floor(Math.random() * STAR_COLORS.length);
