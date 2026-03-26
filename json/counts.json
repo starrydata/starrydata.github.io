@@ -1,7 +1,53 @@
 {
   "papers": 46827,
-  "samples": 129516,
+  "samples": 90547,
   "curves": 210332,
+  "projects": {
+    "AirBatteryMaterials": {
+      "papers": 55,
+      "curves": 1176
+    },
+    "BatteryMaterials": {
+      "papers": 3110,
+      "curves": 31809
+    },
+    "CondensedMatter": {
+      "papers": 1345,
+      "curves": 6589
+    },
+    "GeneralDB": {
+      "papers": 1812,
+      "curves": 7435
+    },
+    "HighThermalConductivityMaterials": {
+      "papers": 420,
+      "curves": 2626
+    },
+    "Hypermaterial": {
+      "papers": 305,
+      "curves": 2376
+    },
+    "LowThermalConductivityMaterials": {
+      "papers": 2891,
+      "curves": 3477
+    },
+    "MagneticMaterials": {
+      "papers": 8708,
+      "curves": 16472
+    },
+    "PiezoelectricMaterials": {
+      "papers": 135,
+      "curves": 5
+    },
+    "SolidStateBatteryMaterials": {
+      "papers": 157,
+      "curves": 2002
+    },
+    "ThermoelectricMaterials": {
+      "papers": 29460,
+      "curves": 153692
+    }
+  },
   "dataset_title": "20260301_starrydata2",
-  "updated_at": "2026-03-26T02:28:00.753947+00:00"
+  "updated_at": "2026-03-26T02:33:25.005704+00:00"
 }

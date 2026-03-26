@@ -1,12 +1,15 @@
 """
 Fetch the latest Starrydata dataset from Figshare and count data entries.
 Outputs json/counts.json for use on starrydata.github.io.
+Includes both total counts and per-project breakdowns.
 """
 
+import csv
 import io
 import json
 import os
 import zipfile
+from collections import Counter
 from datetime import datetime, timezone
 
 import requests
@@ -39,16 +42,30 @@ def get_download_url(article_id):
     raise RuntimeError("No ZIP file found in article")
 
 
-def count_csv_rows(zip_bytes, filename_keyword):
-    """Count data rows (excluding header) in a CSV inside the ZIP."""
+def read_csv_from_zip(zip_bytes, filename_keyword):
+    """Read a CSV file from the ZIP and return rows as list of dicts."""
     with zipfile.ZipFile(io.BytesIO(zip_bytes)) as zf:
         for name in zf.namelist():
             if filename_keyword in name and name.endswith(".csv"):
                 with zf.open(name) as f:
-                    lines = f.read().decode("utf-8", errors="replace").splitlines()
-                    # Subtract 1 for header row
-                    return max(0, len(lines) - 1)
-    return 0
+                    text = f.read().decode("utf-8-sig", errors="replace")
+                    return list(csv.DictReader(io.StringIO(text)))
+    return []
+
+
+def count_by_project(rows):
+    """Count rows per project from project_names column (JSON array strings)."""
+    counter = Counter()
+    for row in rows:
+        raw = row.get("project_names", "").strip()
+        if raw:
+            try:
+                plist = json.loads(raw)
+                for p in plist:
+                    counter[p] += 1
+            except (json.JSONDecodeError, TypeError):
+                counter[raw] += 1
+    return dict(counter.most_common())
 
 
 def main():
@@ -68,28 +85,50 @@ def main():
     zip_bytes = resp.content
     print(f"  Size: {len(zip_bytes) / 1024 / 1024:.1f} MB")
 
-    print("Counting rows...")
-    papers = count_csv_rows(zip_bytes, "papers")
-    samples = count_csv_rows(zip_bytes, "samples")
-    curves = count_csv_rows(zip_bytes, "curves")
+    print("Reading CSVs...")
+    papers_rows = read_csv_from_zip(zip_bytes, "papers")
+    samples_rows = read_csv_from_zip(zip_bytes, "samples")
+    curves_rows = read_csv_from_zip(zip_bytes, "curves")
+
+    print("Counting totals...")
+    total_papers = len(papers_rows)
+    total_samples = len(samples_rows)
+    total_curves = len(curves_rows)
+
+    print("Counting per project...")
+    papers_by_project = count_by_project(papers_rows)
+    curves_by_project = count_by_project(curves_rows)
+
+    # Build per-project summary
+    all_projects = sorted(set(papers_by_project) | set(curves_by_project))
+    projects = {}
+    for p in all_projects:
+        projects[p] = {
+            "papers": papers_by_project.get(p, 0),
+            "curves": curves_by_project.get(p, 0),
+        }
 
     counts = {
-        "papers": papers,
-        "samples": samples,
-        "curves": curves,
+        "papers": total_papers,
+        "samples": total_samples,
+        "curves": total_curves,
+        "projects": projects,
         "dataset_title": title,
         "updated_at": datetime.now(timezone.utc).isoformat(),
     }
 
-    print(f"  Papers:  {papers:,}")
-    print(f"  Samples: {samples:,}")
-    print(f"  Curves:  {curves:,}")
+    print(f"\n  Total Papers:  {total_papers:,}")
+    print(f"  Total Samples: {total_samples:,}")
+    print(f"  Total Curves:  {total_curves:,}")
+    print(f"\n  Projects ({len(projects)}):")
+    for name, data in sorted(projects.items(), key=lambda x: -x[1]["curves"]):
+        print(f"    {name}: {data['papers']:,} papers, {data['curves']:,} curves")
 
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w") as f:
         json.dump(counts, f, indent=2)
 
-    print(f"Written to {OUTPUT_PATH}")
+    print(f"\nWritten to {OUTPUT_PATH}")
 
 
 if __name__ == "__main__":
