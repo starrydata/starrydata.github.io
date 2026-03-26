@@ -65,7 +65,7 @@
         /* ======== Main System ======== */
         .main-system {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 2fr 3fr;
             background: linear-gradient(135deg, #111b33 0%, #1a1040 100%);
             border: 1px solid rgba(96, 165, 250, 0.25);
             border-radius: 0;
@@ -139,13 +139,13 @@
         /* Stats */
         .stats-row {
             display: flex;
-            gap: 20px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .stat-item {
             flex: 1;
-            min-width: 100px;
+            min-width: 80px;
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 10px;
@@ -158,6 +158,7 @@
             font-weight: 700;
             color: #60a5fa;
             line-height: 1.2;
+            text-align: center;
         }
 
         .stat-label {
@@ -166,6 +167,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-top: 4px;
+            text-align: center;
         }
 
         .stat-updated {
