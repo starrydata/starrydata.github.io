@@ -64,8 +64,7 @@
 
         /* ======== Main System ======== */
         .main-system {
-            display: grid;
-            grid-template-columns: 2fr 3fr;
+            display: block;
             background: linear-gradient(135deg, #111b33 0%, #1a1040 100%);
             border: 1px solid rgba(96, 165, 250, 0.25);
             border-radius: 0;
@@ -85,15 +84,11 @@
         .main-img-wrap {
             position: relative;
             overflow: hidden;
-            background: #f0f0f0;
         }
 
         .main-img-wrap img {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
             display: block;
-            background: #fff;
         }
 
         .main-info {
@@ -315,27 +310,6 @@
             max-width: 100%;
         }
 
-        .pie-legend {
-            margin-top: 12px;
-            text-align: left;
-            display: inline-block;
-        }
-
-        .pie-legend-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 4px;
-            font-size: 11px;
-            color: #94a3b8;
-        }
-
-        .pie-legend-color {
-            width: 10px;
-            height: 10px;
-            border-radius: 2px;
-            flex-shrink: 0;
-        }
 
         /* ======== Project Table ======== */
         .project-table {
@@ -420,14 +394,6 @@
         }
 
         @media (max-width: 768px) {
-            .main-system {
-                grid-template-columns: 1fr;
-            }
-
-            .main-img-wrap img {
-                max-height: 250px;
-            }
-
             .main-info {
                 padding: 24px;
             }
@@ -919,16 +885,6 @@
             ctx.fillText(total.toLocaleString(), cx, cy);
         }
 
-        function buildLegend(entries, total) {
-            return entries.map((e, i) => {
-                const pct = ((e.value / total) * 100).toFixed(1);
-                return `<div class="pie-legend-item">
-                    <span class="pie-legend-color" style="background:${PIE_COLORS[i % PIE_COLORS.length]}"></span>
-                    ${e.label} (${pct}%)
-                </div>`;
-            }).join('');
-        }
-
         function renderProjectTable(projects, totals) {
             const tbody = document.getElementById('project-tbody');
             const entries = Object.entries(projects).sort((a, b) => b[1].curves - a[1].curves);
@@ -973,7 +929,6 @@
                 html += `<div class="pie-chart-card">
                     <h4>${m.title}</h4>
                     <canvas id="${canvasId}"></canvas>
-                    <div class="pie-legend" id="legend-${m.key}"></div>
                 </div>`;
             }
             container.innerHTML = html;
@@ -983,7 +938,6 @@
                     .map(([k, v]) => ({ label: PROJECT_LABELS[k] || k, value: v[m.key] || 0 }))
                     .filter(d => d.value > 0);
                 drawPieChart(`pie-${m.key}`, data, m.total);
-                document.getElementById(`legend-${m.key}`).innerHTML = buildLegend(data, m.total);
             }
         }
 
