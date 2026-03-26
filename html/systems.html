@@ -337,6 +337,67 @@
             flex-shrink: 0;
         }
 
+        /* ======== Project Table ======== */
+        .project-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 32px;
+        }
+
+        .project-table th {
+            text-align: left;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            padding: 10px 16px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+        }
+
+        .project-table th.num {
+            text-align: right;
+        }
+
+        .project-table td {
+            padding: 12px 16px;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.07);
+        }
+
+        .project-table tr:hover td {
+            background: rgba(96, 165, 250, 0.05);
+        }
+
+        .project-name-cell {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+
+        .project-color-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .project-table td.num {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            color: #94a3b8;
+        }
+
+        .project-table tr.total-row td {
+            border-top: 2px solid rgba(96, 165, 250, 0.3);
+            border-bottom: none;
+            font-weight: 700;
+            color: #60a5fa;
+            padding-top: 14px;
+        }
+
         /* ======== Footer ======== */
         .footer {
             margin-top: 56px;
@@ -460,6 +521,20 @@
             <div class="pie-charts-grid" id="pie-charts">
                 <div style="grid-column:1/-1;text-align:center;color:#64748b;padding:24px;">Loading...</div>
             </div>
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th class="num">Papers</th>
+                        <th class="num">Figures</th>
+                        <th class="num">Samples</th>
+                        <th class="num">Curves</th>
+                    </tr>
+                </thead>
+                <tbody id="project-tbody">
+                    <tr><td colspan="5" style="color:#64748b; text-align:center; padding:24px;">Loading...</td></tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- ===== Tools ===== -->
@@ -705,6 +780,33 @@
             }).join('');
         }
 
+        function renderProjectTable(projects, totals) {
+            const tbody = document.getElementById('project-tbody');
+            const entries = Object.entries(projects).sort((a, b) => b[1].curves - a[1].curves);
+
+            let html = '';
+            for (let i = 0; i < entries.length; i++) {
+                const [key, val] = entries[i];
+                const label = PROJECT_LABELS[key] || key;
+                const color = PIE_COLORS[i % PIE_COLORS.length];
+                html += `<tr>
+                    <td><div class="project-name-cell"><span class="project-color-dot" style="background:${color}"></span>${label}</div></td>
+                    <td class="num">${val.papers.toLocaleString()}</td>
+                    <td class="num">${(val.figures || 0).toLocaleString()}</td>
+                    <td class="num">${(val.samples || 0).toLocaleString()}</td>
+                    <td class="num">${val.curves.toLocaleString()}</td>
+                </tr>`;
+            }
+            html += `<tr class="total-row">
+                <td>Total</td>
+                <td class="num">${totals.papers.toLocaleString()}</td>
+                <td class="num">${totals.figures.toLocaleString()}</td>
+                <td class="num">${totals.samples.toLocaleString()}</td>
+                <td class="num">${totals.curves.toLocaleString()}</td>
+            </tr>`;
+            tbody.innerHTML = html;
+        }
+
         function renderPieCharts(projects, totals) {
             const container = document.getElementById('pie-charts');
             const entries = Object.entries(projects).sort((a, b) => b[1].curves - a[1].curves);
@@ -753,12 +855,14 @@
                 }
 
                 if (data.projects) {
-                    renderPieCharts(data.projects, {
+                    const totals = {
                         papers: data.papers,
                         figures: data.figures,
                         samples: data.samples,
                         curves: data.curves,
-                    });
+                    };
+                    renderPieCharts(data.projects, totals);
+                    renderProjectTable(data.projects, totals);
                 }
             })
             .catch(() => {
@@ -768,6 +872,8 @@
                 document.getElementById('count-curves').textContent = '210,332';
                 document.getElementById('pie-charts').innerHTML =
                     '<div style="grid-column:1/-1;text-align:center;color:#64748b;padding:24px;">Could not load data</div>';
+                document.getElementById('project-tbody').innerHTML =
+                    '<tr><td colspan="5" style="color:#64748b;text-align:center;padding:24px;">Could not load data</td></tr>';
             });
     </script>
 </body>
