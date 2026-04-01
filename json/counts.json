@@ -1,56 +1,62 @@
 {
-  "papers": 14284,
-  "figures": 59345,
-  "samples": 90547,
-  "curves": 210332,
+  "papers": 15138,
+  "figures": 59858,
+  "samples": 95242,
+  "curves": 216569,
   "projects": {
     "ThermoelectricMaterials": {
-      "papers": 9406,
-      "figures": 39449,
-      "samples": 54305,
-      "curves": 153692
+      "papers": 9464,
+      "figures": 39674,
+      "samples": 54521,
+      "curves": 155408
     },
     "BatteryMaterials": {
-      "papers": 1651,
-      "figures": 12769,
-      "samples": 13728,
-      "curves": 31809
+      "papers": 1687,
+      "figures": 12983,
+      "samples": 14067,
+      "curves": 32541
     },
     "MagneticMaterials": {
-      "papers": 2183,
-      "figures": 4779,
-      "samples": 16153,
-      "curves": 16472
+      "papers": 2216,
+      "figures": 4853,
+      "samples": 16354,
+      "curves": 16684
     },
     "GeneralDB": {
-      "papers": 292,
-      "figures": 1637,
-      "samples": 2111,
-      "curves": 7435
+      "papers": 294,
+      "figures": 1656,
+      "samples": 2133,
+      "curves": 7506
     },
     "CondensedMatter": {
-      "papers": 797,
-      "figures": 1866,
-      "samples": 4174,
-      "curves": 6589
+      "papers": 808,
+      "figures": 1928,
+      "samples": 4368,
+      "curves": 6787
+    },
+    "Resistor": {
+      "papers": 784,
+      "figures": 1329,
+      "samples": 3766,
+      "curves": 4587
     },
     "LowThermalConductivityMaterials": {
-      "papers": 269,
-      "figures": 830,
-      "samples": 1608,
-      "curves": 3477
+      "papers": 272,
+      "figures": 838,
+      "samples": 1646,
+      "curves": 3515
     },
     "HighThermalConductivityMaterials": {
       "papers": 349,
-      "figures": 714,
-      "samples": 1725,
-      "curves": 2626
+      "figures": 716,
+      "samples": 1730,
+      "curves": 2631
     },
     "Hypermaterial": {
-      "papers": 259,
-      "figures": 760,
-      "samples": 1449,
-      "curves": 2376
+      "papers": 272,
+      "figures": 820,
+      "samples": 1525,
+      "curves": 2591
     },
     "SolidStateBatteryMaterials": {
       "papers": 109,
@@ -58,19 +64,25 @@
       "samples": 967,
       "curves": 2002
     },
+    "PiezoelectricMaterials": {
+      "papers": 80,
+      "figures": 264,
+      "samples": 542,
+      "curves": 1536
+    },
     "AirBatteryMaterials": {
       "papers": 45,
       "figures": 292,
       "samples": 529,
       "curves": 1176
     },
-    "PiezoelectricMaterials": {
-      "papers": 2,
-      "figures": 3,
-      "samples": 5,
-      "curves": 5
+    "DielectricMaterials": {
+      "papers": 34,
+      "figures": 81,
+      "samples": 184,
+      "curves": 230
     }
   },
-  "dataset_title": "20260301_starrydata2",
-  "updated_at": "2026-03-26T04:16:52.610844+00:00"
+  "dataset_title": "20260401_starrydata2",
+  "updated_at": "2026-04-01T07:10:33.813600+00:00"
 }
