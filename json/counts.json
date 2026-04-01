@@ -1,8 +1,8 @@
 {
-  "papers": 15138,
-  "figures": 59858,
-  "samples": 95242,
-  "curves": 216569,
+  "papers": 15139,
+  "figures": 59859,
+  "samples": 95248,
+  "curves": 216575,
   "projects": {
     "ThermoelectricMaterials": {
       "papers": 9464,
@@ -17,10 +17,10 @@
       "curves": 32541
     },
     "MagneticMaterials": {
-      "papers": 2216,
-      "figures": 4853,
-      "samples": 16354,
-      "curves": 16684
+      "papers": 2217,
+      "figures": 4854,
+      "samples": 16360,
+      "curves": 16690
     },
     "GeneralDB": {
       "papers": 294,
@@ -83,6 +83,6 @@
       "curves": 230
     }
   },
-  "dataset_title": "20260401_starrydata2",
-  "updated_at": "2026-04-01T08:13:04.334474+00:00"
+  "dataset_title": "20260402_starrydata2",
+  "updated_at": "2026-04-01T21:42:12.852942+00:00"
 }
