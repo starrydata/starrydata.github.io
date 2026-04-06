@@ -1,26 +1,32 @@
 {
-  "papers": 15141,
-  "figures": 59876,
-  "samples": 95274,
-  "curves": 216621,
+  "papers": 17316,
+  "figures": 59979,
+  "samples": 104762,
+  "curves": 232955,
   "projects": {
     "ThermoelectricMaterials": {
-      "papers": 9464,
+      "papers": 9465,
       "figures": 39674,
       "samples": 54521,
-      "curves": 155408
+      "curves": 155425
     },
     "BatteryMaterials": {
-      "papers": 1688,
-      "figures": 12999,
-      "samples": 14083,
-      "curves": 32577
+      "papers": 1689,
+      "figures": 13004,
+      "samples": 14087,
+      "curves": 32586
     },
     "MagneticMaterials": {
-      "papers": 2218,
-      "figures": 4855,
-      "samples": 16370,
-      "curves": 16700
+      "papers": 2223,
+      "figures": 4872,
+      "samples": 16414,
+      "curves": 16766
+    },
+    "DielectricMaterials": {
+      "papers": 2208,
+      "figures": 4599,
+      "samples": 9833,
+      "curves": 16555
     },
     "GeneralDB": {
       "papers": 294,
@@ -30,21 +36,21 @@
     },
     "CondensedMatter": {
       "papers": 808,
-      "figures": 1928,
-      "samples": 4368,
-      "curves": 6787
+      "figures": 1943,
+      "samples": 4409,
+      "curves": 6848
     },
     "Resistor": {
-      "papers": 784,
-      "figures": 1329,
-      "samples": 3766,
-      "curves": 4587
+      "papers": 785,
+      "figures": 1333,
+      "samples": 3771,
+      "curves": 4597
     },
     "LowThermalConductivityMaterials": {
-      "papers": 272,
-      "figures": 838,
-      "samples": 1646,
-      "curves": 3515
+      "papers": 273,
+      "figures": 839,
+      "samples": 1649,
+      "curves": 3518
     },
     "HighThermalConductivityMaterials": {
       "papers": 349,
@@ -65,24 +71,18 @@
       "curves": 2002
     },
     "PiezoelectricMaterials": {
-      "papers": 80,
-      "figures": 264,
-      "samples": 542,
-      "curves": 1536
+      "papers": 102,
+      "figures": 320,
+      "samples": 674,
+      "curves": 1772
     },
     "AirBatteryMaterials": {
       "papers": 45,
       "figures": 292,
       "samples": 529,
       "curves": 1176
-    },
-    "DielectricMaterials": {
-      "papers": 34,
-      "figures": 81,
-      "samples": 184,
-      "curves": 230
     }
   },
   "dataset_title": "20260406_starrydata2",
-  "updated_at": "2026-04-06T05:41:00.892582+00:00"
+  "updated_at": "2026-04-06T09:16:34.491829+00:00"
 }
