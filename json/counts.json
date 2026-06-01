@@ -1,14 +1,14 @@
 {
-  "papers": 17326,
-  "figures": 60025,
-  "samples": 104823,
-  "curves": 233061,
+  "papers": 17331,
+  "figures": 60042,
+  "samples": 104853,
+  "curves": 233114,
   "projects": {
     "ThermoelectricMaterials": {
-      "papers": 9474,
-      "figures": 39718,
-      "samples": 54572,
-      "curves": 155529
+      "papers": 9477,
+      "figures": 39732,
+      "samples": 54590,
+      "curves": 155560
     },
     "BatteryMaterials": {
       "papers": 1689,
@@ -17,10 +17,10 @@
       "curves": 32586
     },
     "MagneticMaterials": {
-      "papers": 2224,
-      "figures": 4874,
-      "samples": 16415,
-      "curves": 16768
+      "papers": 2226,
+      "figures": 4877,
+      "samples": 16427,
+      "curves": 16790
     },
     "DielectricMaterials": {
       "papers": 2208,
@@ -83,6 +83,6 @@
       "curves": 1176
     }
   },
-  "dataset_title": "20260501_starrydata2",
-  "updated_at": "2026-05-01T21:53:41.103572+00:00"
+  "dataset_title": "20260601_starrydata2",
+  "updated_at": "2026-06-01T23:02:05.111661+00:00"
 }
