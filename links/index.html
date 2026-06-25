@@ -962,9 +962,23 @@
             ctx.fillText(total.toLocaleString(), cx, cy);
         }
 
+        // Sort by curves desc, but keep Battery* projects adjacent
+        // (anchored to the largest battery's natural rank).
+        function sortedProjectEntries(projects) {
+            const entries = Object.entries(projects);
+            const isBattery = (n) => /Battery/.test(n);
+            const batCurves = entries.filter(([n]) => isBattery(n)).map(([, v]) => v.curves || 0);
+            const anchor = batCurves.length ? Math.max(...batCurves) : -Infinity;
+            const keyOf = ([name, val]) => isBattery(name) ? anchor : (val.curves || 0);
+            return entries.sort((a, b) => {
+                const d = keyOf(b) - keyOf(a);
+                return d !== 0 ? d : (b[1].curves || 0) - (a[1].curves || 0);
+            });
+        }
+
         function renderProjectTable(projects, totals) {
             const tbody = document.getElementById('project-tbody');
-            const entries = Object.entries(projects).sort((a, b) => b[1].curves - a[1].curves);
+            const entries = sortedProjectEntries(projects);
 
             let html = '';
             for (let i = 0; i < entries.length; i++) {
@@ -991,7 +1005,7 @@
 
         function renderPieCharts(projects, totals) {
             const container = document.getElementById('pie-charts');
-            const entries = Object.entries(projects).sort((a, b) => b[1].curves - a[1].curves);
+            const entries = sortedProjectEntries(projects);
 
             const metrics = [
                 { key: 'papers', title: 'Papers', total: totals.papers },
