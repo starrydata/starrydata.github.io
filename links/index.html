@@ -186,23 +186,40 @@
             margin-top: 10px;
         }
 
+        .main-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
         .main-visit {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            margin-top: 20px;
             padding: 10px 22px;
             background: linear-gradient(135deg, #e04a2b, #c0392b);
             border-radius: 8px;
             font-weight: 600;
             font-size: 14px;
             color: white;
-            width: fit-content;
+            text-decoration: none;
             transition: all 0.3s ease;
         }
-
-        .main-system:hover .main-visit {
+        .main-visit:hover {
             box-shadow: 0 4px 20px rgba(224, 74, 43, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .main-visit-alt {
+            background: linear-gradient(135deg, #3b82f6, #6366f1);
+        }
+        .main-visit-alt:hover {
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+        }
+        .main-visit-alt svg {
+            width: 14px;
+            height: 14px;
         }
 
         /* ======== Section Label ======== */
@@ -300,42 +317,6 @@
             margin-top: 48px;
             margin-bottom: 48px;
         }
-
-        .project-section-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        .project-section-header .section-label {
-            margin-bottom: 0;
-        }
-
-        .datasets-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 18px;
-            background: linear-gradient(135deg, #3b82f6, #6366f1);
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 13px;
-            color: #fff;
-            text-decoration: none;
-            transition: all 0.25s ease;
-            white-space: nowrap;
-        }
-        .datasets-cta:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
-        }
-        .datasets-cta svg {
-            width: 14px;
-            height: 14px;
-        }
-
 
         /* ======== Pie Charts ======== */
         .pie-charts-grid {
@@ -556,7 +537,7 @@
 
     <div class="container">
         <!-- ===== Main System ===== -->
-        <a href="https://starrydata.nims.go.jp/starrydata2/" target="_blank" class="main-system">
+        <div class="main-system">
             <div class="main-img-wrap">
                 <img src="https://starrydata.github.io/links/images/pc_plot_3.jpg" alt="Starrydata2 Web System">
             </div>
@@ -586,19 +567,19 @@
                     </div>
                 </div>
                 <div class="stat-updated" id="stat-updated"></div>
-                <div class="main-visit">Open System &#8599;</div>
+                <div class="main-actions">
+                    <a href="https://starrydata.nims.go.jp/starrydata2/" target="_blank" rel="noopener" class="main-visit">Open System &#8599;</a>
+                    <a href="https://atsumitanaka.github.io/starrydata-datasets/" target="_blank" rel="noopener" class="main-visit main-visit-alt">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download Datasets
+                    </a>
+                </div>
             </div>
-        </a>
+        </div>
 
         <!-- ===== Project Breakdown ===== -->
         <div class="project-section">
-            <div class="project-section-header">
-                <div class="section-label">Data by Project</div>
-                <a href="https://atsumitanaka.github.io/starrydata-datasets/" target="_blank" rel="noopener" class="datasets-cta">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Download Datasets
-                </a>
-            </div>
+            <div class="section-label">Data by Project</div>
             <div class="pie-charts-grid" id="pie-charts">
                 <div style="grid-column:1/-1;text-align:center;color:#64748b;padding:24px;">Loading...</div>
             </div>
