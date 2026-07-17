@@ -925,19 +925,10 @@
             requestAnimationFrame(update);
         }
 
-        const PROJECT_LABELS = {
-            'ThermoelectricMaterials': 'Thermoelectric Materials',
-            'MagneticMaterials': 'Magnetic Materials',
-            'BatteryMaterials': 'Battery Materials',
-            'LowThermalConductivityMaterials': 'Low Thermal Conductivity Materials',
-            'HighThermalConductivityMaterials': 'High Thermal Conductivity Materials',
-            'GeneralDB': 'General DB',
-            'CondensedMatter': 'Condensed Matter',
-            'Hypermaterial': 'Hypermaterial',
-            'SolidStateBatteryMaterials': 'Solid State Battery Materials',
-            'AirBatteryMaterials': 'Air Battery Materials',
-            'PiezoelectricMaterials': 'Piezoelectric Materials',
-        };
+        // PascalCase → "Words". "GeneralDB" → "General DB", "OrganicThermoelectricMaterials"
+        // → "Organic Thermoelectric Materials". Kept as a function so a project newly
+        // added to the DB shows up without a code change.
+        const prettyProjectName = (name) => name.replace(/([a-z])([A-Z])/g, '$1 $2');
 
         const PIE_COLORS = [
             '#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981',
@@ -1006,7 +997,7 @@
             let html = '';
             for (let i = 0; i < entries.length; i++) {
                 const [key, val] = entries[i];
-                const label = PROJECT_LABELS[key] || key;
+                const label = prettyProjectName(key);
                 const color = PIE_COLORS[i % PIE_COLORS.length];
                 html += `<tr>
                     <td><div class="project-name-cell"><span class="project-color-dot" style="background:${color}"></span>${label}</div></td>
@@ -1055,38 +1046,42 @@
             }
         }
 
-        fetch('https://starrydata.github.io/json/counts.json')
+        // Source of truth: the daily-refreshed manifest published by starrydata_datasets.
+        // Same origin (starrydata.github.io), so no CORS. This is the same file that
+        // https://starrydata.github.io/starrydata_datasets/ renders from — one manifest,
+        // one number, always in sync with Google Drive.
+        fetch('/starrydata_datasets/manifest.json')
             .then(r => r.json())
-            .then(data => {
-                animateCount(document.getElementById('count-papers'), data.papers, 1500);
-                animateCount(document.getElementById('count-figures'), data.figures, 1500);
-                animateCount(document.getElementById('count-samples'), data.samples, 1500);
-                animateCount(document.getElementById('count-curves'), data.curves, 1500);
+            .then(manifest => {
+                const totals = manifest.totals || {};
+                animateCount(document.getElementById('count-papers'), totals.papers || 0, 1500);
+                animateCount(document.getElementById('count-figures'), totals.figures || 0, 1500);
+                animateCount(document.getElementById('count-samples'), totals.samples || 0, 1500);
+                animateCount(document.getElementById('count-curves'), totals.curves || 0, 1500);
 
-                if (data.dataset_title) {
-                    const match = data.dataset_title.match(/(\d{4})(\d{2})(\d{2})/);
-                    if (match) {
-                        const dateStr = `${match[1]}/${match[2]}/${match[3]}`;
-                        document.getElementById('stat-updated').textContent = `Dataset: ${dateStr} update`;
+                // db_snapshot looks like "2026-07-17 16:58:34 UTC+0900 (JST)"
+                if (manifest.db_snapshot) {
+                    const m = manifest.db_snapshot.match(/(\d{4})-(\d{2})-(\d{2})/);
+                    if (m) {
+                        document.getElementById('stat-updated').textContent = `Dataset: ${m[1]}/${m[2]}/${m[3]} update`;
                     }
                 }
 
-                if (data.projects) {
-                    const totals = {
-                        papers: data.papers,
-                        figures: data.figures,
-                        samples: data.samples,
-                        curves: data.curves,
-                    };
-                    renderPieCharts(data.projects, totals);
-                    renderProjectTable(data.projects, totals);
+                if (manifest.projects) {
+                    // Reshape {name: {papers:{...}, samples:{...}, curves:{...}, counts:{...}}}
+                    // into the {name: {papers, figures, samples, curves}} form the renderers expect.
+                    const projects = Object.fromEntries(
+                        Object.entries(manifest.projects).map(([name, entry]) => [name, entry.counts || {}])
+                    );
+                    renderPieCharts(projects, totals);
+                    renderProjectTable(projects, totals);
                 }
             })
             .catch(() => {
-                document.getElementById('count-papers').textContent = '14,284';
-                document.getElementById('count-figures').textContent = '59,345';
-                document.getElementById('count-samples').textContent = '90,547';
-                document.getElementById('count-curves').textContent = '210,332';
+                document.getElementById('count-papers').textContent = '—';
+                document.getElementById('count-figures').textContent = '—';
+                document.getElementById('count-samples').textContent = '—';
+                document.getElementById('count-curves').textContent = '—';
                 document.getElementById('pie-charts').innerHTML =
                     '<div style="grid-column:1/-1;text-align:center;color:#64748b;padding:24px;">Could not load data</div>';
                 document.getElementById('project-tbody').innerHTML =
