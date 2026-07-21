@@ -1047,10 +1047,11 @@
         }
 
         // Source of truth: the daily-refreshed manifest published by starrydata_datasets.
-        // Same origin (starrydata.github.io), so no CORS. This is the same file that
-        // https://starrydata.github.io/starrydata_datasets/ renders from — one manifest,
-        // one number, always in sync with Google Drive.
-        fetch('/starrydata_datasets/manifest.json')
+        // Absolute URL (not relative) because this page is also served through the
+        // starrydata.nims.go.jp reverse proxy — a relative /starrydata_datasets/... path
+        // would resolve against nims.go.jp and 404. github.io returns
+        // Access-Control-Allow-Origin: * on this file so cross-origin fetch works.
+        fetch('https://starrydata.github.io/starrydata_datasets/manifest.json')
             .then(r => r.json())
             .then(manifest => {
                 const totals = manifest.totals || {};
