@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="FOLLOW,INDEX"><title>Starrydata — 無機材料の実験データを論文からオープンに</title>
+<meta name="robots" content="FOLLOW,INDEX"><title>News | Starrydata — 無機材料の実験データを論文からオープンに</title>
 <meta name="description" content="論文のグラフから抽出した 230,000+ の実験データを中核に、結晶構造シミュレーターや元素反応性マップなど、Materials Informatics研究を支える多様なオープンデータとWebツールを公開しています。">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="論文のグラフから抽出した 230,000+ の実験データを中核に、結晶構造シミュレーターや元素反応性マップなど、Materials Informatics研究を支える多様なオープンデータとWebツールを公開しています。">
 <meta property="og:locale" content="ja_JP">
 </head>
-<body class="page-home">
+<body class="">
 
 
 <!-- Nav icon sprite (used by the Resources mega-menu) -->
@@ -72,8 +72,8 @@
     </nav>
 
     <span class="lang-switch" role="group" aria-label="Language">
-      <a href="/links/" class="is-active">JA</a>
-      <a href="/links/en/" class="">EN</a>
+      <a href="/links/news/" class="is-active">JA</a>
+      <a href="/links/en/news/" class="">EN</a>
     </span>
   </div>
 
@@ -422,268 +422,15 @@
 
 
 <main>
-<!-- =================== HERO =================== -->
-<section class="hero">
+<section class="page-head">
   <div class="container">
-    <h1>
-      <span class="accent">Starrydata</span>
-      <span class="hero-subtitle"><span class="nowrap-grp">論文グラフを、研究に使えるデータへ</span></span>
-    </h1>
-    <p class="lead">論文のグラフから抽出した <span data-counts="curves">230,000</span>+ の実験データを中核に、結晶構造シミュレーターや元素反応性マップなど、Materials Informatics 研究を支える多様なオープンデータとWebツールを公開しています。</p>
-    <div class="hero-ctas">
-      <a class="btn btn-primary" href="https://starrydata.nims.go.jp/starrydata2/" target="_blank" rel="noopener">
-        データを検索する →
-      </a>
-      <a class="btn btn-primary" href="https://starrydata.github.io/starrydata_datasets/" target="_blank" rel="noopener">
-        データセットを取得する →
-      </a>
-    </div>
+    <h1 data-echo="ニュース">ニュース</h1>
   </div>
 </section>
 
-<!-- =================== STATS =================== -->
-<section class="stats">
+<section class="section section-top-tight">
   <div class="container">
-    <div class="stats-detail">
-      <div class="stats-donuts" id="stats-donuts"></div>
-      <div class="stats-updated" id="stats-updated"></div>
-      <div class="stats-table-wrap">
-        <table class="stats-table">
-          <thead>
-            <tr>
-              <th class="col-project">Research Field</th>
-              <th class="num">Papers</th>
-              <th class="num">Figures</th>
-              <th class="num">Samples</th>
-              <th class="num">Curves</th>
-            </tr>
-          </thead>
-          <tbody id="stats-project-tbody">
-            <tr><td colspan="5" class="stats-loading">Loading…</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =================== WHAT IS =================== -->
-<section class="section" id="about">
-  <div class="container">
-    <h2 data-echo="Starrydata とは">Starrydata とは</h2>
-    <p class="lead-large">Starrydata は、材料科学の論文グラフから実験データを抽出・構造化し、世界中の研究者が自由に使える巨大な<strong>オープンデータベース</strong>として公開する研究プロジェクトです。</p>
-    <p class="prose">Starrydata は単一の研究プロジェクトではなく、実験データ MI という共通項を持つ多数の研究プロジェクトの複合体です。各プロジェクトが論文から集めたデータを 1 つの共通データベースに保存し、他のユーザーも利用できるようにすることで、誰でも使える巨大なオープンデータベースを構築しています。</p>
-  </div>
-</section>
-
-<!-- =================== HUGE DATABASE =================== -->
-<section class="section" id="huge-database" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
-  <div class="container">
-    <div class="grid-2col">
-      <div class="text-col">
-        <h2 data-echo="大規模データベース">大規模データベース</h2>
-        <p class="lead">
-          一本の論文だけでは見えない全体像が、数万件のサンプルとカーブを横断して眺めることで初めて浮かび上がります。
-        </p>
-        <p class="prose">
-          材料系ごとの性能分布、組成と物性の相関、外れ値や未探索の組成空間の可視化、そして機械学習モデルの学習・ベンチマーク用データセットとして──大規模データベースだからこそ可能な使い方があります。
-        </p>
-        <div class="hero-ctas" style="margin-top:28px;">
-          <a class="btn btn-primary" href="https://starrydata.nims.go.jp/starrydata2/" target="_blank" rel="noopener">Starrydata2 Web System へ →</a>
-        </div>
-      </div>
-      <div class="chart-col">
-        <div id="chart-temp-seebeck" style="width:100%;height:520px;"></div>
-        <p class="chart-meta" id="chart-temp-seebeck-meta">Loading…</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =================== データ利用ガイド (Resources) =================== -->
-<section class="section" id="resources">
-  <div class="container">
-    <h2 data-echo="データ利用ガイド">データ利用ガイド</h2>
-    <p class="lead">目的に応じてツールを選んで、Starrydata のデータを活用してください。</p>
-
-    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-      <defs>
-        <symbol id="tnav-icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
-        <symbol id="tnav-icon-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
-        <symbol id="tnav-icon-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="20" x2="6" y2="14"/><line x1="12" y1="20" x2="12" y2="8"/><line x1="18" y1="20" x2="18" y2="4"/></symbol>
-        <symbol id="tnav-icon-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
-      </defs>
-    </svg>
-
-    <h3 class="home-resources-sub">何をしたいですか?</h3>
-    <div class="task-nav-grid">
-      <a class="task-nav-card" href="https://starrydata.nims.go.jp/starrydata2/" target="_blank" rel="noopener">
-        <div class="task-nav-icon">
-          <svg width="26" height="26" aria-hidden="true"><use href="#tnav-icon-search"/></svg>
-        </div>
-        <div class="task-nav-system">Starrydata2 Web System</div>
-        <h4>データを登録・検索する</h4>
-        <p>論文グラフからデータを登録、または既存の試料・論文・物性カーブを検索・閲覧</p>
-      </a>
-      <a class="task-nav-card" href="https://starrydata.github.io/starrydata_datasets/" target="_blank" rel="noopener">
-        <div class="task-nav-icon">
-          <svg width="26" height="26" aria-hidden="true"><use href="#tnav-icon-download"/></svg>
-        </div>
-        <div class="task-nav-system">Datasets</div>
-        <h4>データセットを取得する</h4>
-        <p>CSV・分野別データを取得</p>
-      </a>
-      <a class="task-nav-card" href="https://starrydata.nims.go.jp/visualizer/" target="_blank" rel="noopener">
-        <div class="task-nav-icon">
-          <svg width="26" height="26" aria-hidden="true"><use href="#tnav-icon-chart"/></svg>
-        </div>
-        <div class="task-nav-system">Visualizer</div>
-        <h4>データを可視化する</h4>
-        <p>組成・物性分布を探索</p>
-      </a>
-      <a class="task-nav-card" href="https://explorer.starrydata.org" target="_blank" rel="noopener">
-        <div class="task-nav-icon">
-          <svg width="26" height="26" aria-hidden="true"><use href="#tnav-icon-grid"/></svg>
-        </div>
-        <div class="task-nav-system">Sample Explorer</div>
-        <h4>組成から試料を探す</h4>
-        <p>化学組成や元素条件から絞り込み</p>
-      </a>
-    </div>
-
-    <a class="home-resources-cta" href="/links/resources/">
-      <div class="home-resources-cta-body">
-        <div class="home-resources-cta-eyebrow">Resources</div>
-        <h3>すべてのツールとドキュメントを見る</h3>
-        <p>Starrydata2 Web System(データの登録・検索・ダウンロード)、Visualizer / Sample Explorer などの可視化・組成検索ツール、Figshare のデータセットスナップショット、Manual・データ仕様・引用情報を目的別にまとめています。</p>
-      </div>
-      <div class="home-resources-cta-arrow" aria-hidden="true">→</div>
-    </a>
-  </div>
-</section>
-
-<!-- =================== GET INVOLVED =================== -->
-<section class="section" id="get-involved" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
-  <div class="container">
-    <h2 data-echo="プロジェクトに参加する">プロジェクトに参加する</h2>
-    <p class="lead">データの登録・利用、共同研究・資金パートナーシップなど、さまざまな形でプロジェクトに関わっていただけます。</p>
-
-    <div class="involve-grid">
-      <div class="involve-card">
-        <span class="tag use">USE</span>
-        <h3>データを登録・利用する</h3>
-        <p>Web システム・マニュアル・Figshare・GitHub など、Starrydata のデータを利用する方法をひとまとめに紹介しています。</p>
-        <a class="btn btn-outline" href="/links/use/">データを使う →</a>
-      </div>
-      <div class="involve-card">
-        <span class="tag contribute">COLLABORATE</span>
-        <h3>共同研究</h3>
-        <p>共同研究のご相談を歓迎しています。Materials Informatics の研究開発を、ぜひ一緒に進めましょう。</p>
-        <a class="btn btn-outline" href="/links/contact/">問い合わせる →</a>
-      </div>
-      <div class="involve-card highlight">
-        <span class="tag partner">STUDENTS</span>
-        <h3>学生受入</h3>
-        <p>インターンシップ制度や筑波大学連携大学院での学生を国内外問わず受け入れています。</p>
-        <a class="btn btn-primary" href="/links/contact/">問い合わせる →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =================== RESEARCH FIELDS =================== -->
-<section class="section" id="research" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
-  <div class="container">
-    <h2 data-echo="研究テーマ">研究テーマ</h2>
-    <p class="lead lead-wide">7 つの研究領域で、論文からの実験データ収集と Materials Informatics の研究を進めています。</p>
-
-    <div class="fields-grid">
-      <a class="field-card" href="/links/research/#thermoelectric">
-        <div class="field-num">01</div>
-        <h3>熱電材料</h3>
-        <div class="en">Thermoelectric</div>
-      </a>
-      <a class="field-card" href="/links/research/#battery">
-        <div class="field-num">02</div>
-        <h3>電池材料</h3>
-        <div class="en">Battery</div>
-      </a>
-      <a class="field-card" href="/links/research/#magnetic">
-        <div class="field-num">03</div>
-        <h3>磁性材料</h3>
-        <div class="en">Magnetic</div>
-      </a>
-      <a class="field-card" href="/links/research/#dielectric">
-        <div class="field-num">04</div>
-        <h3>誘電材料</h3>
-        <div class="en">Dielectric</div>
-      </a>
-      <a class="field-card" href="/links/research/#condensed-matter">
-        <div class="field-num">05</div>
-        <h3>固体物性</h3>
-        <div class="en">Condensed Matter</div>
-      </a>
-      <a class="field-card" href="/links/research/#piezoelectric">
-        <div class="field-num">06</div>
-        <h3>圧電材料</h3>
-        <div class="en">Piezoelectric</div>
-      </a>
-      <a class="field-card" href="/links/research/#hypermaterial">
-        <div class="field-num">07</div>
-        <h3>ハイパーマテリアル</h3>
-        <div class="en">Quasicrystal</div>
-      </a>
-      <a class="field-card" href="/links/research/">
-        <div class="field-num">+</div>
-        <h3>すべて見る</h3>
-        <div class="en">View all 12 fields</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- =================== PUBLICATIONS =================== -->
-<section class="section" id="publications">
-  <div class="container">
-    <h2 data-echo="主要論文">主要論文</h2>
-    <p class="lead lead-wide">Starrydata プロジェクトの代表論文（最新 3 件）。全 8 本のプロジェクト論文と 184 本の引用論文は一覧ページで。</p>
-
-    <div class="card-grid">
-      <article class="mini-card">
-        <div class="meta">
-          <span class="tag">Paper</span>2025
-        </div>
-        <h3><a href="https://doi.org/10.1080/27660400.2025.2485018" target="_blank" rel="noopener">Data-driven analysis and visualization of dielectric properties curated from scientific literature</a></h3>
-        <p>Tomoki Murata, Naoto Saito, Eiji Koyama, T. Phuong, Ryusuke Misawa, Satoshi Yokomizo, Tomoya Mato, Yu Takada, S. Hirose, Yukari Katsura</p>
-      </article>
-      <article class="mini-card">
-        <div class="meta">
-          <span class="tag">Paper</span>2025
-        </div>
-        <h3><a href="https://doi.org/10.1080/27660400.2025.2506976" target="_blank" rel="noopener">Starrydata: from published plots to shared materials data</a></h3>
-        <p>Yukari Katsura, Masaya Kumagai, Tomoya Mato, Yu Takada, Yuki Ando, Erina Fujita, Fumikazu Hosono, Eiji Koyama, Farhan Mudasar, T. Phuong, Naoto Saito, Yoshihiro Sakamoto, Atsumi Tanaka, Dewi Yana, Kaoru Kimura, Koji Tsuda, Masahiko Demura</p>
-      </article>
-      <article class="mini-card">
-        <div class="meta">
-          <span class="tag">Paper</span>2025
-        </div>
-        <h3><a href="https://doi.org/10.1080/27660400.2025.2590811" target="_blank" rel="noopener">Development of LLM-assisted data curation tools for the Starrydata materials science database</a></h3>
-        <p>Yukari Katsura, Tomoya Mato, Yu Takada, Eiji Koyama, Dewi Yana, Atsumi Tanaka, Masaya Kumagai</p>
-      </article>
-    </div>
-
-    <div class="section-foot">
-      <a class="btn btn-outline" href="/links/papers/index.html">論文一覧を見る →</a>
-    </div>
-  </div>
-</section>
-
-<!-- =================== NEWS =================== -->
-<section class="section" id="news" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
-  <div class="container">
-    <h2 data-echo="ニュース">ニュース</h2>
-
-    <div class="news-list-box">
+    <div class="news-list-box news-list-page">
       <ul class="news-list">
         <li class="news-item">
           
@@ -750,11 +497,31 @@
             </div>
           </a>
         </li>
+        <li class="news-item">
+          
+          <a href="#" data-news-idx="5">
+          
+            <time class="news-date" datetime="2021-06-08T11:11:00+09:00">2021/06/08</time>
+            <div class="news-text">
+              
+              <h3 class="news-title">世界の材料科学オープンデータベースとOPTIMADEプロジェクト</h3>
+              <p class="news-summary">OPTIMADEは、フランスのGian-Marco Rignanese先生が中心となって進めてきた、世界の材料データベースを共通のコマンド体系(API）でつなぐプロジェクトです。 私はStarryda…</p>
+            </div>
+          </a>
+        </li>
+        <li class="news-item">
+          
+          <a href="#" data-news-idx="6">
+          
+            <time class="news-date" datetime="2020-09-14T17:29:00+09:00">2020/09/14</time>
+            <div class="news-text">
+              
+              <h3 class="news-title">Materials Informatics向けのオープンデータベース</h3>
+              <p class="news-summary">こちらのレビュー論文を参考にして、Materials Informatics (MI)に利用できるオープンアクセスのデータベースをまとめてみました。 Data-Driven Materials Sci…</p>
+            </div>
+          </a>
+        </li>
       </ul>
-    </div>
-
-    <div class="section-foot">
-      <a class="btn btn-outline" href="/links/news/">ニュース一覧 →</a>
     </div>
   </div>
 </section>
@@ -849,73 +616,6 @@
 })();
 </script>
 
-
-<!-- =================== TEAM =================== -->
-<section class="section" id="team">
-  <div class="container">
-    <h2 data-echo="メンバー">メンバー</h2>
-    <p class="lead">Starrydata は無機材料・データ科学・Web 開発の研究者・エンジニアで構成された専属チームで運営されています。</p>
-
-    <div class="team-grid">
-      <div class="member-card">
-        
-        <img class="photo" src="/links/assets/images/team/katsura_yukari.jpg" alt="桂 ゆかり">
-        
-        <h4>桂 ゆかり</h4>
-        <div class="role">プロジェクトリーダー</div>
-      </div>
-      <div class="member-card">
-        
-        <img class="photo" src="/links/project/img/profile_kumagai.jpg" alt="熊谷 将也">
-        
-        <h4>熊谷 将也</h4>
-        <div class="role">Web開発</div>
-      </div>
-      <div class="member-card">
-        
-        <img class="photo" src="/links/project/img/profile_mato.jpg" alt="間藤 智也">
-        
-        <h4>間藤 智也</h4>
-        <div class="role">Web開発</div>
-      </div>
-      <div class="member-card">
-        
-        <img class="photo" src="/links/assets/images/team/tanaka_atsumi.jpg" alt="田中 敦美">
-        
-        <h4>田中 敦美</h4>
-        <div class="role">プロジェクト運営
-(リサーチ・アドミニストレーター)</div>
-      </div>
-      <div class="member-card">
-        
-        <img class="photo" src="/links/assets/images/team/dewi_yana.jpg" alt="デウィ ヤナ">
-        
-        <h4>デウィ ヤナ</h4>
-        <div class="role">データアナリスト</div>
-      </div>
-    </div>
-
-    <div class="section-foot">
-      <a class="btn btn-outline" href="/links/team/">メンバー一覧 →</a>
-    </div>
-  </div>
-</section>
-
-<!-- =================== PARTNERS =================== -->
-<section class="section-narrow">
-  <div class="container">
-    <p style="text-align:center; color:var(--text-3); letter-spacing:.15em; text-transform:uppercase; font-size:.78rem; font-weight:600; margin-bottom:24px;">
-      支援機関・パートナー
-    </p>
-    <div class="partner-row">
-      <div class="partner">NIMS</div>
-      <div class="partner">RIKEN AIP</div>
-      <div class="partner">JST</div>
-      <div class="partner">Univ. of Tsukuba</div>
-      <div class="partner">SAKURA internet</div>
-    </div>
-  </div>
-</section>
 
 </main>
 
