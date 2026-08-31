@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="FOLLOW,INDEX"><title>Starrydata — データ収集プロジェクト</title>
+<meta name="robots" content="FOLLOW,INDEX"><title>Starrydata — 論文グラフを、研究に使えるデータへ</title>
 <meta name="description" content="論文のグラフから抽出した 234,150+ の実験データを中核に、結晶構造シミュレーターや元素反応性マップなど、Materials Informatics 研究を支える多様なオープンデータとWebツールを公開しています。">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,11 +12,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link href="/hp/common/css/modern.css" rel="stylesheet">
 
-<meta property="og:title" content="Starrydata — データ収集プロジェクト">
+<meta property="og:title" content="Starrydata — 論文グラフを、研究に使えるデータへ">
 <meta property="og:type" content="website">
 <meta property="og:description" content="論文のグラフから抽出した 234,150+ の実験データを中核に、結晶構造シミュレーターや元素反応性マップなど、Materials Informatics 研究を支える多様なオープンデータとWebツールを公開しています。">
-<meta property="og:locale" content="ja_JP"><link rel="canonical" href="https://starrydata.nims.go.jp/hp/data/"></head>
-<body class="">
+<meta property="og:locale" content="ja_JP"><link rel="canonical" href="https://starrydata.nims.go.jp/hp/ja/"></head>
+<body class="page-home">
 
 
 <!-- Nav icon sprite (used by the Resources mega-menu) -->
@@ -71,7 +71,7 @@
     </nav>
 
     <span class="lang-switch" role="group" aria-label="Language">
-      <a href="/hp/data/" class="is-active">JA</a>
+      <a href="/hp/ja/" class="is-active">JA</a>
       <a href="/hp/" class="">EN</a>
     </span>
   </div>
@@ -421,95 +421,607 @@
 
 
 <main>
-<section class="page-head">
+<!-- =================== HERO =================== -->
+<section class="hero">
   <div class="container">
-    <h1 data-echo="進行中のデータ収集プロジェクト">進行中のデータ収集プロジェクト</h1>
-    <p class="lead">論文グラフから抽出している実験データを、研究分野ごとに紹介します。</p>
+    <h1>
+      <span class="accent">Starrydata</span>
+      <span class="hero-subtitle"><span class="nowrap-grp">論文グラフを、研究に使えるデータへ</span></span>
+    </h1>
+    <p class="lead">論文のグラフから抽出した <span data-counts="curves">230,000</span>+ の実験データを中核に、結晶構造シミュレーターや元素反応性マップなど、Materials Informatics 研究を支える多様なオープンデータとWebツールを公開しています。</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="https://starrydata.nims.go.jp/starrydata2/" target="_blank" rel="noopener">
+        Starrydata2 Webシステムへ →
+      </a>
+      <a class="btn btn-primary" href="https://starrydata.github.io/starrydata_datasets/" target="_blank" rel="noopener">
+        データセットを取得する →
+      </a>
+    </div>
   </div>
 </section>
 
-<section class="section section-top-tight">
+<!-- =================== STATS =================== -->
+<section class="stats">
   <div class="container">
+    <div class="stats-detail">
+      <div class="stats-donuts" id="stats-donuts"></div>
+      <div class="stats-updated" id="stats-updated"></div>
+      <div class="stats-table-wrap">
+        <table class="stats-table">
+          <thead>
+            <tr>
+              <th class="col-project">Research Field</th>
+              <th class="num">Papers</th>
+              <th class="num">Figures</th>
+              <th class="num">Samples</th>
+              <th class="num">Curves</th>
+            </tr>
+          </thead>
+          <tbody id="stats-project-tbody">
+            <tr><td colspan="5" class="stats-loading">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="data-intro">
-      <figure class="data-intro-figure">
-        <img src="/hp/data/img/img_index_01.png" alt="Starrydata2 データベース一覧画面">
-        <figcaption>Starrydata2 webシステム内のデータ収集プロジェクトの例（2022年4月現在）</figcaption>
-      </figure>
-      <div class="data-intro-body">
-        <p>Starrydataプロジェクトでは、論文中のグラフから実験データを抽出して公開しています。このとき、論文の中のすべてのグラフを集めようとすると膨大な時間がかかってしまうので、研究プロジェクトの目的に合わせて、データ収集対象のグラフの種類を絞っています。</p>
-        <p>Starrydataのトップページにアクセスしたあと、ユーザーが自分のアカウントでログインすると、上記のDatabases画面が現れます。一番上にあるのがすべての登録データにアクセスできるGeneralデータベースです。そして、その下に並ぶのが個々の研究プロジェクトです。</p>
-        <p>本ページでは、これらの研究プロジェクトでどんなデータを集めているのかについて紹介します。</p>
+<!-- =================== WHAT IS =================== -->
+<section class="section section-narrow" id="about">
+  <div class="container">
+    <h2 data-echo="Starrydata とは">Starrydata とは</h2>
+    <p class="prose">Starrydata&nbsp;は、材料科学の論文中のグラフ画像から実験データを数値データとして抽出・登録し、Materials&nbsp;Informatics&nbsp;(MI) 研究に活用できる大規模な<strong>オープンデータベース</strong>を構築する研究プロジェクトです。登録されたデータはすべて公開されており、誰でも自由に無償で利用できます。</p>
+  </div>
+</section>
+
+<!-- =================== PIPELINE DIAGRAM =================== -->
+<section class="pipeline-section">
+  <div class="container">
+    <p class="pipeline-eyebrow">How it works</p>
+    <h2 class="pipeline-heading">
+      収集<span class="pipe-arrow-char">→</span>蓄積<span class="pipe-arrow-char">→</span>活用
+    </h2>
+    <p class="pipeline-desc">
+      論文の実験グラフを人手でデジタイズし、試料情報とともに登録・蓄積。<br>集まった構造化データは可視化・ダウンロード・機械学習にそのまま使える。
+    </p>
+
+    <!-- ラベル行（グリッド外） -->
+    <div class="pipeline-col-headers">
+      <div class="pipeline-col-label">データ収集・登録</div>
+      <div></div>
+      <div></div>
+      <div class="pipeline-col-label">データ活用</div>
+    </div>
+
+    <div class="pipeline-grid">
+
+      <!-- ─── 左：データ収集・登録 ─── -->
+      <div class="pipeline-col">
+        <div class="pipeline-col-label pipeline-col-label--mobile">データ収集・登録</div>
+
+        <div class="pipe-card pipe-card-in">
+          <div class="pipe-card-thumb">
+            <img src="/hp/assets/images/pipeline/06-papers-stack.svg" alt="論文選定" loading="lazy">
+          </div>
+          <div class="pipe-card-body">
+            <div class="pipe-card-name">論文選定</div>
+            <div class="pipe-card-desc">データ収集対象となる論文・グラフ・プロットを特定</div>
+          </div>
+        </div>
+
+        <div class="pipe-down-arrow" aria-hidden="true">
+          <svg width="14" height="22" viewBox="0 0 14 22" fill="none"><path d="M7 1v16M1 11l6 8 6-8" stroke="var(--accent-2)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3"/></svg>
+        </div>
+
+        <div class="pipe-card pipe-card-in">
+          <div class="pipe-card-thumb">
+            <img src="/hp/assets/images/pipeline/01-pen-tablet-curve-selection.svg" alt="実験グラフを数値化" loading="lazy">
+          </div>
+          <div class="pipe-card-body">
+            <div class="pipe-card-name">実験グラフを数値化</div>
+            <div class="pipe-card-desc">StarryDigitizer でグラフのカーブをプロットし数値データ化</div>
+          </div>
+        </div>
+
+        <div class="pipe-down-arrow" aria-hidden="true">
+          <svg width="14" height="22" viewBox="0 0 14 22" fill="none"><path d="M7 1v16M1 11l6 8 6-8" stroke="var(--accent-2)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3"/></svg>
+        </div>
+
+        <div class="pipe-card pipe-card-in">
+          <div class="pipe-card-thumb">
+            <img src="/hp/assets/images/pipeline/02-curator-descriptor-input.svg" alt="Sample Descriptor" loading="lazy">
+          </div>
+          <div class="pipe-card-body">
+            <div class="pipe-card-name">Sample Descriptor 登録</div>
+            <div class="pipe-card-desc">組成・合成方法・測定条件を論文本文から記述</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 中央：DB ─── -->
+      <div class="pipeline-center">
+        <div class="db-node-wrap">
+          <span class="db-open-badge">Open Database</span>
+          <img class="db-cluster-svg" src="/hp/assets/images/pipeline/10-database.svg" alt="Starrydata DB">
+          <div class="db-node-name">Starrydata DB</div>
+          <div class="db-node-sub">カーブ・試料情報・論文情報を保存</div>
+        </div>
+      </div>
+
+      <!-- ─── DB→右 スペーサー列 ─── -->
+      <div class="pipeline-col-arrows" aria-hidden="true"></div>
+
+      <!-- ─── 右：データ活用 ─── -->
+      <div class="pipeline-col">
+        <div class="pipeline-col-label pipeline-col-label--mobile">データ活用</div>
+
+        <div class="pipe-card pipe-card-out">
+          <div class="pipe-card-thumb">
+            <img src="/hp/assets/images/pipeline/05-explorer-3d.png" alt="可視化・探索" loading="lazy">
+          </div>
+          <div class="pipe-card-body">
+            <div class="pipe-card-name">可視化・探索</div>
+            <div class="pipe-card-desc">Visualizer / Sample Explorer で傾向を把握</div>
+          </div>
+        </div>
+
+        <div class="pipe-row-spacer" aria-hidden="true"></div>
+
+        <div class="pipe-card pipe-card-out">
+          <div class="pipe-card-thumb">
+            <img src="/hp/assets/images/pipeline/09-pc.svg" alt="データダウンロード" loading="lazy">
+          </div>
+          <div class="pipe-card-body">
+            <div class="pipe-card-name">データダウンロード</div>
+            <div class="pipe-card-desc">CSV / JSON で自由に取得・利用可能</div>
+          </div>
+        </div>
+
+        <div class="pipe-row-spacer" aria-hidden="true"></div>
+
+        <div class="pipe-card pipe-card-out">
+          <div class="pipe-card-thumb">
+            <img src="/hp/assets/images/pipeline/starrydata-ml-mi.svg" alt="機械学習・MI研究" loading="lazy">
+          </div>
+          <div class="pipe-card-body">
+            <div class="pipe-card-name">機械学習・MI 研究</div>
+            <div class="pipe-card-desc">構造化データを学習・ベンチマークに活用</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DB→右カード矢印SVG（グリッド全体に重ねる） -->
+      <svg class="pipe-arrows-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
+
+    </div><!-- /.pipeline-grid -->
+  </div>
+</section>
+<script>
+(function(){
+  function drawPipeArrows(){
+    var grid = document.querySelector('.pipeline-grid');
+    if(!grid) return;
+    var svg = grid.querySelector('.pipe-arrows-svg');
+    var db  = document.querySelector('.db-node-wrap');
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.pipe-card-out'));
+    if(!svg||!db||!cards.length) return;
+    var gR = grid.getBoundingClientRect();
+    var dbR = db.getBoundingClientRect();
+    var dbY = dbR.top + dbR.height/2 - gR.top;
+    var forkX = dbR.right - gR.left;
+    var clr = '#9184d9';
+    var lAttr = 'fill="none" stroke="'+clr+'" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3"';
+    var sAttr = 'fill="none" stroke="'+clr+'" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"';
+    var inner = '';
+    for(var i=0;i<cards.length;i++){
+      var r = cards[i].getBoundingClientRect();
+      var cy = r.top + r.height/2 - gR.top;
+      var cx = r.left - gR.left;
+      inner += '<line x1="'+forkX.toFixed(1)+'" y1="'+dbY.toFixed(1)+'" x2="'+cx.toFixed(1)+'" y2="'+cy.toFixed(1)+'" '+lAttr+'/>';
+      var dx = cx-forkX, dy = cy-dbY, len = Math.sqrt(dx*dx+dy*dy);
+      var ux = dx/len, uy = dy/len;
+      var ax = cx-7*ux, ay = cy-7*uy;
+      inner += '<path d="M'+(ax-4*uy).toFixed(1)+','+(ay+4*ux).toFixed(1)+' L'+cx.toFixed(1)+','+cy.toFixed(1)+' L'+(ax+4*uy).toFixed(1)+','+(ay-4*ux).toFixed(1)+'" '+sAttr+'/>';
+    }
+    svg.setAttribute('width', gR.width);
+    svg.setAttribute('height', gR.height);
+    svg.innerHTML = inner;
+  }
+  window.addEventListener('load', drawPipeArrows);
+  window.addEventListener('resize', drawPipeArrows);
+})();
+</script>
+
+<!-- =================== HUGE DATABASE =================== -->
+<section class="section" id="huge-database" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="grid-2col">
+      <div class="text-col">
+        <h2 data-echo="大規模データベース">大規模データベース</h2>
+        <p class="lead">
+          一本の論文だけでは見えない全体像が、数万件のサンプルとカーブを横断して眺めることで初めて浮かび上がります。
+        </p>
+        <p class="prose">
+          材料系ごとの性能分布、組成と物性の相関、外れ値や未探索の組成空間の可視化、そして機械学習モデルの学習・ベンチマーク用データセットとして──大規模データベースだからこそ可能な使い方があります。
+        </p>
+        <div class="hero-ctas" style="margin-top:28px;">
+          <a class="btn btn-primary" href="https://starrydata.nims.go.jp/starrydata2/" target="_blank" rel="noopener">Starrydata2 Web System へ →</a>
+        </div>
+      </div>
+      <div class="chart-col">
+        <div id="chart-temp-seebeck" style="width:100%;height:520px;"></div>
+        <p class="chart-meta" id="chart-temp-seebeck-meta">Loading…</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== データ利用ガイド (Resources) =================== -->
+<section class="section" id="resources">
+  <div class="container">
+    <h2 data-echo="データ利用ガイド">データ利用ガイド</h2>
+    <p class="lead">目的に応じてツールを選んで、Starrydata のデータを活用してください。</p>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <symbol id="tnav-icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+        <symbol id="tnav-icon-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+        <symbol id="tnav-icon-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="20" x2="6" y2="14"/><line x1="12" y1="20" x2="12" y2="8"/><line x1="18" y1="20" x2="18" y2="4"/></symbol>
+        <symbol id="tnav-icon-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+      </defs>
+    </svg>
+
+    <h3 class="home-resources-sub">何をしたいですか?</h3>
+    <div class="task-nav-grid">
+      <a class="task-nav-card" href="https://starrydata.nims.go.jp/starrydata2/" target="_blank" rel="noopener">
+        <div class="task-nav-icon">
+          <svg width="26" height="26" aria-hidden="true"><use href="#tnav-icon-search"/></svg>
+        </div>
+        <div class="task-nav-system">Starrydata2 Web System</div>
+        <h4>データを登録・検索する</h4>
+        <p>論文グラフからデータを登録、または既存の試料・論文・物性カーブを検索・閲覧</p>
+      </a>
+      <a class="task-nav-card" href="https://starrydata.github.io/starrydata_datasets/" target="_blank" rel="noopener">
+        <div class="task-nav-icon">
+          <svg width="26" height="26" aria-hidden="true"><use href="#tnav-icon-download"/></svg>
+        </div>
+        <div class="task-nav-system">Datasets</div>
+        <h4>データセットを取得する</h4>
+        <p>CSV・分野別データを取得</p>
+      </a>
+      <a class="task-nav-card" href="https://starrydata.nims.go.jp/visualizer/" target="_blank" rel="noopener">
+        <div class="task-nav-icon">
+          <svg width="26" height="26" aria-hidden="true"><use href="#tnav-icon-chart"/></svg>
+        </div>
+        <div class="task-nav-system">Visualizer</div>
+        <h4>データを可視化する</h4>
+        <p>組成・物性分布を探索</p>
+      </a>
+      <a class="task-nav-card" href="https://explorer.starrydata.org" target="_blank" rel="noopener">
+        <div class="task-nav-icon">
+          <svg width="26" height="26" aria-hidden="true"><use href="#tnav-icon-grid"/></svg>
+        </div>
+        <div class="task-nav-system">Sample Explorer</div>
+        <h4>組成から試料を探す</h4>
+        <p>化学組成や元素条件から絞り込み</p>
+      </a>
+    </div>
+
+    <a class="home-resources-cta" href="/hp/resources/">
+      <div class="home-resources-cta-body">
+        <div class="home-resources-cta-eyebrow">Resources</div>
+        <h3>すべてのツールとドキュメントを見る</h3>
+        <p>Starrydata2 Web System(データの登録・検索・ダウンロード)、Visualizer / Sample Explorer などの可視化・組成検索ツール、Figshare のデータセットスナップショット、Manual・データ仕様・引用情報を目的別にまとめています。</p>
+      </div>
+      <div class="home-resources-cta-arrow" aria-hidden="true">→</div>
+    </a>
+  </div>
+</section>
+
+<!-- =================== GET INVOLVED =================== -->
+<section class="section" id="get-involved" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="container">
+    <h2 data-echo="プロジェクトに参加する">プロジェクトに参加する</h2>
+    <p class="lead">データの登録・利用、共同研究・資金パートナーシップなど、さまざまな形でプロジェクトに関わっていただけます。</p>
+
+    <div class="involve-grid">
+      <div class="involve-card">
+        <span class="tag use">USE</span>
+        <h3>データを登録・利用する</h3>
+        <p>Web システム・マニュアル・Figshare・GitHub など、Starrydata のデータを利用する方法をひとまとめに紹介しています。</p>
+        <a class="btn btn-outline" href="/hp/use/">データを使う →</a>
+      </div>
+      <div class="involve-card">
+        <span class="tag contribute">COLLABORATE</span>
+        <h3>共同研究</h3>
+        <p>共同研究のご相談を歓迎しています。Materials Informatics の研究開発を、ぜひ一緒に進めましょう。</p>
+        <a class="btn btn-outline" href="/hp/contact/">問い合わせる →</a>
+      </div>
+      <div class="involve-card highlight">
+        <span class="tag partner">STUDENTS</span>
+        <h3>学生受入</h3>
+        <p>インターンシップ制度や筑波大学連携大学院での学生を国内外問わず受け入れています。</p>
+        <a class="btn btn-primary" href="/hp/contact/">問い合わせる →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== RESEARCH FIELDS =================== -->
+<section class="section" id="research" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="container">
+    <h2 data-echo="研究テーマ">研究テーマ</h2>
+    <p class="lead lead-wide">7 つの研究領域で、論文からの実験データ収集と Materials Informatics の研究を進めています。</p>
+
+    <div class="fields-grid">
+      <a class="field-card" href="/hp/research/#thermoelectric">
+        <div class="field-num">01</div>
+        <h3>熱電材料</h3>
+        <div class="en">Thermoelectric</div>
+      </a>
+      <a class="field-card" href="/hp/research/#battery">
+        <div class="field-num">02</div>
+        <h3>電池材料</h3>
+        <div class="en">Battery</div>
+      </a>
+      <a class="field-card" href="/hp/research/#magnetic">
+        <div class="field-num">03</div>
+        <h3>磁性材料</h3>
+        <div class="en">Magnetic</div>
+      </a>
+      <a class="field-card" href="/hp/research/#dielectric">
+        <div class="field-num">04</div>
+        <h3>誘電材料</h3>
+        <div class="en">Dielectric</div>
+      </a>
+      <a class="field-card" href="/hp/research/#condensed-matter">
+        <div class="field-num">05</div>
+        <h3>固体物性</h3>
+        <div class="en">Condensed Matter</div>
+      </a>
+      <a class="field-card" href="/hp/research/#piezoelectric">
+        <div class="field-num">06</div>
+        <h3>圧電材料</h3>
+        <div class="en">Piezoelectric</div>
+      </a>
+      <a class="field-card" href="/hp/research/#hypermaterial">
+        <div class="field-num">07</div>
+        <h3>ハイパーマテリアル</h3>
+        <div class="en">Quasicrystal</div>
+      </a>
+      <a class="field-card" href="/hp/research/">
+        <div class="field-num">+</div>
+        <h3>すべて見る</h3>
+        <div class="en">View all 12 fields</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PUBLICATIONS =================== -->
+<section class="section" id="publications">
+  <div class="container">
+    <h2 data-echo="主要論文">主要論文</h2>
+    <p class="lead lead-wide">Starrydata プロジェクトの代表論文（最新 3 件）。全 8 本のプロジェクト論文と 184 本の引用論文は一覧ページで。</p>
+
+    <div class="card-grid">
+      <article class="mini-card">
+        <div class="meta">
+          <span class="tag">Paper</span>2025
+        </div>
+        <h3><a href="https://doi.org/10.1080/27660400.2025.2485018" target="_blank" rel="noopener">Data-driven analysis and visualization of dielectric properties curated from scientific literature</a></h3>
+        <p>Tomoki Murata, Naoto Saito, Eiji Koyama, T. Phuong, Ryusuke Misawa, Satoshi Yokomizo, Tomoya Mato, Yu Takada, S. Hirose, Yukari Katsura</p>
+      </article>
+      <article class="mini-card">
+        <div class="meta">
+          <span class="tag">Paper</span>2025
+        </div>
+        <h3><a href="https://doi.org/10.1080/27660400.2025.2506976" target="_blank" rel="noopener">Starrydata: from published plots to shared materials data</a></h3>
+        <p>Yukari Katsura, Masaya Kumagai, Tomoya Mato, Yu Takada, Yuki Ando, Erina Fujita, Fumikazu Hosono, Eiji Koyama, Farhan Mudasar, T. Phuong, Naoto Saito, Yoshihiro Sakamoto, Atsumi Tanaka, Dewi Yana, Kaoru Kimura, Koji Tsuda, Masahiko Demura</p>
+      </article>
+      <article class="mini-card">
+        <div class="meta">
+          <span class="tag">Paper</span>2025
+        </div>
+        <h3><a href="https://doi.org/10.1080/27660400.2025.2590811" target="_blank" rel="noopener">Development of LLM-assisted data curation tools for the Starrydata materials science database</a></h3>
+        <p>Yukari Katsura, Tomoya Mato, Yu Takada, Eiji Koyama, Dewi Yana, Atsumi Tanaka, Masaya Kumagai</p>
+      </article>
+    </div>
+
+    <div class="section-foot">
+      <a class="btn btn-outline" href="/hp/publications/index.html">論文一覧を見る →</a>
+    </div>
+  </div>
+</section>
+
+<!-- =================== NEWS =================== -->
+<section class="section" id="news" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="container">
+    <h2 data-echo="ニュース">ニュース</h2>
+
+    <div class="news-list-box">
+      <ul class="news-list">
+        <li class="news-item">
+          
+          <a href="#" data-news-idx="0">
+          
+            <time class="news-date" datetime="2026-08-10T00:00:00+09:00">2026/08/10</time>
+            <div class="news-text">
+              
+              <div class="news-tags">
+                <span class="news-tag news-tag-cat">更新情報</span>
+                <span class="news-tag news-tag-sub">アップデート</span>
+              </div>
+              
+              <h3 class="news-title">Starrydataプロジェクトサイト刷新</h3>
+              
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section-foot">
+      <a class="btn btn-outline" href="/hp/news/">ニュース一覧 →</a>
+    </div>
+  </div>
+</section>
+
+<script id="topics-data" type="application/json">[{"id":"72","slug":"starrydata","title":"Starrydataプロジェクトサイト刷新","title_en":"Starrydata project site redesigned","date":"2026-08-10","datetime":"2026-08-10T00:00:00+09:00","category":"更新情報","subcategory":"アップデート","author":"","summary":"","summary_en":"","body_html":"","body_html_en":"","paper_title":"","doi":"","url":""}]</script>
+
+<div id="news-modal" class="news-modal" hidden aria-hidden="true">
+  <div class="news-modal-backdrop" data-news-close></div>
+  <div class="news-modal-panel" role="dialog" aria-modal="true" aria-labelledby="news-modal-title">
+    <button class="news-modal-close" type="button" data-news-close aria-label="閉じる">×</button>
+    <div class="news-modal-meta">
+      <span id="news-modal-tags"></span>
+      <time id="news-modal-date"></time>
+    </div>
+    <h2 id="news-modal-title"></h2>
+    <div id="news-modal-refs" class="article-refs" hidden></div>
+    <article id="news-modal-body" class="article-body"></article>
+  </div>
+</div>
+
+<script>
+(function(){
+  var dataEl = document.getElementById('topics-data');
+  if (!dataEl) return;
+  var topics = JSON.parse(dataEl.textContent);
+  var modal = document.getElementById('news-modal');
+  var titleEl = document.getElementById('news-modal-title');
+  var dateEl = document.getElementById('news-modal-date');
+  var tagsEl = document.getElementById('news-modal-tags');
+  var bodyEl = document.getElementById('news-modal-body');
+  var refsEl = document.getElementById('news-modal-refs');
+
+  function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function escAttr(s){ return esc(s).replace(/"/g,'&quot;'); }
+
+  var LANG = 'ja';
+  function pick(t, base){
+    if (LANG === 'en') return t[base + '_en'] || t[base] || '';
+    return t[base] || '';
+  }
+  function open(idx){
+    var t = topics[idx];
+    if (!t) return;
+    titleEl.textContent = pick(t, 'title');
+    dateEl.textContent = (t.date || '').replace(/-/g, '/');
+    dateEl.setAttribute('datetime', t.datetime || '');
+    var tags = '';
+    if (t.category) tags += '<span class="news-tag news-tag-cat">'+esc(t.category)+'</span>';
+    if (t.subcategory) tags += '<span class="news-tag news-tag-sub">'+esc(t.subcategory)+'</span>';
+    tagsEl.innerHTML = tags;
+    var refs = '';
+    if (t.paper_title) {
+      var refLabel = LANG === 'en' ? 'Paper' : '論文';
+      refs += '<div class="article-ref"><span class="article-ref-label">'+refLabel+'</span>';
+      if (t.doi) {
+        refs += '<a href="https://doi.org/'+escAttr(t.doi)+'" target="_blank" rel="noopener">'+esc(t.paper_title)+'</a>';
+        refs += '<span class="article-ref-doi">DOI: '+esc(t.doi)+'</span>';
+      } else {
+        refs += '<span>'+esc(t.paper_title)+'</span>';
+      }
+      refs += '</div>';
+    }
+    refsEl.innerHTML = refs;
+    refsEl.hidden = !refs;
+    bodyEl.innerHTML = pick(t, 'body_html');
+    modal.hidden = false;
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    modal.querySelector('.news-modal-panel').scrollTop = 0;
+  }
+  function close(){
+    modal.hidden = true;
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('click', function(e){
+    var trigger = e.target.closest('[data-news-idx]');
+    if (trigger) {
+      e.preventDefault();
+      open(parseInt(trigger.getAttribute('data-news-idx'), 10));
+      return;
+    }
+    if (e.target.closest('[data-news-close]')) {
+      e.preventDefault();
+      close();
+    }
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && !modal.hidden) close();
+  });
+})();
+</script>
+
+
+<!-- =================== TEAM =================== -->
+<section class="section" id="team">
+  <div class="container">
+    <h2 data-echo="メンバー">メンバー</h2>
+    <p class="lead">Starrydata は無機材料・データ科学・Web 開発の研究者・エンジニアで構成された専属チームで運営されています。</p>
+
+    <div class="team-grid">
+      <div class="member-card">
+        
+        <img class="photo" src="/hp/assets/images/team/katsura_yukari.jpg" alt="桂 ゆかり">
+        
+        <h4>桂 ゆかり</h4>
+        <div class="role">プロジェクトリーダー</div>
+      </div>
+      <div class="member-card">
+        
+        <img class="photo" src="/hp/project/img/profile_kumagai.jpg" alt="熊谷 将也">
+        
+        <h4>熊谷 将也</h4>
+        <div class="role">Web開発</div>
+      </div>
+      <div class="member-card">
+        
+        <img class="photo" src="/hp/project/img/profile_mato.jpg" alt="間藤 智也">
+        
+        <h4>間藤 智也</h4>
+        <div class="role">Web開発</div>
+      </div>
+      <div class="member-card">
+        
+        <img class="photo" src="/hp/assets/images/team/tanaka_atsumi.jpg" alt="田中 敦美">
+        
+        <h4>田中 敦美</h4>
+        <div class="role">プロジェクト運営
+(リサーチ・アドミニストレーター)</div>
+      </div>
+      <div class="member-card">
+        
+        <img class="photo" src="/hp/assets/images/team/dewi_yana.jpg" alt="デウィ ヤナ">
+        
+        <h4>デウィ ヤナ</h4>
+        <div class="role">データアナリスト</div>
       </div>
     </div>
 
-    
-    <h2 class="data-list-heading">データ収集プロジェクト一覧</h2>
-    
-
-    <div class="data-cards">
-      <a href="/hp/data/thermoelectric.html" class="data-card">
-        <div class="data-card-thumb">
-          <img src="/hp/data/img/img_thermoelectric_01.png" alt="" loading="lazy">
-        </div>
-        <div class="data-card-body">
-          <div class="data-card-title">熱電材料</div>
-          <div class="data-card-full">ThermoelectricMaterials: 熱電材料プロジェクト</div>
-          <div class="data-card-owner">担当：田中敦美</div>
-        </div>
-      </a>
-      <a href="/hp/data/magnetic.html" class="data-card">
-        <div class="data-card-thumb">
-          <img src="/hp/data/img/img_magnetic_01.png" alt="" loading="lazy">
-        </div>
-        <div class="data-card-body">
-          <div class="data-card-title">磁石材料</div>
-          <div class="data-card-full">MagneticMaterials: 磁石材料プロジェクト</div>
-          <div class="data-card-owner">担当：坂本吉宏</div>
-        </div>
-      </a>
-      <a href="/hp/data/quasicrystal.html" class="data-card">
-        <div class="data-card-thumb">
-          <img src="/hp/data/img/img_quasicrystal_01.png" alt="" loading="lazy">
-        </div>
-        <div class="data-card-body">
-          <div class="data-card-title">準結晶</div>
-          <div class="data-card-full">Hypermaterial：準結晶プロジェクト</div>
-          <div class="data-card-owner">担当：藤田絵梨奈</div>
-        </div>
-      </a>
-      <a href="/hp/data/condensed.html" class="data-card">
-        <div class="data-card-thumb data-card-thumb-placeholder" aria-hidden="true">
-          <span>固体物性</span>
-        </div>
-        <div class="data-card-body">
-          <div class="data-card-title">固体物性</div>
-          <div class="data-card-full">CondensedMatter：固体物性プロジェクト</div>
-          <div class="data-card-owner">担当：細野史一</div>
-        </div>
-      </a>
-      <a href="/hp/data/battery.html" class="data-card">
-        <div class="data-card-thumb data-card-thumb-placeholder" aria-hidden="true">
-          <span>電池材料</span>
-        </div>
-        <div class="data-card-body">
-          <div class="data-card-title">電池材料</div>
-          <div class="data-card-full">BatteryMaterial: 電池材料プロジェクト</div>
-          <div class="data-card-owner">担当：Dewi Yana</div>
-        </div>
-      </a>
-      <a href="/hp/data/piezoelectric.html" class="data-card">
-        <div class="data-card-thumb data-card-thumb-placeholder" aria-hidden="true">
-          <span>圧電材料</span>
-        </div>
-        <div class="data-card-body">
-          <div class="data-card-title">圧電材料</div>
-          <div class="data-card-full">PiezoelectricMaterial: 圧電材料プロジェクト</div>
-          <div class="data-card-owner">担当：坂本吉宏</div>
-        </div>
-      </a>
+    <div class="section-foot">
+      <a class="btn btn-outline" href="/hp/members/">メンバー一覧 →</a>
     </div>
+  </div>
+</section>
 
+<!-- =================== PARTNERS =================== -->
+<section class="section-narrow">
+  <div class="container">
+    <p style="text-align:center; color:var(--text-3); letter-spacing:.15em; text-transform:uppercase; font-size:.78rem; font-weight:600; margin-bottom:24px;">
+      支援機関・パートナー
+    </p>
+    <div class="partner-row">
+      <div class="partner">NIMS</div>
+      <div class="partner">RIKEN AIP</div>
+      <div class="partner">JST</div>
+      <div class="partner">Univ. of Tsukuba</div>
+      <div class="partner">SAKURA internet</div>
+    </div>
   </div>
 </section>
 
